@@ -12,6 +12,7 @@
   "license": "Unlicensed",
   "devDependencies": {
     "concurrently": "^7.1.0",
+    "http-proxy-middleware": "^2.0.4",
     "sass": "^1.50.0"
   }
 }
