@@ -1,0 +1,17 @@
+{
+  "name": "caisse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run start-frontend\" \"npm run start-backend\"",
+    "start-frontend": "cd frontend && npm run start",
+    "start-backend": "cd backend && php -S localhost:8080 index.php"
+  },
+  "author": "",
+  "license": "Unlicensed",
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "sass": "^1.50.0"
+  }
+}
