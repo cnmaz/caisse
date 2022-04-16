@@ -1,6 +1,30 @@
 .caisse-container {
     height: 100%;
 
+    main,
+    aside {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+
+    display: flex;
+    flex-direction: column;
+
+    .caisse-content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+
+        overflow-y: auto;
+    }
+
+    .total-only-container {
+        flex: 0 0 auto;
+    }
+
     @media (min-width: 600px) {
         main {
             flex: 3;
@@ -22,28 +46,7 @@
         }
     }
 
-    main,
-    aside {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-    }
 
-
-    display: flex;
-    flex-direction: column;
-
-    .caisse-content {
-        display: flex;
-        flex: 1 1 auto;
-        flex-direction: column;
-
-        overflow-y: auto;
-    }
-
-    .total-only-container {
-        flex: 0 0 auto;
-    }
 
 
 }
