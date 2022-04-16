@@ -14,6 +14,7 @@ import { CartStates, useCart } from './hooks/useCart';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import PaiementEspeces from './components/PaiementEspeces';
 import PaiementCB from './components/PaiementCB';
+import CNMazIcon from './components/CNMazIcon';
 
 
 export default function Caisse() {
@@ -43,7 +44,7 @@ export default function Caisse() {
                     aria-label="menu"
                     sx={{ mr: 2 }}
                 >
-                    <MenuIcon />
+                    <CNMazIcon />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Caisse
