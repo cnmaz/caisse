@@ -1,4 +1,4 @@
-import { Table, TableBody, TableHead, TableRow, Paper } from "@mui/material";
+import { Table, TableBody, TableHead, TableRow } from "@mui/material";
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import './TicketPanel.scss';

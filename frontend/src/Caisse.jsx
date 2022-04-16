@@ -40,7 +40,7 @@ export default function Caisse() {
         <div className="caisse-content">
             {(largeMode || active === "produits") && (
                 <main>
-                    <ProductGrid onClickProduct={addItem} />
+                    <ProductGrid onClickProduct={addItem} cart={cart} />
                 </main>
             )}
             <aside>

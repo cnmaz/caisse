@@ -1,4 +1,3 @@
-import { Paper } from "@mui/material";
 
 export default function Actions() {
     return <div elevation="2" className="actions-container">

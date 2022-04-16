@@ -1,13 +1,13 @@
-import { Alert, Button, CircularProgress } from '@mui/material';
+import { Alert, Badge, Button, CircularProgress } from '@mui/material';
 import React from 'react';
 
 import { func } from 'prop-types';
 
 import { useQuery } from 'react-query';
 import './ProductGrid.scss'
-import { Paper } from '@mui/material';
+import { CartType } from '../hooks/useCart';
 
-export default function ProductGrid({ onClickProduct }) {
+export default function ProductGrid({ onClickProduct, cart }) {
     const { data: products, loading, error } = useQuery(["products"], () =>
         fetch('/api/product').then(res =>
             res.json()
@@ -21,13 +21,21 @@ export default function ProductGrid({ onClickProduct }) {
         return <div className="product-grid-container"><Alert severity="error">Impossible de charger les produits</Alert></div>
     }
 
+    const numberOfProducts = (id) => {
+        return cart?.items?.map(it => it.id).filter(it => it === id).length;
+    }
+
     return <div className="product-grid-container">
         <ul>
             {products?.map(product =>
-                <Button variant="outlined" className="product" onClick={() => onClickProduct(product)}>{product?.label}</Button>
+                <Badge badgeContent={numberOfProducts(product.id)} color="secondary" overlap="circular" key={product.id}>
+                    <Button variant="outlined" className="product" onClick={() => onClickProduct(product)}>
+                        {product?.label}
+                    </Button>
+                </Badge>
             )}
         </ul>
     </div>
 }
 
-ProductGrid.propTypes = { onClickProduct: func.isRequired }
+ProductGrid.propTypes = { onClickProduct: func.isRequired, cart: CartType }
