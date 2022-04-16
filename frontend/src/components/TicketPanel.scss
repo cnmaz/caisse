@@ -1,0 +1,12 @@
+.ticket-panel-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+
+    .detail-table-container {
+        flex: 1;
+        overflow-y: auto;
+    }
+
+}

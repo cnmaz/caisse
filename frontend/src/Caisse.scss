@@ -1,0 +1,49 @@
+.caisse-container {
+    height: 100%;
+
+    @media (min-width: 600px) {
+        main {
+            flex: 3;
+        }
+
+        aside {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        .caisse-content {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            flex: 1;
+        }
+    }
+
+    main,
+    aside {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    display: flex;
+    flex-direction: column;
+
+    .caisse-content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+
+        overflow-y: auto;
+    }
+
+    .total-only-container {
+        flex: 0 0 auto;
+    }
+
+
+}

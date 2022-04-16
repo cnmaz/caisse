@@ -1,10 +1,12 @@
 import { Alert, Button, CircularProgress } from '@mui/material';
 import React from 'react';
 
+import { func } from 'prop-types';
+
 import { useQuery } from 'react-query';
 import './ProductGrid.scss'
 
-export default function ProductGrid() {
+export default function ProductGrid({ onClickProduct }) {
     const { data: products, loading, error } = useQuery(["products"], () =>
         fetch('/api/product').then(res =>
             res.json()
@@ -21,8 +23,10 @@ export default function ProductGrid() {
     return <div className="product-grid-container">
         <ul>
             {products?.map(product =>
-                <Button variant="outlined">{product?.label}</Button>
+                <Button variant="outlined" className="product" onClick={() => onClickProduct(product)}>{product?.label}</Button>
             )}
         </ul>
     </div>
 }
+
+ProductGrid.propTypes = { onClickProduct: func.isRequired }

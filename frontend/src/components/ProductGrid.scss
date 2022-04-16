@@ -1,1 +1,22 @@
-.product-grid-container {}
+.product-grid-container {
+    ul {
+        margin: 2px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 155px);
+        flex-wrap: wrap;
+        justify-content: center;
+
+        width: 100%;
+    }
+
+    // overflow-y: hidden;
+    // height: 100%;
+    flex: 1;
+
+    .product {
+        height: 100px;
+        width: 150px;
+        margin: 2px;
+    }
+}
