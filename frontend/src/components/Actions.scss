@@ -1,0 +1,11 @@
+.actions-container {
+    .actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        >* {
+            min-height: 100px;
+            margin: 2px;
+        }
+    }
+}
