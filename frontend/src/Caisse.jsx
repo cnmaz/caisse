@@ -52,7 +52,7 @@ export default function Caisse() {
         {largeMode || <BottomNavigation
             showLabels
             value={active}
-            onChange={(event, newValue) => {
+            onChange={(_, newValue) => {
                 setActive(newValue);
             }}
         >
