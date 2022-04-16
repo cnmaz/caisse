@@ -1,8 +1,8 @@
-import { Table, TableBody, TableHead, TableRow } from "@mui/material";
+import { Button, Table, TableBody, TableHead, TableRow } from "@mui/material";
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import './TicketPanel.scss';
-import { CartType } from '../hooks/useCart';
+import { CartStates, CartType } from '../hooks/useCart';
 import { bool } from 'prop-types';
 
 export default function TicketPanel({ cart, totalOnly, className }) {
@@ -17,6 +17,11 @@ export default function TicketPanel({ cart, totalOnly, className }) {
             color: theme.palette.common.white,
         },
         [`&.${tableCellClasses.body}`]: {
+            fontSize: 14,
+        },
+        [`&.${tableCellClasses.warning}`]: {
+            backgroundColor: theme.palette.warning.main,
+            color: theme.palette.common.white,
             fontSize: 14,
         },
         [`&.${tableCellClasses.footer}`]: {
@@ -68,10 +73,27 @@ export default function TicketPanel({ cart, totalOnly, className }) {
         }
         <Table size="small" aria-label="Total ticket" className="total-table">
             <TableBody>
+                {cart?.state === CartStates.Annulation && (
+                    <StyledTableRow>
+                        <StyledTableCell variant="warning">Mode annulation d'articles</StyledTableCell>
+                        <StyledTableCell align="right"><Button onClick={cart?.toggleAnnulation}>Terminé</Button></StyledTableCell>
+                    </StyledTableRow>
+                )}
                 <StyledTableRow className="total">
                     <StyledTableCell variant="footer" >Total</StyledTableCell>
                     <StyledTableCell align="right" variant="footer">{formatCurrency(cart?.getTotal())}</StyledTableCell>
                 </StyledTableRow>
+                {cart?.state === CartStates.PaiementEspeces && (
+                    <><StyledTableRow className="recu">
+                        <StyledTableCell >Reçu</StyledTableCell>
+                        <StyledTableCell align="right">{formatCurrency(cart?.especesRecues)}</StyledTableCell>
+                    </StyledTableRow>
+                        <StyledTableRow className="rendu">
+                            <StyledTableCell variant="footer" >Rendu</StyledTableCell>
+                            <StyledTableCell align="right" variant="footer">{formatCurrency(Math.max(0, cart?.especesRecues - cart?.getTotal()))}</StyledTableCell>
+                        </StyledTableRow>
+                    </>
+                )}
             </TableBody>
         </Table>
     </div>

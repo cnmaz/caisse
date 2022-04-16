@@ -1,0 +1,22 @@
+.pave-numerique-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 500px;
+    margin: 1em;
+    flex: 0 1 auto;
+    padding: .3em;
+
+    :first-child {
+        grid-column: span 3;
+        min-height: 50px;
+        font-size: 48px;
+        text-align: right;
+        padding: .3em;
+    }
+
+    button {
+        height: clamp(5vh, 80px, 30vh);
+        width: clamp(5vw, 150px, 30vw);
+        font-size: 32px;
+    }
+}

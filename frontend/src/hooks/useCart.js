@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 export function useCart() {
     const [items, setItems] = useState([]);
     const [state, setState] = useState(CartStates.Saisie);
+    const [especesRecues, setEspecesRecues] = useState(0);
+
     const addItem = useCallback((item) => setItems(initial => {
         if (state === CartStates.Annulation) {
             const index = initial.lastIndexOf(item);
@@ -21,14 +23,17 @@ export function useCart() {
             setState(CartStates.Annulation);
         }
     }
-    return { items, addItem, getTotal, state, toggleAnnulation }
+    const paiementCB = () => setState(CartStates.PaiementCB);
+    const paiementEspeces = () => setState(CartStates.PaiementEspeces);
+    const annulationPaiement = () => setState(CartStates.Saisie);
+    return { items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement, especesRecues, setEspecesRecues }
 }
 
 export const CartStates = {
     Saisie: 0,
     Annulation: 1,
     PaiementEspeces: 2,
-    PaiementCB: 2,
+    PaiementCB: 3,
 }
 
 export const Product = PropTypes.shape({
@@ -42,5 +47,10 @@ export const CartType = {
     addItem: PropTypes.func,
     getTotal: PropTypes.func,
     toggleAnnulation: PropTypes.func,
+    paiementCB: PropTypes.func,
+    paiementEspeces: PropTypes.func,
+    annulationPaiement: PropTypes.func,
+    setEspecesRecues: PropTypes.func,
+    especesRecues: PropTypes.number,
     state: PropTypes.oneOf([CartStates.Saisie, CartStates.Annulation, CartStates.PaiementEspeces, CartStates.PaiementCB])
 }
