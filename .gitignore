@@ -22,3 +22,5 @@ frontend//build
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
+
+backend/dbfile.db

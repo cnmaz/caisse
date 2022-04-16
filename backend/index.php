@@ -1,6 +1,6 @@
 <?php
 require "rb/rb.php";
-R::setup('sqlite:/tmp/dbfile.db');
+R::setup('sqlite:./dbfile.db');
 
 $uri = $_SERVER['REQUEST_URI'];
 
