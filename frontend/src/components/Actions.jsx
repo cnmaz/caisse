@@ -23,7 +23,7 @@ export default function Actions({ cart }) {
             <Button variant="outlined" disabled={cart.state !== CartStates.Saisie}>
                 Historique ventes
             </Button>
-            <Button variant="outlined" disabled={cart.state !== CartStates.Saisie}>
+            <Button variant="outlined" disabled={cart.state !== CartStates.PaiementCB || cart.state !== CartStates.PaiementEspeces}>
                 Client suivant
             </Button>
         </div>
