@@ -5,6 +5,7 @@ import { func } from 'prop-types';
 
 import { useQuery } from 'react-query';
 import './ProductGrid.scss'
+import { Paper } from '@mui/material';
 
 export default function ProductGrid({ onClickProduct }) {
     const { data: products, loading, error } = useQuery(["products"], () =>

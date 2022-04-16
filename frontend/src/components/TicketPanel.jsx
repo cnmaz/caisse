@@ -5,7 +5,6 @@ import './TicketPanel.scss';
 import { CartType } from '../hooks/useCart';
 import { bool } from 'prop-types';
 
-
 export default function TicketPanel({ cart, totalOnly, className }) {
     const formatCurrency = (val) => {
         if (val === undefined) { return val; }
@@ -38,10 +37,10 @@ export default function TicketPanel({ cart, totalOnly, className }) {
     }));
 
 
-    return <Paper className={className ?? "ticket-panel-container"}>
+    return <div className={className ?? "ticket-panel-container"}>
         {totalOnly || (
             <>
-                <div className="label">Ticket en cours</div>
+                <h1>Ticket en cours</h1>
                 <div className="detail-table-container">
                     <Table size="small" aria-label="Detail ticket" className="detail-table">
                         <TableHead>
@@ -75,7 +74,7 @@ export default function TicketPanel({ cart, totalOnly, className }) {
                 </StyledTableRow>
             </TableBody>
         </Table>
-    </Paper>
+    </div>
 }
 TicketPanel.propTypes = {
     cart: CartType,

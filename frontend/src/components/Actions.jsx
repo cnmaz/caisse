@@ -1,5 +1,7 @@
 import { Paper } from "@mui/material";
 
 export default function Actions() {
-    return <Paper elevation="2"><div className="actions-container">Actions</div></Paper>
+    return <div elevation="2" className="actions-container">
+        <h1>Actions</h1>
+    </div>
 }
