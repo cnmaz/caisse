@@ -1,6 +1,7 @@
 .product-grid-container {
     ul {
-        margin: 2px;
+        margin: 0;
+        padding: 2px;
         padding: 0;
         display: grid;
         grid-template-columns: repeat(auto-fit, 155px);
