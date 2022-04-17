@@ -1,8 +1,33 @@
 {
   "type": "excalidraw",
   "version": 2,
-  "source": "https://excalidraw.com",
+  "source": "vscode-webview://0ppbdeom8olrv693o59c9tb5nqm56tuqi2t0g7flg1a4399sbmor",
   "elements": [
+    {
+      "id": "ONz_G4tZfBon3Miu3-sHm",
+      "type": "rectangle",
+      "x": -87.20881226053666,
+      "y": 176.87452107279728,
+      "width": 809,
+      "height": 624,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "strokeSharpness": "sharp",
+      "seed": 946351698,
+      "version": 59,
+      "versionNonce": 2054517458,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1650176861912,
+      "link": null
+    },
     {
       "type": "rectangle",
       "version": 113,
@@ -31,8 +56,7 @@
         }
       ],
       "updated": 1649961817117,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -58,7 +82,6 @@
       "boundElements": [],
       "updated": 1649961817117,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Matrice des produits (accès direct)",
@@ -70,8 +93,8 @@
     },
     {
       "type": "rectangle",
-      "version": 73,
-      "versionNonce": 2005996054,
+      "version": 119,
+      "versionNonce": 308597842,
       "isDeleted": false,
       "id": "_wy-RAJF37554MoPa7BEV",
       "fillStyle": "hachure",
@@ -80,8 +103,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 158,
-      "y": 372,
+      "x": -7,
+      "y": 380,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 190,
@@ -107,14 +130,13 @@
           "type": "arrow"
         }
       ],
-      "updated": 1649961817118,
-      "link": null,
-      "locked": false
+      "updated": 1650176831315,
+      "link": null
     },
     {
       "type": "text",
-      "version": 68,
-      "versionNonce": 1397834314,
+      "version": 114,
+      "versionNonce": 1379848654,
       "isDeleted": false,
       "id": "FYn4Ne_oCWZNqefGx-Mhj",
       "fillStyle": "hachure",
@@ -123,8 +145,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 163,
-      "y": 401.5,
+      "x": -2,
+      "y": 409.5,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 180,
@@ -133,9 +155,8 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "boundElements": [],
-      "updated": 1649961817118,
+      "updated": 1650176831315,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Front (React)",
@@ -147,8 +168,8 @@
     },
     {
       "type": "rectangle",
-      "version": 90,
-      "versionNonce": 923950934,
+      "version": 138,
+      "versionNonce": 1318270542,
       "isDeleted": false,
       "id": "BUSXCp5ZPHhd0CIErMmWu",
       "fillStyle": "hachure",
@@ -157,8 +178,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 159,
-      "y": 531,
+      "x": -6,
+      "y": 539,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 185,
@@ -182,16 +203,23 @@
         {
           "id": "iQlZCi5W_VJagHEw9TsTn",
           "type": "arrow"
+        },
+        {
+          "id": "e2V5eMg2AAqjdlyGXs_UU",
+          "type": "arrow"
+        },
+        {
+          "id": "WEnv70sHlCEErA9HQvp3j",
+          "type": "arrow"
         }
       ],
-      "updated": 1649961817118,
-      "link": null,
-      "locked": false
+      "updated": 1650176831315,
+      "link": null
     },
     {
       "type": "text",
-      "version": 69,
-      "versionNonce": 729285782,
+      "version": 115,
+      "versionNonce": 1875346,
       "isDeleted": false,
       "id": "g7dfKxRJ9t1lmKlVr1er3",
       "fillStyle": "hachure",
@@ -200,8 +228,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 164,
-      "y": 556.5,
+      "x": -1,
+      "y": 564.5,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 175,
@@ -210,9 +238,8 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "boundElements": [],
-      "updated": 1649961817118,
+      "updated": 1650176831315,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Back (PHP)",
@@ -224,8 +251,8 @@
     },
     {
       "type": "rectangle",
-      "version": 86,
-      "versionNonce": 1802024906,
+      "version": 132,
+      "versionNonce": 1581379282,
       "isDeleted": false,
       "id": "09LBLLG-nVq5OO3HEXRcw",
       "fillStyle": "hachure",
@@ -234,8 +261,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 161,
-      "y": 669,
+      "x": -4,
+      "y": 677,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 186,
@@ -253,14 +280,13 @@
           "type": "arrow"
         }
       ],
-      "updated": 1649961817118,
-      "link": null,
-      "locked": false
+      "updated": 1650176831315,
+      "link": null
     },
     {
       "type": "text",
-      "version": 74,
-      "versionNonce": 1719075286,
+      "version": 120,
+      "versionNonce": 305569614,
       "isDeleted": false,
       "id": "5QvVySR4Mol9wfsSOe0kq",
       "fillStyle": "hachure",
@@ -269,8 +295,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 166,
-      "y": 696.5,
+      "x": 1,
+      "y": 704.5,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 176,
@@ -279,9 +305,8 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "boundElements": [],
-      "updated": 1649961817118,
+      "updated": 1650176831315,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "BDD (MariaDB)",
@@ -293,8 +318,8 @@
     },
     {
       "type": "arrow",
-      "version": 233,
-      "versionNonce": 567488138,
+      "version": 373,
+      "versionNonce": 84471890,
       "isDeleted": false,
       "id": "rg1e0q4oCrMcxB9mF0hKm",
       "fillStyle": "hachure",
@@ -303,8 +328,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 244.9984556711515,
-      "y": 529,
+      "x": 79.9984556711515,
+      "y": 537,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 1.998455671151504,
@@ -313,12 +338,11 @@
       "groupIds": [],
       "strokeSharpness": "round",
       "boundElements": [],
-      "updated": 1649961817118,
+      "updated": 1650176831520,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "BUSXCp5ZPHhd0CIErMmWu",
-        "focus": -0.0592484545391401,
+        "focus": -0.05681724163124008,
         "gap": 2
       },
       "endBinding": {
@@ -342,8 +366,56 @@
     },
     {
       "type": "arrow",
-      "version": 128,
-      "versionNonce": 2065979158,
+      "version": 472,
+      "versionNonce": 947987534,
+      "isDeleted": false,
+      "id": "e2V5eMg2AAqjdlyGXs_UU",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 188.99845567115153,
+      "y": 579.2251069060982,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "width": 75.00154432884847,
+      "height": 0.0280073972022592,
+      "seed": 960088334,
+      "groupIds": [],
+      "strokeSharpness": "round",
+      "boundElements": [],
+      "updated": 1650176838783,
+      "link": null,
+      "startBinding": {
+        "elementId": "BUSXCp5ZPHhd0CIErMmWu",
+        "focus": 0.060066966874896356,
+        "gap": 9.998455671151532
+      },
+      "endBinding": {
+        "elementId": "JyIasIv2YXi7pRAwIr9Ae",
+        "focus": 0.2291059328515395,
+        "gap": 5.291187739463339
+      },
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          75.00154432884847,
+          -0.0280073972022592
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 268,
+      "versionNonce": 892721742,
       "isDeleted": false,
       "id": "Qu2AhhSMFVAc6nC1ZTxxS",
       "fillStyle": "hachure",
@@ -352,8 +424,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 255,
-      "y": 665,
+      "x": 90,
+      "y": 673,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 1,
@@ -362,9 +434,8 @@
       "groupIds": [],
       "strokeSharpness": "round",
       "boundElements": [],
-      "updated": 1649961817118,
+      "updated": 1650176831521,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "09LBLLG-nVq5OO3HEXRcw",
         "focus": 0.020042643923240937,
@@ -390,9 +461,57 @@
       ]
     },
     {
+      "type": "arrow",
+      "version": 362,
+      "versionNonce": 632515214,
+      "isDeleted": false,
+      "id": "WEnv70sHlCEErA9HQvp3j",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 263,
+      "y": 604.9366952531469,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "width": 72,
+      "height": 1.8480213807747532,
+      "seed": 1932904846,
+      "groupIds": [],
+      "strokeSharpness": "round",
+      "boundElements": [],
+      "updated": 1650176838785,
+      "link": null,
+      "startBinding": {
+        "elementId": "JyIasIv2YXi7pRAwIr9Ae",
+        "focus": -0.35998352731614996,
+        "gap": 6.291187739463339
+      },
+      "endBinding": {
+        "elementId": "BUSXCp5ZPHhd0CIErMmWu",
+        "focus": 0.8041501515504779,
+        "gap": 12
+      },
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -72,
+          1.8480213807747532
+        ]
+      ]
+    },
+    {
       "type": "ellipse",
-      "version": 73,
-      "versionNonce": 2034289994,
+      "version": 119,
+      "versionNonce": 1871444494,
       "isDeleted": false,
       "id": "bpGIbg-kQWoi1tcOTz21q",
       "fillStyle": "hachure",
@@ -401,8 +520,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 166,
-      "y": 240,
+      "x": 1,
+      "y": 248,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 85,
@@ -420,14 +539,55 @@
           "type": "arrow"
         }
       ],
-      "updated": 1649961817118,
-      "link": null,
-      "locked": false
+      "updated": 1650176831315,
+      "link": null
+    },
+    {
+      "type": "ellipse",
+      "version": 200,
+      "versionNonce": 1911862734,
+      "isDeleted": false,
+      "id": "bUrwjSWgkMN70OCQsl78m",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 552,
+      "y": 550,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "width": 85,
+      "height": 76,
+      "seed": 679493330,
+      "groupIds": [],
+      "strokeSharpness": "sharp",
+      "boundElements": [
+        {
+          "id": "nooBknUN3CRknMtlOkyrH",
+          "type": "text"
+        },
+        {
+          "id": "3gxLNpyO-71WMnN-m27zi",
+          "type": "arrow"
+        },
+        {
+          "type": "text",
+          "id": "nooBknUN3CRknMtlOkyrH"
+        },
+        {
+          "id": "JDeC9GI6V9wpwzfg5hMdm",
+          "type": "arrow"
+        }
+      ],
+      "updated": 1650176839785,
+      "link": null
     },
     {
       "type": "text",
-      "version": 57,
-      "versionNonce": 1375011926,
+      "version": 103,
+      "versionNonce": 450033106,
       "isDeleted": false,
       "id": "epr2MyVu35WP2U-frqf52",
       "fillStyle": "hachure",
@@ -436,8 +596,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 171,
-      "y": 265.5,
+      "x": 6,
+      "y": 273.5,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 75,
@@ -446,9 +606,8 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "boundElements": [],
-      "updated": 1649961817119,
+      "updated": 1650176831315,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "PC",
@@ -459,9 +618,42 @@
       "originalText": "PC"
     },
     {
+      "type": "text",
+      "version": 187,
+      "versionNonce": 1563743762,
+      "isDeleted": false,
+      "id": "nooBknUN3CRknMtlOkyrH",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 557,
+      "y": 575.5,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "width": 75,
+      "height": 27,
+      "seed": 1304776526,
+      "groupIds": [],
+      "strokeSharpness": "sharp",
+      "boundElements": [],
+      "updated": 1650176839785,
+      "link": null,
+      "fontSize": 20,
+      "fontFamily": 1,
+      "text": "TPE",
+      "baseline": 19,
+      "textAlign": "center",
+      "verticalAlign": "top",
+      "containerId": "bUrwjSWgkMN70OCQsl78m",
+      "originalText": "TPE"
+    },
+    {
       "type": "ellipse",
-      "version": 86,
-      "versionNonce": 923571210,
+      "version": 132,
+      "versionNonce": 2086169490,
       "isDeleted": false,
       "id": "KCaaR4L_Ot1yTnAjvI3Xu",
       "fillStyle": "hachure",
@@ -470,8 +662,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 291,
-      "y": 238,
+      "x": 126,
+      "y": 246,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 97,
@@ -489,14 +681,13 @@
           "type": "arrow"
         }
       ],
-      "updated": 1649961817119,
-      "link": null,
-      "locked": false
+      "updated": 1650176831315,
+      "link": null
     },
     {
       "type": "text",
-      "version": 57,
-      "versionNonce": 2092829078,
+      "version": 103,
+      "versionNonce": 1684229774,
       "isDeleted": false,
       "id": "DK_ZTAXuc22EXb2lvp8lI",
       "fillStyle": "hachure",
@@ -505,8 +696,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 296,
-      "y": 254,
+      "x": 131,
+      "y": 262,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 87,
@@ -515,9 +706,8 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "boundElements": [],
-      "updated": 1649961817119,
+      "updated": 1650176831315,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Smart\nphone",
@@ -529,8 +719,8 @@
     },
     {
       "type": "arrow",
-      "version": 127,
-      "versionNonce": 1026654922,
+      "version": 267,
+      "versionNonce": 1863220498,
       "isDeleted": false,
       "id": "3gxLNpyO-71WMnN-m27zi",
       "fillStyle": "hachure",
@@ -539,8 +729,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 250,
-      "y": 366,
+      "x": 85,
+      "y": 374,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 37,
@@ -549,9 +739,8 @@
       "groupIds": [],
       "strokeSharpness": "round",
       "boundElements": [],
-      "updated": 1649961817119,
+      "updated": 1650176831522,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "_wy-RAJF37554MoPa7BEV",
         "focus": 0.2623610887421485,
@@ -578,8 +767,8 @@
     },
     {
       "type": "arrow",
-      "version": 168,
-      "versionNonce": 179594966,
+      "version": 308,
+      "versionNonce": 639699666,
       "isDeleted": false,
       "id": "TX-ihLflHiHOUSyBEtS9G",
       "fillStyle": "hachure",
@@ -588,8 +777,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 265,
-      "y": 363,
+      "x": 100,
+      "y": 371,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 48.729262924939405,
@@ -598,9 +787,8 @@
       "groupIds": [],
       "strokeSharpness": "round",
       "boundElements": [],
-      "updated": 1649961817119,
+      "updated": 1650176831522,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "_wy-RAJF37554MoPa7BEV",
         "focus": -0.3228977069747592,
@@ -627,8 +815,8 @@
     },
     {
       "type": "ellipse",
-      "version": 140,
-      "versionNonce": 1984600458,
+      "version": 220,
+      "versionNonce": 1913120014,
       "isDeleted": false,
       "id": "yrOMrwvQLxOg1WJetEPp8",
       "fillStyle": "hachure",
@@ -637,8 +825,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 397,
-      "y": 302,
+      "x": 284,
+      "y": 375,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 145,
@@ -656,14 +844,13 @@
           "type": "arrow"
         }
       ],
-      "updated": 1649961817119,
-      "link": null,
-      "locked": false
+      "updated": 1650176842766,
+      "link": null
     },
     {
       "type": "text",
-      "version": 122,
-      "versionNonce": 1550654486,
+      "version": 202,
+      "versionNonce": 2124364498,
       "isDeleted": false,
       "id": "ycJp74xm7gQSxq2BB0-Az",
       "fillStyle": "hachure",
@@ -672,8 +859,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 402,
-      "y": 319.5,
+      "x": 289,
+      "y": 392.5,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
       "width": 135,
@@ -682,9 +869,8 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "boundElements": [],
-      "updated": 1649961817119,
+      "updated": 1650176842766,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Export\nAPI\nAssoConnect",
@@ -696,8 +882,8 @@
     },
     {
       "type": "arrow",
-      "version": 151,
-      "versionNonce": 1100142666,
+      "version": 359,
+      "versionNonce": 139726994,
       "isDeleted": false,
       "id": "iQlZCi5W_VJagHEw9TsTn",
       "fillStyle": "hachure",
@@ -706,19 +892,18 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 347,
-      "y": 521,
+      "x": 189,
+      "y": 555.4250968487181,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
-      "width": 69,
-      "height": 119,
+      "width": 100.4763379823857,
+      "height": 93.27987091969646,
       "seed": 1371931094,
       "groupIds": [],
       "strokeSharpness": "round",
       "boundElements": [],
-      "updated": 1649961817119,
+      "updated": 1650176842766,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "BUSXCp5ZPHhd0CIErMmWu",
         "focus": 0.5908140430683444,
@@ -738,8 +923,8 @@
           0
         ],
         [
-          69,
-          -119
+          100.4763379823857,
+          -93.27987091969646
         ]
       ]
     },
@@ -771,8 +956,7 @@
         }
       ],
       "updated": 1649961817119,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -802,8 +986,7 @@
         }
       ],
       "updated": 1649961817119,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -829,7 +1012,6 @@
       "boundElements": [],
       "updated": 1649961817119,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "utilisateur@cnmaz.fr",
@@ -862,8 +1044,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817119,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -893,8 +1074,7 @@
         }
       ],
       "updated": 1649961817119,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -920,7 +1100,6 @@
       "boundElements": [],
       "updated": 1649961817119,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Vue ticket en cours\n\nGalette complète...................... 5,00 €\nGalette chèvre.......................... 4,00 €\nVerre cidre................................... 3,00 €\nBière 33cl................................... 2,50 €\n----------------------------------------------\nTotal denrées........................... 15,00 €\n\nConsigne Eco-cup......................... 1,00 €\n----------------------------------------------\nTotal général............................ 16,00 €",
@@ -958,8 +1137,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -985,7 +1163,6 @@
       "boundElements": [],
       "updated": 1649961817120,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Actions facturation",
@@ -1023,8 +1200,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1054,8 +1230,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1085,8 +1260,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1116,8 +1290,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1147,8 +1320,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1178,8 +1350,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1204,8 +1375,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1230,8 +1400,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1256,8 +1425,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1282,8 +1450,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1313,8 +1480,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1344,8 +1510,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1375,8 +1540,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1406,8 +1570,7 @@
         }
       ],
       "updated": 1649961817120,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1437,8 +1600,7 @@
         }
       ],
       "updated": 1649961817121,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1468,8 +1630,7 @@
         }
       ],
       "updated": 1649961817121,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1499,8 +1660,7 @@
         }
       ],
       "updated": 1649961817121,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1530,8 +1690,7 @@
         }
       ],
       "updated": 1649961817121,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1561,8 +1720,7 @@
         }
       ],
       "updated": 1649961817121,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -1592,8 +1750,7 @@
         }
       ],
       "updated": 1649961817121,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -1619,7 +1776,6 @@
       "boundElements": [],
       "updated": 1649961817121,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Changement \ncatégorie",
@@ -1653,7 +1809,6 @@
       "boundElements": [],
       "updated": 1649961817121,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette \ncomplète",
@@ -1687,7 +1842,6 @@
       "boundElements": [],
       "updated": 1649961817121,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette \nVégé",
@@ -1721,7 +1875,6 @@
       "boundElements": [],
       "updated": 1649961817121,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nJambon \nFromage",
@@ -1755,7 +1908,6 @@
       "boundElements": [],
       "updated": 1649961817121,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nOeuf \nfromage",
@@ -1789,7 +1941,6 @@
       "boundElements": [],
       "updated": 1649961817121,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nchèvre",
@@ -1823,7 +1974,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nConfiture",
@@ -1857,7 +2007,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe \nBeurre \nsucre",
@@ -1891,7 +2040,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nBeurre",
@@ -1925,7 +2073,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nChocolat",
@@ -1959,7 +2106,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nNutella",
@@ -1993,7 +2139,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Verre \nCidre",
@@ -2027,7 +2172,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Verre Jus \nde pomme",
@@ -2061,7 +2205,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Bière 33cl",
@@ -2095,7 +2238,6 @@
       "boundElements": [],
       "updated": 1649961817122,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Cannette\nSoda 33cl",
@@ -2137,8 +2279,7 @@
         }
       ],
       "updated": 1649961817123,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2172,8 +2313,7 @@
         }
       ],
       "updated": 1649961817123,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2211,8 +2351,7 @@
         }
       ],
       "updated": 1649961817123,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2242,8 +2381,7 @@
         }
       ],
       "updated": 1649961817123,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2281,8 +2419,7 @@
         }
       ],
       "updated": 1649961817123,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2312,8 +2449,7 @@
         }
       ],
       "updated": 1649961817123,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -2339,7 +2475,6 @@
       "boundElements": [],
       "updated": 1649961817123,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nCB",
@@ -2373,7 +2508,6 @@
       "boundElements": [],
       "updated": 1649961817123,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nEspèces",
@@ -2407,7 +2541,6 @@
       "boundElements": [],
       "updated": 1649961817123,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Annulation",
@@ -2441,7 +2574,6 @@
       "boundElements": [],
       "updated": 1649961817123,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Consigne \nEco-Cup",
@@ -2475,7 +2607,6 @@
       "boundElements": [],
       "updated": 1649961817123,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Mise en \nattente",
@@ -2509,7 +2640,6 @@
       "boundElements": [],
       "updated": 1649961817124,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Reprise \nattente",
@@ -2543,7 +2673,6 @@
       "boundElements": [],
       "updated": 1649961817124,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Client \nsuivant",
@@ -2585,8 +2714,7 @@
         }
       ],
       "updated": 1649961817124,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -2612,7 +2740,6 @@
       "boundElements": [],
       "updated": 1649961817124,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Monnaie reçue",
@@ -2650,8 +2777,7 @@
         }
       ],
       "updated": 1649961817124,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2676,8 +2802,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817124,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -2703,7 +2828,6 @@
       "boundElements": [],
       "updated": 1649961817124,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "utilisateur@cnmaz.fr",
@@ -2736,8 +2860,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817124,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2771,8 +2894,7 @@
         }
       ],
       "updated": 1649961817124,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -2798,7 +2920,6 @@
       "boundElements": [],
       "updated": 1649961817124,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Vue ticket en cours\n\nGalette complète...................... 5,00 €\nGalette chèvre.......................... 4,00 €\nVerre cidre................................... 3,00 €\nBière 33cl................................... 2,50 €\n----------------------------------------------\nTotal denrées........................... 15,00 €\n\nConsigne Eco-cup......................... 1,00 €\n----------------------------------------------\nTotal général............................ 16,00 €\n----------------------------------------------\nEspèces..................................... 20,00 €\nRendu..........................................  4,00 €",
@@ -2840,8 +2961,7 @@
         }
       ],
       "updated": 1649961817125,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -2867,7 +2987,6 @@
       "boundElements": [],
       "updated": 1649961817125,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Actions facturation",
@@ -2905,8 +3024,7 @@
         }
       ],
       "updated": 1649961817125,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2940,8 +3058,7 @@
         }
       ],
       "updated": 1649961817126,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -2975,8 +3092,7 @@
         }
       ],
       "updated": 1649961817127,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3010,8 +3126,7 @@
         }
       ],
       "updated": 1649961817127,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3045,8 +3160,7 @@
         }
       ],
       "updated": 1649961817127,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3080,8 +3194,7 @@
         }
       ],
       "updated": 1649961817127,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3115,8 +3228,7 @@
         }
       ],
       "updated": 1649961817127,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -3142,7 +3254,6 @@
       "boundElements": [],
       "updated": 1649961817127,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nCB",
@@ -3176,7 +3287,6 @@
       "boundElements": [],
       "updated": 1649961817127,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nEspèces",
@@ -3210,7 +3320,6 @@
       "boundElements": [],
       "updated": 1649961817127,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Annulation",
@@ -3244,7 +3353,6 @@
       "boundElements": [],
       "updated": 1649961817128,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Mise en \nattente",
@@ -3278,7 +3386,6 @@
       "boundElements": [],
       "updated": 1649961817128,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Reprise \nattente",
@@ -3312,7 +3419,6 @@
       "boundElements": [],
       "updated": 1649961817128,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Client \nsuivant",
@@ -3350,8 +3456,7 @@
         }
       ],
       "updated": 1649961817128,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3381,8 +3486,7 @@
         }
       ],
       "updated": 1649961817128,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3412,8 +3516,7 @@
         }
       ],
       "updated": 1649961817128,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3443,8 +3546,7 @@
         }
       ],
       "updated": 1649961817128,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3474,8 +3576,7 @@
         }
       ],
       "updated": 1649961817128,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3505,8 +3606,7 @@
         }
       ],
       "updated": 1649961817128,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3536,8 +3636,7 @@
         }
       ],
       "updated": 1649961817129,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3567,8 +3666,7 @@
         }
       ],
       "updated": 1649961817129,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3598,8 +3696,7 @@
         }
       ],
       "updated": 1649961817129,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -3629,8 +3726,7 @@
         }
       ],
       "updated": 1649961817129,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -3656,7 +3752,6 @@
       "boundElements": [],
       "updated": 1649961817129,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "20",
@@ -3690,7 +3785,6 @@
       "boundElements": [],
       "updated": 1649961817129,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "7",
@@ -3724,7 +3818,6 @@
       "boundElements": [],
       "updated": 1649961817129,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "8",
@@ -3758,7 +3851,6 @@
       "boundElements": [],
       "updated": 1649961817129,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "9",
@@ -3792,7 +3884,6 @@
       "boundElements": [],
       "updated": 1649961817129,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "4",
@@ -3826,7 +3917,6 @@
       "boundElements": [],
       "updated": 1649961817129,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "5",
@@ -3860,7 +3950,6 @@
       "boundElements": [],
       "updated": 1649961817129,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "6",
@@ -3894,7 +3983,6 @@
       "boundElements": [],
       "updated": 1649961817130,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "1",
@@ -3928,7 +4016,6 @@
       "boundElements": [],
       "updated": 1649961817130,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "2",
@@ -3962,7 +4049,6 @@
       "boundElements": [],
       "updated": 1649961817130,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "3",
@@ -3996,7 +4082,6 @@
       "boundElements": [],
       "updated": 1649961817130,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": "0",
@@ -4038,8 +4123,7 @@
         }
       ],
       "updated": 1649961817130,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -4065,7 +4149,6 @@
       "boundElements": [],
       "updated": 1649961817130,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": ",",
@@ -4111,8 +4194,7 @@
         }
       ],
       "updated": 1649961817130,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -4138,7 +4220,6 @@
       "boundElements": [],
       "updated": 1649961817130,
       "link": null,
-      "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
       "text": " ←",
@@ -4172,7 +4253,6 @@
       "boundElements": [],
       "updated": 1649961817130,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "vqHgn5QyNOmovSnlNSKuk",
         "focus": -0.5582253029450465,
@@ -4237,8 +4317,7 @@
         }
       ],
       "updated": 1649961817130,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -4264,7 +4343,6 @@
       "boundElements": [],
       "updated": 1649961817130,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Carte bancaire",
@@ -4306,8 +4384,7 @@
         }
       ],
       "updated": 1649961817131,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -4332,8 +4409,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817131,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -4359,7 +4435,6 @@
       "boundElements": [],
       "updated": 1649961817131,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "utilisateur@cnmaz.fr",
@@ -4392,8 +4467,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817131,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -4431,8 +4505,7 @@
         }
       ],
       "updated": 1649961817131,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -4458,7 +4531,6 @@
       "boundElements": [],
       "updated": 1649961817131,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Vue ticket en cours\n\nGalette complète...................... 5,00 €\nGalette chèvre.......................... 4,00 €\nVerre cidre................................... 3,00 €\nBière 33cl................................... 2,50 €\n----------------------------------------------\nTotal denrées........................... 15,00 €\n\nConsigne Eco-cup......................... 1,00 €\n----------------------------------------------\nTotal général............................ 16,00 €\n----------------------------------------------\nCB.............................................. 20,00 €",
@@ -4504,8 +4576,7 @@
         }
       ],
       "updated": 1649961817131,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -4531,7 +4602,6 @@
       "boundElements": [],
       "updated": 1649961817131,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Actions facturation",
@@ -4577,8 +4647,7 @@
         }
       ],
       "updated": 1649961817131,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -4616,8 +4685,7 @@
         }
       ],
       "updated": 1649961817131,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -4655,8 +4723,7 @@
         }
       ],
       "updated": 1649961817131,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -4694,8 +4761,7 @@
         }
       ],
       "updated": 1649961817132,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -4733,8 +4799,7 @@
         }
       ],
       "updated": 1649961817132,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -4772,8 +4837,7 @@
         }
       ],
       "updated": 1649961817132,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -4799,7 +4863,6 @@
       "boundElements": [],
       "updated": 1649961817132,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nCB",
@@ -4833,7 +4896,6 @@
       "boundElements": [],
       "updated": 1649961817132,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nEspèces",
@@ -4867,7 +4929,6 @@
       "boundElements": [],
       "updated": 1649961817132,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Annulation",
@@ -4901,7 +4962,6 @@
       "boundElements": [],
       "updated": 1649961817132,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Mise en \nattente",
@@ -4935,7 +4995,6 @@
       "boundElements": [],
       "updated": 1649961817132,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Reprise \nattente",
@@ -4969,7 +5028,6 @@
       "boundElements": [],
       "updated": 1649961817132,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Client \nsuivant",
@@ -5011,8 +5069,7 @@
         }
       ],
       "updated": 1649961817133,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -5038,7 +5095,6 @@
       "boundElements": [],
       "updated": 1649961817134,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Envoi du montant au TPE...",
@@ -5072,7 +5128,6 @@
       "boundElements": [],
       "updated": 1649961817134,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "sdnp54MdqtGvKkSm9Fk2s",
         "focus": -0.9013895756723022,
@@ -5121,7 +5176,6 @@
       "boundElements": [],
       "updated": 1649961817134,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "BMJpAK3HWcKJEClsevIOT",
         "focus": -0.16682276334385968,
@@ -5178,8 +5232,7 @@
         }
       ],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -5205,7 +5258,6 @@
       "boundElements": [],
       "updated": 1649961817135,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Annulation produit",
@@ -5243,8 +5295,7 @@
         }
       ],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5269,8 +5320,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -5296,7 +5346,6 @@
       "boundElements": [],
       "updated": 1649961817135,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "utilisateur@cnmaz.fr",
@@ -5329,8 +5378,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5364,8 +5412,7 @@
         }
       ],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -5391,7 +5438,6 @@
       "boundElements": [],
       "updated": 1649961817135,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Vue ticket en cours\n\nGalette complète...................... 5,00 €\nGalette chèvre.......................... 4,00 €\nVerre cidre................................... 3,00 €\nBière 33cl................................... 2,50 €\nGalette chèvre........................ -4,00 €\n----------------------------------------------\nTotal denrées........................... 11,00 €\n\nConsigne Eco-cup......................... 1,00 €\n----------------------------------------------\nTotal général............................ 12,00 €",
@@ -5433,8 +5479,7 @@
         }
       ],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -5460,7 +5505,6 @@
       "boundElements": [],
       "updated": 1649961817135,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Actions facturation",
@@ -5502,8 +5546,7 @@
         }
       ],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5537,8 +5580,7 @@
         }
       ],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5572,8 +5614,7 @@
         }
       ],
       "updated": 1649961817135,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5607,8 +5648,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5642,8 +5682,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5677,8 +5716,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5703,8 +5741,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5729,8 +5766,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5755,8 +5791,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5781,8 +5816,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5816,8 +5850,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5851,8 +5884,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5886,8 +5918,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5921,8 +5952,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5956,8 +5986,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -5991,8 +6020,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6026,8 +6054,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6061,8 +6088,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6096,8 +6122,7 @@
         }
       ],
       "updated": 1649961817136,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6131,8 +6156,7 @@
         }
       ],
       "updated": 1649961817137,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -6158,7 +6182,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Changement \ncatégorie",
@@ -6192,7 +6215,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette \ncomplète",
@@ -6226,7 +6248,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette \nVégé",
@@ -6260,7 +6281,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nJambon \nFromage",
@@ -6294,7 +6314,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nOeuf \nfromage",
@@ -6328,7 +6347,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nchèvre",
@@ -6362,7 +6380,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nConfiture",
@@ -6396,7 +6413,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe \nBeurre \nsucre",
@@ -6430,7 +6446,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nBeurre",
@@ -6464,7 +6479,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nChocolat",
@@ -6498,7 +6512,6 @@
       "boundElements": [],
       "updated": 1649961817137,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nNutella",
@@ -6532,7 +6545,6 @@
       "boundElements": [],
       "updated": 1649961817138,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Verre \nCidre",
@@ -6566,7 +6578,6 @@
       "boundElements": [],
       "updated": 1649961817138,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Verre Jus \nde pomme",
@@ -6600,7 +6611,6 @@
       "boundElements": [],
       "updated": 1649961817138,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Bière 33cl",
@@ -6634,7 +6644,6 @@
       "boundElements": [],
       "updated": 1649961817138,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Cannette\nSoda 33cl",
@@ -6680,8 +6689,7 @@
         }
       ],
       "updated": 1649961817138,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6719,8 +6727,7 @@
         }
       ],
       "updated": 1649961817138,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6758,8 +6765,7 @@
         }
       ],
       "updated": 1649961817138,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6793,8 +6799,7 @@
         }
       ],
       "updated": 1649961817138,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6832,8 +6837,7 @@
         }
       ],
       "updated": 1649961817138,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -6867,8 +6871,7 @@
         }
       ],
       "updated": 1649961817138,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -6894,7 +6897,6 @@
       "boundElements": [],
       "updated": 1649961817138,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nCB",
@@ -6928,7 +6930,6 @@
       "boundElements": [],
       "updated": 1649961817138,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nEspèces",
@@ -6962,7 +6963,6 @@
       "boundElements": [],
       "updated": 1649961817138,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Mode \nAnnulation",
@@ -6996,7 +6996,6 @@
       "boundElements": [],
       "updated": 1649961817138,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Consigne \nEco-Cup",
@@ -7030,7 +7029,6 @@
       "boundElements": [],
       "updated": 1649961817139,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Mise en \nattente",
@@ -7064,7 +7062,6 @@
       "boundElements": [],
       "updated": 1649961817139,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Reprise \nattente",
@@ -7098,7 +7095,6 @@
       "boundElements": [],
       "updated": 1649961817139,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Client \nsuivant",
@@ -7140,8 +7136,7 @@
         }
       ],
       "updated": 1649961817139,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -7167,7 +7162,6 @@
       "boundElements": [],
       "updated": 1649961817139,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Transaction en attente\n\n28/09/2025 10:08     14,00€\n\n\n28/09/2025 12:18      2,00€\n\n\n28/09/2025 15:38      0,00€",
@@ -7205,8 +7199,7 @@
         }
       ],
       "updated": 1649961817139,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -7231,8 +7224,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817139,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -7258,7 +7250,6 @@
       "boundElements": [],
       "updated": 1649961817139,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "utilisateur@cnmaz.fr",
@@ -7291,8 +7282,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817139,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -7326,8 +7316,7 @@
         }
       ],
       "updated": 1649961817139,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -7353,7 +7342,6 @@
       "boundElements": [],
       "updated": 1649961817139,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Vue ticket en cours\n\nGalette complète...................... 5,00 €\nGalette chèvre.......................... 4,00 €\nVerre cidre................................... 3,00 €\nBière 33cl................................... 2,50 €\n----------------------------------------------\nTotal denrées........................... 15,00 €\n\nConsigne Eco-cup......................... 1,00 €\n----------------------------------------------\nTotal général............................ 16,00 €",
@@ -7399,8 +7387,7 @@
         }
       ],
       "updated": 1649961817139,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -7426,7 +7413,6 @@
       "boundElements": [],
       "updated": 1649961817139,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Actions facturation",
@@ -7472,8 +7458,7 @@
         }
       ],
       "updated": 1649961817142,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -7511,8 +7496,7 @@
         }
       ],
       "updated": 1649961817142,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -7554,8 +7538,7 @@
         }
       ],
       "updated": 1649961817142,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -7589,8 +7572,7 @@
         }
       ],
       "updated": 1649961817142,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -7628,8 +7610,7 @@
         }
       ],
       "updated": 1649961817142,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -7663,8 +7644,7 @@
         }
       ],
       "updated": 1649961817142,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -7690,7 +7670,6 @@
       "boundElements": [],
       "updated": 1649961817142,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nCB",
@@ -7724,7 +7703,6 @@
       "boundElements": [],
       "updated": 1649961817142,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nEspèces",
@@ -7758,7 +7736,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Annulation",
@@ -7792,7 +7769,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Mise en \nattente",
@@ -7826,7 +7802,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Reprise \nattente",
@@ -7860,7 +7835,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Client \nsuivant",
@@ -7902,8 +7876,7 @@
         }
       ],
       "updated": 1649961817143,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -7929,7 +7902,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Reprendre",
@@ -7971,8 +7943,7 @@
         }
       ],
       "updated": 1649961817143,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -7998,7 +7969,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Reprendre",
@@ -8048,8 +8018,7 @@
         }
       ],
       "updated": 1649961817143,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -8075,7 +8044,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Reprendre",
@@ -8109,7 +8077,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "KL2ABrlUrQGnOFyYDD024",
         "focus": -0.11860020334492781,
@@ -8158,7 +8125,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "qdPb6rDqv9gezRqnDAvaD",
         "focus": 0.7788278124855578,
@@ -8207,7 +8173,6 @@
       "boundElements": [],
       "updated": 1649961817143,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Besoins : \nconnaitre le nombre de consignes Eco-cup en cours\npaiement partiel ou multi-moyen de paiement\nproduit non répertorié / rabais\nMode edition de produit ?",
@@ -8249,8 +8214,7 @@
         }
       ],
       "updated": 1649961817144,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -8276,7 +8240,6 @@
       "boundElements": [],
       "updated": 1649961817144,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Matrice des produits (accès direct)",
@@ -8314,8 +8277,7 @@
         }
       ],
       "updated": 1649961817144,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8345,8 +8307,7 @@
         }
       ],
       "updated": 1649961817144,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -8372,7 +8333,6 @@
       "boundElements": [],
       "updated": 1649961817144,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "utilisateur@cnmaz.fr",
@@ -8405,8 +8365,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817144,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8440,8 +8399,7 @@
         }
       ],
       "updated": 1649961817144,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -8467,7 +8425,6 @@
       "boundElements": [],
       "updated": 1649961817144,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Vue Administrateur",
@@ -8509,8 +8466,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -8536,7 +8492,6 @@
       "boundElements": [],
       "updated": 1649961817145,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Actions facturation",
@@ -8578,8 +8533,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8613,8 +8567,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8648,8 +8601,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8683,8 +8635,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8718,8 +8669,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8753,8 +8703,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8779,8 +8728,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8805,8 +8753,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8831,8 +8778,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8857,8 +8803,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8892,8 +8837,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8927,8 +8871,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8962,8 +8905,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -8997,8 +8939,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9032,8 +8973,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9067,8 +9007,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9102,8 +9041,7 @@
         }
       ],
       "updated": 1649961817145,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9137,8 +9075,7 @@
         }
       ],
       "updated": 1649961817146,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9172,8 +9109,7 @@
         }
       ],
       "updated": 1649961817146,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9207,8 +9143,7 @@
         }
       ],
       "updated": 1649961817146,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -9234,7 +9169,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Changement \ncatégorie",
@@ -9268,7 +9202,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette \ncomplète",
@@ -9302,7 +9235,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette \nVégé",
@@ -9336,7 +9268,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nJambon \nFromage",
@@ -9370,7 +9301,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nOeuf \nfromage",
@@ -9404,7 +9334,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Galette\nchèvre",
@@ -9438,7 +9367,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nConfiture",
@@ -9472,7 +9400,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe \nBeurre \nsucre",
@@ -9506,7 +9433,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nBeurre",
@@ -9540,7 +9466,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nChocolat",
@@ -9574,7 +9499,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Crêpe\nNutella",
@@ -9608,7 +9532,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Verre \nCidre",
@@ -9642,7 +9565,6 @@
       "boundElements": [],
       "updated": 1649961817146,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Verre Jus \nde pomme",
@@ -9676,7 +9598,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Bière 33cl",
@@ -9710,7 +9631,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Cannette\nSoda 33cl",
@@ -9756,8 +9676,7 @@
         }
       ],
       "updated": 1649961817147,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9795,8 +9714,7 @@
         }
       ],
       "updated": 1649961817147,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9838,8 +9756,7 @@
         }
       ],
       "updated": 1649961817147,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9873,8 +9790,7 @@
         }
       ],
       "updated": 1649961817147,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9916,8 +9832,7 @@
         }
       ],
       "updated": 1649961817147,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -9951,8 +9866,7 @@
         }
       ],
       "updated": 1649961817147,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -9978,7 +9892,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nCB",
@@ -10012,7 +9925,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Règlement\nEspèces",
@@ -10046,7 +9958,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Annulation",
@@ -10080,7 +9991,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Consigne \nEco-Cup",
@@ -10114,7 +10024,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Mise en \nattente",
@@ -10148,7 +10057,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Reprise \nattente",
@@ -10182,7 +10090,6 @@
       "boundElements": [],
       "updated": 1649961817147,
       "link": null,
-      "locked": false,
       "fontSize": 16,
       "fontFamily": 1,
       "text": "Client \nsuivant",
@@ -10215,8 +10122,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817147,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10241,8 +10147,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10267,8 +10172,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10293,8 +10197,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10319,8 +10222,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10345,8 +10247,7 @@
       "strokeSharpness": "sharp",
       "boundElements": [],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10384,8 +10285,7 @@
         }
       ],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -10411,7 +10311,6 @@
       "boundElements": [],
       "updated": 1649961817148,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Vue Administrateur",
@@ -10449,8 +10348,7 @@
         }
       ],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10480,8 +10378,7 @@
         }
       ],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10511,8 +10408,7 @@
         }
       ],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10542,8 +10438,7 @@
         }
       ],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10573,8 +10468,7 @@
         }
       ],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "rectangle",
@@ -10604,8 +10498,7 @@
         }
       ],
       "updated": 1649961817148,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -10631,7 +10524,6 @@
       "boundElements": [],
       "updated": 1649961817148,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Lister \nventes",
@@ -10665,7 +10557,6 @@
       "boundElements": [],
       "updated": 1649961817149,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Gestion \nutilisateur\ns",
@@ -10699,7 +10590,6 @@
       "boundElements": [],
       "updated": 1649961817149,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Modifier \nproduits",
@@ -10733,7 +10623,6 @@
       "boundElements": [],
       "updated": 1649961817149,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Stats",
@@ -10767,7 +10656,6 @@
       "boundElements": [],
       "updated": 1649961817149,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Tests",
@@ -10801,7 +10689,6 @@
       "boundElements": [],
       "updated": 1649961817149,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Modifier \ntouches",
@@ -10851,8 +10738,7 @@
         }
       ],
       "updated": 1649961898407,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -10878,7 +10764,6 @@
       "boundElements": [],
       "updated": 1649961898407,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Produit\n-nom\n-prix\n-ordre\n→ categorie",
@@ -10920,8 +10805,7 @@
         }
       ],
       "updated": 1649961899525,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -10947,7 +10831,6 @@
       "boundElements": [],
       "updated": 1649961899525,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Catégorie\n-nom\n-ordre",
@@ -10981,7 +10864,6 @@
       "boundElements": [],
       "updated": 1649961899526,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "mtdz_q9Bqt1ZqfXfMRLOI",
         "focus": 0.1963042275689218,
@@ -11042,8 +10924,7 @@
         }
       ],
       "updated": 1649961847609,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -11069,7 +10950,6 @@
       "boundElements": [],
       "updated": 1649961849544,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Utilisateur\n-nom\n-prenom\n-mail",
@@ -11119,8 +10999,7 @@
         }
       ],
       "updated": 1649961839532,
-      "link": null,
-      "locked": false
+      "link": null
     },
     {
       "type": "text",
@@ -11146,7 +11025,6 @@
       "boundElements": [],
       "updated": 1649961839532,
       "link": null,
-      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "Vente\n-timestamp\n-mode de paiement\n-montant payé\n-rendu\n→ utilisateur",
@@ -11180,7 +11058,6 @@
       "boundElements": [],
       "updated": 1649961898409,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "mtdz_q9Bqt1ZqfXfMRLOI",
         "focus": -0.018994511682787468,
@@ -11229,7 +11106,6 @@
       "boundElements": [],
       "updated": 1649961840860,
       "link": null,
-      "locked": false,
       "startBinding": {
         "elementId": "YyLMGexaKgTNmt75qP5y6",
         "focus": 0.13840221872710598,
@@ -11253,6 +11129,145 @@
           -2.2208232774907515
         ]
       ]
+    },
+    {
+      "type": "rectangle",
+      "version": 222,
+      "versionNonce": 1848608338,
+      "isDeleted": false,
+      "id": "JyIasIv2YXi7pRAwIr9Ae",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 269.29118773946334,
+      "y": 549.8745210727973,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "width": 185,
+      "height": 76,
+      "seed": 1292738382,
+      "groupIds": [],
+      "strokeSharpness": "sharp",
+      "boundElements": [
+        {
+          "id": "JXVe7btMfjvWIIdo2ybVc",
+          "type": "text"
+        },
+        {
+          "id": "rg1e0q4oCrMcxB9mF0hKm",
+          "type": "arrow"
+        },
+        {
+          "id": "Qu2AhhSMFVAc6nC1ZTxxS",
+          "type": "arrow"
+        },
+        {
+          "id": "iQlZCi5W_VJagHEw9TsTn",
+          "type": "arrow"
+        },
+        {
+          "type": "text",
+          "id": "JXVe7btMfjvWIIdo2ybVc"
+        },
+        {
+          "id": "JDeC9GI6V9wpwzfg5hMdm",
+          "type": "arrow"
+        },
+        {
+          "id": "e2V5eMg2AAqjdlyGXs_UU",
+          "type": "arrow"
+        },
+        {
+          "id": "WEnv70sHlCEErA9HQvp3j",
+          "type": "arrow"
+        }
+      ],
+      "updated": 1650176838782,
+      "link": null
+    },
+    {
+      "type": "text",
+      "version": 224,
+      "versionNonce": 1932541902,
+      "isDeleted": false,
+      "id": "JXVe7btMfjvWIIdo2ybVc",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 274.29118773946334,
+      "y": 575.3745210727973,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "width": 175,
+      "height": 27,
+      "seed": 194593938,
+      "groupIds": [],
+      "strokeSharpness": "sharp",
+      "boundElements": [],
+      "updated": 1650176838782,
+      "link": null,
+      "fontSize": 20,
+      "fontFamily": 1,
+      "text": "Service (Python)",
+      "baseline": 19,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "JyIasIv2YXi7pRAwIr9Ae",
+      "originalText": "Service (Python)"
+    },
+    {
+      "id": "JDeC9GI6V9wpwzfg5hMdm",
+      "type": "arrow",
+      "x": 461.79118773946334,
+      "y": 588.8215112022549,
+      "width": 81.004841072006,
+      "height": 1.4795380433623677,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "strokeSharpness": "round",
+      "seed": 1511877710,
+      "version": 219,
+      "versionNonce": 269763538,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1650176839786,
+      "link": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          81.004841072006,
+          -1.4795380433623677
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "JyIasIv2YXi7pRAwIr9Ae",
+        "focus": 0.070298769771529,
+        "gap": 7.5
+      },
+      "endBinding": {
+        "elementId": "bUrwjSWgkMN70OCQsl78m",
+        "focus": 0.04215936395898418,
+        "gap": 9.208994555541551
+      },
+      "startArrowhead": "arrow",
+      "endArrowhead": "arrow"
     }
   ],
   "appState": {
