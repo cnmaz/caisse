@@ -22,58 +22,59 @@
 ##############################################################################
 
 
-from serial import Serial
+import socket
 import curses.ascii
 import time
 import pycountry
+import traceback
 
 
-DEVICE = '/dev/ttyACM0'
-DEVICE_RATE = 9600
 PAYMENT_MODE = 'card'  # 'card' or 'check'
 CURRENCY_ISO = 'EUR'
 AMOUNT = 12.42
 HOSTNAME = '192.168.0.10'
-POST = 8888
+PORT = 8888
 
 
-def serial_write(serial, text):
+def serial_write(conn, text):
     assert isinstance(text, str), 'text must be a string'
-    serial.write(text)
+    conn.send(text.encode())
 
 
-def initialize_msg(serial):
+def initialize_msg(conn):
     max_attempt = 3
     attempt_nr = 0
     while attempt_nr < max_attempt:
         attempt_nr += 1
-        send_one_byte_signal(serial, 'ENQ')
-        if get_one_byte_answer(serial, 'ACK'):
+        send_one_byte_signal(conn, 'ENQ')
+        if get_one_byte_answer(conn, 'ACK'):
             return True
         else:
             print("Terminal : SAME PLAYER TRY AGAIN")
-            send_one_byte_signal(serial, 'EOT')
+            send_one_byte_signal(conn, 'EOT')
             # Wait 1 sec between each attempt
             time.sleep(1)
     return False
 
 
-def send_one_byte_signal(serial, signal):
+def send_one_byte_signal(conn, signal):
     ascii_names = curses.ascii.controlnames
     assert signal in ascii_names, 'Wrong signal'
     char = ascii_names.index(signal)
-    serial_write(serial, chr(char))
+    serial_write(conn, chr(char))
     print('Signal %s sent to terminal' % signal)
 
 
-def get_one_byte_answer(serial, expected_signal):
+def get_one_byte_answer(conn, expected_signal):
     ascii_names = curses.ascii.controlnames
-    one_byte_read = serial.read(1)
+    one_byte_read = str(conn.recv(1))
     expected_char = ascii_names.index(expected_signal)
     if one_byte_read == chr(expected_char):
         print("%s received from terminal" % expected_signal)
         return True
     else:
+        print("'%s' expected, but received '%s'" %
+              (expected_char, one_byte_read))
         return False
 
 
@@ -113,7 +114,7 @@ def generate_lrc(real_msg_with_etx):
     return lrc
 
 
-def send_message(serial, data):
+def send_message(conn, data):
     '''We use protocol E+'''
     ascii_names = curses.ascii.controlnames
     real_msg = (
@@ -131,7 +132,7 @@ def send_message(serial, data):
     real_msg_with_etx = real_msg + chr(ascii_names.index('ETX'))
     lrc = generate_lrc(real_msg_with_etx)
     message = chr(ascii_names.index('STX')) + real_msg_with_etx + chr(lrc)
-    serial_write(serial, message)
+    serial_write(conn, message)
     print('Message sent to terminal')
 
 
@@ -159,10 +160,10 @@ def parse_terminal_answer(real_msg, data):
     return answer_data
 
 
-def get_answer_from_terminal(serial, data):
+def get_answer_from_terminal(conn, data):
     ascii_names = curses.ascii.controlnames
     full_msg_size = 1+2+1+8+1+3+10+1+1
-    msg = serial.read(size=full_msg_size)
+    msg = str(conn.recv(full_msg_size))
     print('%d bytes read from terminal' % full_msg_size)
     assert len(msg) == full_msg_size, 'Answer has a wrong size'
     if msg[0] != chr(ascii_names.index('STX')):
@@ -180,41 +181,51 @@ def get_answer_from_terminal(serial, data):
 
 
 def transaction_start():
-    '''This function sends the data to the serial/usb port.
+    '''This function sends the data to the conn/usb port.
     '''
-    serial = False
+    conn = False
     try:
-        print(
-            'Opening serial port %s for payment terminal with '
-            'baudrate %d' % (DEVICE, DEVICE_RATE))
+        print('Opening connection to %s:%d' % (HOSTNAME, PORT))
         # IMPORTANT : don't modify timeout=3 seconds
         # This parameter is very important ; the Telium spec say
         # that we have to wait to up 3 seconds to get LRC
-        serial = Serial(
-            DEVICE, DEVICE_RATE, timeout=3)
-        print('serial.is_open = %s' % serial.isOpen())
-        if initialize_msg(serial):
-            data = prepare_data_to_send()
-            if not data:
-                return
-            send_message(serial, data)
-            if get_one_byte_answer(serial, 'ACK'):
-                send_one_byte_signal(serial, 'EOT')
+        # conn = Serial(
+        # DEVICE, DEVICE_RATE, timeout=3)
+        s = socket.socket()
+        # print("Bind:")
+        # s.bind(('', 0))
+        print("connect:")
+        s.connect((HOSTNAME, PORT))
+        s.settimeout(30)
+        s.setblocking(True)
+        print("accept:")
+        # s.listen(1)
+        conn = s
+        with conn:
+            # print('addr = %s' % addr)
+            if initialize_msg(conn):
+                data = prepare_data_to_send()
+                if not data:
+                    return
+                send_message(conn, data)
+                if get_one_byte_answer(conn, 'ACK'):
+                    send_one_byte_signal(conn, 'EOT')
 
-                print("Now expecting answer from Terminal")
-                if get_one_byte_answer(serial, 'ENQ'):
-                    send_one_byte_signal(serial, 'ACK')
-                    get_answer_from_terminal(serial, data)
-                    send_one_byte_signal(serial, 'ACK')
-                    if get_one_byte_answer(serial, 'EOT'):
-                        print("Answer received from Terminal")
+                    print("Now expecting answer from Terminal")
+                    if get_one_byte_answer(conn, 'ENQ'):
+                        send_one_byte_signal(conn, 'ACK')
+                        get_answer_from_terminal(conn, data)
+                        send_one_byte_signal(conn, 'ACK')
+                        if get_one_byte_answer(conn, 'EOT'):
+                            print("Answer received from Terminal")
 
     except Exception as e:
-        print('Exception in serial connection: %s' % str(e))
+        print('Exception in conn connection: %s' % str(e))
+        traceback.print_exception(e)
     finally:
-        if serial:
-            print('Closing serial port for payment terminal')
-            serial.close()
+        if conn:
+            print('Closing conn port for payment terminal')
+            conn.close()
 
 
 if __name__ == '__main__':
