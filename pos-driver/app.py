@@ -29,8 +29,9 @@ def open_real_serial():
 def open_mock_serial():
     serial_mock = MagicMock()
     serial_mock.read = Mock()
+    # Good one
     serial_mock.read.side_effect = ['\06'.encode(), '\06'.encode(
-    ), '\05'.encode(),  '\x02017000000010978          \x032'.encode(), '\x04'.encode()]
+    ), '\05'.encode(), '\x02017000000010978          \x032'.encode(), '\x04'.encode()]
     return serial_mock
 
 
