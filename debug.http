@@ -1,0 +1,11 @@
+GET http://localhost:3001/debug
+###
+GET http://localhost:3001/sale
+###
+POST http://localhost:3001/sale
+
+{"state":"0"}
+###
+PUT http://localhost:3001/sale
+
+{"state":"0","id":1,"products":[3]}
