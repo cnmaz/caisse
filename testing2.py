@@ -1,48 +1,38 @@
-from flask import Flask
-from unittest.mock import Mock, MagicMock
+#! /usr/bin/python
+# -*- encoding: utf-8 -*-
+##############################################################################
+#
+#    Hardware Telium Test script
+#    Copyright (C) 2014 Akretion (http://www.akretion.com)
+#    @author Alexis de Lattre <alexis.delattre@akretion.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
 
 from serial import Serial
 import curses.ascii
 import time
 import pycountry
-import traceback
-
-app = Flask(__name__)
-
-
-@app.route("/debit/<amount>")
-def debit(amount):
-    transaction_start(float(amount), wait=False)
-    return f"<p>Debit f{float(amount)}</p>"
-
-
-@app.route("/credit/<amount>")
-def credit(amount):
-    transaction_start(float(amount), credit=True, wait=False)
-    return f"<p>Credit f{float(amount)}</p>"
 
 
 DEVICE = '/dev/ttyACM0'
 DEVICE_RATE = 9600
 PAYMENT_MODE = 'card'  # 'card' or 'check'
 CURRENCY_ISO = 'EUR'
-
-
-def open_real_serial():
-    return Serial(DEVICE, DEVICE_RATE, timeout=3)
-
-
-def open_mock_serial():
-    serial_mock = MagicMock()
-    serial_mock.read = Mock()
-    # Good one
-    serial_mock.read.side_effect = ['\06'.encode(), '\06'.encode(
-    ), '\05'.encode(), '\x02017000000010978          \x032'.encode(), '\x04'.encode()]
-    return serial_mock
-
-
-def open_serial():
-    return open_mock_serial()
+AMOUNT = 2
 
 
 def serial_write(serial, text):
@@ -74,25 +64,19 @@ def send_one_byte_signal(serial, signal):
     print('Signal %s sent to terminal' % signal)
 
 
-def get_one_byte_answer(serial, expected_signal, wait=False):
-    while True:
-        ascii_names = curses.ascii.controlnames
-        one_byte_read = serial.read(1).decode()
-        expected_char = ascii_names.index(expected_signal)
-        if one_byte_read == chr(expected_char):
-            print("%s received from terminal" % expected_signal)
-            return True
-        else:
-            if len(one_byte_read) == 0:
-                # print("waiting ...")
-                pass
-            else:
-                print("%s received from terminal (expected %s)" %
-                      (one_byte_read, expected_char))
-                return False
+def get_one_byte_answer(serial, expected_signal):
+    ascii_names = curses.ascii.controlnames
+    one_byte_read = serial.read(1).decode()
+    expected_char = ascii_names.index(expected_signal)
+    if one_byte_read == chr(expected_char):
+        print("%s received from terminal" % expected_signal)
+        return True
+    else:
+        print("%s received from terminal" % one_byte_read)
+        return False
 
 
-def prepare_data_to_send(amount, credit=False, wait=True):
+def prepare_data_to_send():
     if PAYMENT_MODE == 'check':
         payment_mode = 'C'
     elif PAYMENT_MODE == 'card':
@@ -110,13 +94,13 @@ def prepare_data_to_send(amount, credit=False, wait=True):
     data = {
         'pos_number': str(1).zfill(2),
         'answer_flag': '0',
-        'transaction_type': '1' if credit else '0',
+        'transaction_type': '0',
         'payment_mode': payment_mode,
         'currency_numeric': cur_numeric.zfill(3),
         'private': ' ' * 10,
-        'delay': 'A010' if wait else 'A011',
+        'delay': 'A011',
         'auto': 'B010',
-        'amount_msg': ('%.0f' % (amount * 100)).zfill(8),
+        'amount_msg': ('%.0f' % (AMOUNT * 100)).zfill(8),
     }
     return data
 
@@ -178,7 +162,7 @@ def get_answer_from_terminal(serial, data):
     ascii_names = curses.ascii.controlnames
     full_msg_size = 1+2+1+8+1+3+10+1+1
     msg = serial.read(size=full_msg_size).decode()
-    print('%d bytes read from terminal' % len(msg))
+    print('%d bytes read from terminal' % full_msg_size)
     assert len(msg) == full_msg_size, 'Answer has a wrong size'
     if msg[0] != chr(ascii_names.index('STX')):
         print('The first byte of the answer from terminal should be STX')
@@ -188,14 +172,13 @@ def get_answer_from_terminal(serial, data):
     lrc = msg[-1]
     computed_lrc = chr(generate_lrc(msg[1:-1]))
     if computed_lrc != lrc:
-        print(
-            f'The LRC of the answer from terminal is wrong (exp: {computed_lrc} / got: {lrc})')
+        print('The LRC of the answer from terminal is wrong')
     real_msg = msg[1:-2]
     print('Real answer received = %s' % real_msg)
     return parse_terminal_answer(real_msg, data)
 
 
-def transaction_start(amount, credit=False, wait=True):
+def transaction_start():
     '''This function sends the data to the serial/usb port.
     '''
     serial = False
@@ -206,10 +189,11 @@ def transaction_start(amount, credit=False, wait=True):
         # IMPORTANT : don't modify timeout=3 seconds
         # This parameter is very important ; the Telium spec say
         # that we have to wait to up 3 seconds to get LRC
-        serial = open_serial()
+        serial = Serial(
+            DEVICE, DEVICE_RATE, timeout=3)
         print('serial.is_open = %s' % serial.isOpen())
         if initialize_msg(serial):
-            data = prepare_data_to_send(amount, credit, wait)
+            data = prepare_data_to_send()
             if not data:
                 return
             send_message(serial, data)
@@ -226,7 +210,6 @@ def transaction_start(amount, credit=False, wait=True):
 
     except Exception as e:
         print('Exception in serial connection: %s' % str(e))
-        traceback.print_exception(e)
     finally:
         if serial:
             print('Closing serial port for payment terminal')
@@ -234,4 +217,4 @@ def transaction_start(amount, credit=False, wait=True):
 
 
 if __name__ == '__main__':
-    debit(15.15)
+    transaction_start()
