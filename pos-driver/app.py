@@ -21,8 +21,11 @@
 #
 ##############################################################################
 
+import queue
+import uuid
 from flask import Flask
 from unittest.mock import Mock, MagicMock
+import threading
 
 from serial import Serial
 import curses.ascii
@@ -32,17 +35,34 @@ import traceback
 
 app = Flask(__name__)
 
+action_queue = queue.Queue()
+processed_payments = {}
+
 
 @app.route("/debit/<amount>")
 def debit(amount):
-    transaction_start(float(amount), wait=False)
-    return f"<p>Debit f{float(amount)}</p>"
+    # transaction_start(float(amount), wait=False)
+    id = uuid.uuid4()
+    action_queue.put((float(amount), id))
+    return {"id": str(id)}
 
 
 @app.route("/credit/<amount>")
 def credit(amount):
-    transaction_start(float(amount), credit=True, wait=False)
-    return f"<p>Credit f{float(amount)}</p>"
+    # transaction_start(float(amount), credit=True, wait=False)
+    id = uuid.uuid4()
+    action_queue.put((float(amount), id))
+    return {"id": str(id)}
+
+
+@app.route("/queue")
+def queued_payments():
+    return str(action_queue.qsize())
+
+
+@app.route("/payments")
+def payments():
+    return processed_payments
 
 
 DEVICE = '/dev/ttyACM0'
@@ -60,7 +80,10 @@ def open_mock_serial():
     serial_mock.read = Mock()
     # Good one
     serial_mock.read.side_effect = ['\06'.encode(), '\06'.encode(
-    ), '\05'.encode(), '\x02017000000010978          \x032'.encode(), '\x04'.encode()]
+    ), '\05'.encode(), '\x0201000000001B978          \x032'.encode(), '\x04'.encode()]
+    # Bad one
+    # serial_mock.read.side_effect = ['\06'.encode(), '\06'.encode(
+    # ), '\05'.encode(), '\x02017000000010978          \x032'.encode(), '\x04'.encode()]
     return serial_mock
 
 
@@ -242,11 +265,12 @@ def transaction_start(amount, credit=False, wait=True):
                 print("Now expecting answer from Terminal")
                 if get_one_byte_answer(serial, 'ENQ'):
                     send_one_byte_signal(serial, 'ACK')
-                    get_answer_from_terminal(serial, data)
+                    res = get_answer_from_terminal(serial, data)
                     send_one_byte_signal(serial, 'ACK')
                     if get_one_byte_answer(serial, 'EOT'):
                         print("Answer received from Terminal")
-
+                        return res
+        return None
     except Exception as e:
         print('Exception in serial connection: %s' % str(e))
         traceback.print_exception(e)
@@ -255,6 +279,22 @@ def transaction_start(amount, credit=False, wait=True):
             print('Closing serial port for payment terminal')
             serial.close()
 
+
+def payment_handler(name):
+    while True:
+        try:
+            (amount, id) = action_queue.get_nowait()
+            print("<<< Action ", amount, id)
+            res = transaction_start(amount, amount < 0, True)
+            processed_payments[str(id)] = {"amount": amount, "result": res}
+            action_queue.task_done()
+        except queue.Empty:
+            pass
+        time.sleep(3)
+
+
+paythread = threading.Thread(target=payment_handler, daemon=True, args=(1,))
+paythread.start()
 
 if __name__ == '__main__':
     debit(15.15)

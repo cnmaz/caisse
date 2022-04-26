@@ -11,3 +11,10 @@ POST http://localhost:3001/sale
 PUT http://localhost:3001/sale
 
 {"state":"0","id":1,"products":[3]}
+
+###
+GET http://localhost:5000/debit/12.34
+
+
+###
+GET http://localhost:5000/queue

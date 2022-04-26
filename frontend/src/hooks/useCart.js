@@ -5,6 +5,7 @@ export function useCart() {
     const [items, setItems] = useState([]);
     const [state, setState] = useState(CartStates.Paye);
     const [especesRecues, setEspecesRecues] = useState(0);
+    const [paymentId, setPaymentId] = useState(undefined);
     const [cartId, setCartId] = useState(undefined);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ export function useCart() {
 
     const paiementCB = () => setState(CartStates.PaiementCB);
     const paiementEspeces = () => setState(CartStates.PaiementEspeces);
-    const retourEdition = () => setState(CartStates.Saisie);
+    const retourEdition = () => { setState(CartStates.Saisie); setPaymentId(undefined); };
     const miseEnAttente = () => setState(CartStates.EnAttente);
     const annulationPaiement = () => setState(CartStates.Annule);
     const validationPaiement = () => setState(CartStates.Paye);
@@ -60,10 +61,11 @@ export function useCart() {
                 setEspecesRecues(0);
                 setItems([]);
                 setState(CartStates.Saisie);
+                setPaymentId(undefined);
             })
     }
 
-    return { items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement, especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement, miseEnAttente }
+    return { items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement, especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement, miseEnAttente, paymentId, setPaymentId }
 }
 
 export const CartStates = {
@@ -96,5 +98,7 @@ export const CartType = {
     validationPaiement: PropTypes.func,
     setEspecesRecues: PropTypes.func,
     especesRecues: PropTypes.number,
+    paymentId: PropTypes.string,
+    setPaymentId: PropTypes.func,
     state: PropTypes.oneOf([CartStates.Saisie, CartStates.Annulation, CartStates.PaiementEspeces, CartStates.PaiementCB])
 }

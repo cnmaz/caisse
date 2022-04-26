@@ -12,4 +12,15 @@ module.exports = function (app) {
             logLevel: 'debug'
         })
     );
+    app.use(
+        '/pos',
+        createProxyMiddleware({
+            target: 'http://127.0.0.1:5000',
+            changeOrigin: true,
+            pathRewrite: {
+                "^/pos/": "/"
+            },
+            logLevel: 'debug'
+        })
+    );
 };
