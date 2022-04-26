@@ -43,6 +43,7 @@ export function useCart() {
     const paiementCB = () => setState(CartStates.PaiementCB);
     const paiementEspeces = () => setState(CartStates.PaiementEspeces);
     const retourEdition = () => setState(CartStates.Saisie);
+    const miseEnAttente = () => setState(CartStates.EnAttente);
     const annulationPaiement = () => setState(CartStates.Annule);
     const validationPaiement = () => setState(CartStates.Paye);
 
@@ -62,7 +63,7 @@ export function useCart() {
             })
     }
 
-    return { items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement, especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement }
+    return { items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement, especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement, miseEnAttente }
 }
 
 export const CartStates = {
@@ -71,7 +72,8 @@ export const CartStates = {
     PaiementEspeces: 2,
     PaiementCB: 3,
     Paye: 4,
-    Annule: 5
+    Annule: 5,
+    EnAttente: 6,
 }
 
 export const Product = PropTypes.shape({
@@ -90,6 +92,7 @@ export const CartType = {
     annulationPaiement: PropTypes.func,
     nouveauClient: PropTypes.func,
     retourEdition: PropTypes.func,
+    miseEnAttente: PropTypes.func,
     validationPaiement: PropTypes.func,
     setEspecesRecues: PropTypes.func,
     especesRecues: PropTypes.number,

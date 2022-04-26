@@ -25,26 +25,25 @@ export default function Actions({ cart, setActiveTab }) {
             <Button variant={cart.state === CartStates.Annulation ? "contained" : "outlined"} onClick={() => { cart?.toggleAnnulation(); setActiveTab("produits"); }} disabled={cart.state !== CartStates.Saisie && cart.state !== CartStates.Annulation}>
                 Mode Annulation
             </Button>
+            {cart.state !== CartStates.EnAttente ?
+                <Button variant="outlined" disabled={cart.state !== CartStates.Saisie && cart.state !== CartStates.PaiementCB && cart.state !== CartStates.PaiementEspeces} onClick={cart?.miseEnAttente}>
+                    Mise en attente
+                </Button>
+                :
+                <Button variant="contained" disabled={cart.state !== CartStates.EnAttente} onClick={cart?.retourEdition}>
+                    Reprise
+                </Button>
+            }
             {cart.state !== CartStates.PaiementEspeces && cart.state !== CartStates.PaiementCB ? (
-                <>
-                    <Button variant="outlined" disabled={cart.state !== CartStates.Saisie}>
-                        Mise en attente
-                    </Button>
-                    <Button variant="outlined" disabled={cart.state !== CartStates.Saisie}>
-                        Historique ventes
-                    </Button>
-                </>
+                <Button variant="outlined" disabled={cart.state !== CartStates.Saisie}>
+                    Historique ventes
+                </Button>
             ) : (
-                <>
-                    <Button variant="outlined" disabled={cart.state !== CartStates.PaiementCB && cart.state !== CartStates.PaiementEspeces} onClick={cart?.annulationPaiement}>
-                        Annulation définitive
-                    </Button>
-                    <Button variant="outlined" disabled={cart.state !== CartStates.PaiementCB && cart.state !== CartStates.PaiementEspeces} onClick={cart?.validationPaiement}>
-                        Validation paiement
-                    </Button>
-                </>
+                <Button variant="outlined" disabled={cart.state !== CartStates.PaiementCB && cart.state !== CartStates.PaiementEspeces} onClick={cart?.validationPaiement}>
+                    Validation paiement
+                </Button>
             )}
-            <Button variant="outlined" disabled={cart.state !== CartStates.Annule && cart.state !== CartStates.Paye} onClick={cart?.nouveauClient}>
+            <Button variant="outlined" disabled={cart.state !== CartStates.Annule && cart.state !== CartStates.Paye && cart.state != CartStates.EnAttente} onClick={cart?.nouveauClient}>
                 Client suivant
             </Button>
         </div>
