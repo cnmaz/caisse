@@ -5,7 +5,7 @@ import { func } from 'prop-types';
 
 import { useQuery } from 'react-query';
 import './ProductGrid.scss'
-import { CartType } from '../hooks/useCart';
+import { CartStates, CartType } from '../hooks/useCart';
 
 export default function ProductGrid({ onClickProduct, cart }) {
     const { data: products, loading, error } = useQuery(["products"], () =>
@@ -29,7 +29,7 @@ export default function ProductGrid({ onClickProduct, cart }) {
         <ul>
             {products?.map(product =>
                 <Badge badgeContent={numberOfProducts(product.id)} color="secondary" overlap="circular" key={product.id}>
-                    <Button variant="outlined" className="product" onClick={() => onClickProduct(product)}>
+                    <Button variant="outlined" className="product" onClick={() => onClickProduct(product)} disabled={cart.state !== CartStates.Saisie && cart.state !== CartStates.Annulation}>
                         {product?.label}
                     </Button>
                 </Badge>

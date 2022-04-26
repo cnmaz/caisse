@@ -19,7 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $body = json_decode(file_get_contents("php://input"));
     $new_sale = R::dispense("sale");
     $new_sale->state = $body->state;
-    $new_sale = link_products_to_sale($body->products, $new_sale);
+    if ($body->products != null) {
+        $new_sale = link_products_to_sale($body->products, $new_sale);
+    }
     R::store($new_sale);
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
