@@ -13,8 +13,15 @@ PUT http://localhost:3001/sale
 {"state":"0","id":1,"products":[3]}
 
 ###
-GET http://localhost:5000/debit/12.34
+GET http://localhost:5000/debit/18.45
 
 
 ###
 GET http://localhost:5000/queue
+
+
+###
+GET http://localhost:5000/payments
+
+###
+GET http://localhost:5000/payments/0a0ecdf0-7e4e-47d2-aadd-7630e69993d3

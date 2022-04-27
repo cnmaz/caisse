@@ -44,6 +44,7 @@ def debit(amount):
     # transaction_start(float(amount), wait=False)
     id = uuid.uuid4()
     action_queue.put((float(amount), id))
+    processed_payments[str(id)] = {"amount": float(amount), "state": "pending"}
     return {"id": str(id)}
 
 
@@ -52,6 +53,7 @@ def credit(amount):
     # transaction_start(float(amount), credit=True, wait=False)
     id = uuid.uuid4()
     action_queue.put((float(amount), id))
+    processed_payments[str(id)] = {"amount": float(amount), "state": "pending"}
     return {"id": str(id)}
 
 
@@ -63,6 +65,13 @@ def queued_payments():
 @app.route("/payments")
 def payments():
     return processed_payments
+
+
+@app.route("/payments/<id>")
+def payment(id):
+    if id not in processed_payments:
+        return "", 404
+    return processed_payments[id]
 
 
 DEVICE = '/dev/ttyACM0'
@@ -79,11 +88,11 @@ def open_mock_serial():
     serial_mock = MagicMock()
     serial_mock.read = Mock()
     # Good one
-    serial_mock.read.side_effect = ['\06'.encode(), '\06'.encode(
-    ), '\05'.encode(), '\x0201000000001B978          \x032'.encode(), '\x04'.encode()]
-    # Bad one
     # serial_mock.read.side_effect = ['\06'.encode(), '\06'.encode(
-    # ), '\05'.encode(), '\x02017000000010978          \x032'.encode(), '\x04'.encode()]
+    # ), '\05'.encode(), '\x0201000000001B978          \x032'.encode(), '\x04'.encode()]
+    # Bad one
+    serial_mock.read.side_effect = ['\06'.encode(), '\06'.encode(
+    ), '\05'.encode(), '\x02017000000010978          \x032'.encode(), '\x04'.encode()]
     return serial_mock
 
 
@@ -285,8 +294,10 @@ def payment_handler(name):
         try:
             (amount, id) = action_queue.get_nowait()
             print("<<< Action ", amount, id)
+            processed_payments[str(id)]["state"] = "sent"
             res = transaction_start(amount, amount < 0, True)
-            processed_payments[str(id)] = {"amount": amount, "result": res}
+            processed_payments[str(id)]["state"] = "finished"
+            processed_payments[str(id)]["result"] = res
             action_queue.task_done()
         except queue.Empty:
             pass
@@ -297,4 +308,4 @@ paythread = threading.Thread(target=payment_handler, daemon=True, args=(1,))
 paythread.start()
 
 if __name__ == '__main__':
-    debit(15.15)
+    debit(0.01)

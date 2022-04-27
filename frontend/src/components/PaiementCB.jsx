@@ -2,11 +2,12 @@ import './PaiementCB.scss'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
+import { Button } from '@mui/material';
 
 export default function PaiementCB({ cart }) {
     const useTPE = true;
-    const [sent, setSent] = useState(false);
     const [result, setResult] = useState(undefined);
+    const sent = cart?.paymentId;
 
     const { data: payments } = useQuery(["payments"], () =>
         fetch('/pos/payments').then(res =>
@@ -16,21 +17,6 @@ export default function PaiementCB({ cart }) {
             // Refetch the data every second
             refetchInterval: 3000,
         });
-
-    useEffect(() => {
-        console.log(useTPE, sent, result, JSON.stringify(cart));
-        if (useTPE && !cart?.paymentId && !sent) {
-            const total = cart?.getTotal();
-            if (total > 0) {
-                fetch("/pos/debit/" + total)
-                    .then(res => res.json())
-                    .then(res => {
-                        cart?.setPaymentId(res?.id);
-                    });
-                setSent(true);
-            }
-        }
-    }, [sent, useTPE, cart])
 
     useEffect(() => {
 
@@ -63,8 +49,18 @@ export default function PaiementCB({ cart }) {
         {!sent && <h2>Envoi du montant au TPE en cours ...</h2>}
         {sent && !result && <h2>Montant envoyé au TPE</h2>}
         {sent && result === true && <h2>Paiement terminé</h2>}
-        {sent && result === false && <h2>Paiement échoué</h2>}
-        <p>ID : {JSON.stringify(cart?.paymentId)}</p>
-        <p>Result {JSON.stringify(result)}</p>
+        {sent && result === false && <>
+            <h2>Paiement échoué</h2>
+            <div className="actions">
+                <Button className="action" variant="contained" onClick={() => {
+                    setResult(undefined)
+                    cart?.paiementCB()
+                }
+                }>Réessayer</Button>
+                <Button className="action" variant="outlined" onClick={cart?.retourEdition}>Annuler</Button>
+            </div>
+        </>}
+        {/* <p>ID : {JSON.stringify(cart?.paymentId)}</p> */}
+        {/* <p>Result {JSON.stringify(result)}</p> */}
     </div>
 }

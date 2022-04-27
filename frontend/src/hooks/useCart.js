@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export function useCart() {
     const [items, setItems] = useState([]);
     const [state, setState] = useState(CartStates.Paye);
+    const [cardState, setCartState] = useState(CartCBStates.NA);
     const [especesRecues, setEspecesRecues] = useState(0);
     const [paymentId, setPaymentId] = useState(undefined);
     const [cartId, setCartId] = useState(undefined);
@@ -41,12 +42,23 @@ export function useCart() {
         }
     }
 
-    const paiementCB = () => setState(CartStates.PaiementCB);
+    const paiementCB = () => {
+        setState(CartStates.PaiementCB);
+        const total = getTotal();
+        if (total > 0) {
+            fetch("/pos/debit/" + total)
+                .then(res => res.json())
+                .then(res => {
+                    setPaymentId(res?.id);
+                });
+        }
+    };
     const paiementEspeces = () => setState(CartStates.PaiementEspeces);
     const retourEdition = () => { setState(CartStates.Saisie); setPaymentId(undefined); };
     const miseEnAttente = () => setState(CartStates.EnAttente);
     const annulationPaiement = () => setState(CartStates.Annule);
     const validationPaiement = () => setState(CartStates.Paye);
+
 
     const nouveauClient = () => {
         fetch('/api/sale', {
@@ -76,6 +88,14 @@ export const CartStates = {
     Paye: 4,
     Annule: 5,
     EnAttente: 6,
+}
+
+export const CartCBStates = {
+    NA: 0,
+    Pending: 1,
+    Sent: 2,
+    OK: 3,
+    KO: 4,
 }
 
 export const Product = PropTypes.shape({
