@@ -12,6 +12,6 @@ if ($uri == "/init") {
     require "product.php";
 } elseif ($uri == "/category") {
     require "category.php";
-} elseif (str_starts_with($uri, "/sale")) {
+} elseif (substr($uri, 0, 5) == "/sale") {
     require "sale.php";
 }
