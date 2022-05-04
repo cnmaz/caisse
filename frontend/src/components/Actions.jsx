@@ -35,7 +35,7 @@ export default function Actions({ cart, setActiveTab }) {
                 </Button>
             }
             {cart.state !== CartStates.PaiementEspeces && cart.state !== CartStates.PaiementCB ? (
-                <Button variant="outlined" disabled={cart.state !== CartStates.Saisie}>
+                <Button variant="outlined" disabled={false} onClick={cart?.historiqueVentes}>
                     Historique ventes
                 </Button>
             ) : (

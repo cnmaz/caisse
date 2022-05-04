@@ -76,6 +76,10 @@ export function useCart() {
     const miseEnAttente = () => setState(CartStates.EnAttente);
     const annulationPaiement = () => setState(CartStates.Annule);
     const validationPaiement = () => setState(CartStates.Paye);
+    const historiqueVentes = () => {
+        setCartId(undefined);
+        setState(CartStates.HistoriqueVentes)
+    }
 
 
     const nouveauClient = () => {
@@ -95,7 +99,11 @@ export function useCart() {
             })
     }
 
-    return { items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement, especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement, miseEnAttente, paymentId, setPaymentId }
+    return {
+        items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement,
+        especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement, miseEnAttente,
+        paymentId, setPaymentId, historiqueVentes
+    }
 }
 
 export const CartStates = {
@@ -106,7 +114,10 @@ export const CartStates = {
     Paye: 4,
     Annule: 5,
     EnAttente: 6,
+    HistoriqueVentes: 7,
 }
+
+export const CartStatesLabels = Object.keys(CartStates).reduce((acc, it) => ({ ...acc, [CartStates[it]]: it }), {})
 
 export const CartCBStates = {
     NA: 0,
@@ -134,6 +145,7 @@ export const CartType = PropTypes.shape({
     retourEdition: PropTypes.func,
     miseEnAttente: PropTypes.func,
     validationPaiement: PropTypes.func,
+    historiqueVentes: PropTypes.func,
     setEspecesRecues: PropTypes.func,
     especesRecues: PropTypes.number,
     paymentId: PropTypes.string,

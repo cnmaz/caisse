@@ -15,6 +15,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import PaiementEspeces from './components/PaiementEspeces';
 import PaiementCB from './components/PaiementCB';
 import CNMazIcon from './components/CNMazIcon';
+import History from './components/History';
 
 
 export default function Caisse() {
@@ -29,6 +30,8 @@ export default function Caisse() {
                 return <PaiementEspeces cart={cart} />
             case CartStates.PaiementCB:
                 return <PaiementCB cart={cart} />
+            case CartStates.HistoriqueVentes:
+                return <History onClickProduct={addItem} cart={cart} />
             default:
                 return <ProductGrid onClickProduct={addItem} cart={cart} />
         }
@@ -56,6 +59,11 @@ export default function Caisse() {
             {(!largeMode && activeTab === "produits") && (
                 <main>
                     <ProductGrid onClickProduct={addItem} cart={cart} />
+                </main>
+            )}
+            {(!largeMode && activeTab === "historique") && (
+                <main>
+                    <History onClickProduct={addItem} cart={cart} />
                 </main>
             )}
             {(!largeMode && activeTab === "paiement") && (
