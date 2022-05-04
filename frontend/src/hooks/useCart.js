@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 export function useCart() {
     const [items, setItems] = useState([]);
     const [state, setState] = useState(CartStates.Paye);
-    const [cardState, setCartState] = useState(CartCBStates.NA);
     const [especesRecues, setEspecesRecues] = useState(0);
     const [paymentId, setPaymentId] = useState(undefined);
     const [cartId, setCartId] = useState(undefined);
@@ -43,17 +42,37 @@ export function useCart() {
     }
 
     const paiementCB = () => {
-        setState(CartStates.PaiementCB);
         const total = getTotal();
         if (total > 0) {
+            setState(CartStates.PaiementCB);
             fetch("/pos/debit/" + total)
                 .then(res => res.json())
                 .then(res => {
                     setPaymentId(res?.id);
                 });
+            return;
+        }
+        if (total < 0) {
+            setState(CartStates.PaiementCB);
+            fetch("/pos/credit/" + total)
+                .then(res => res.json())
+                .then(res => {
+                    setPaymentId(res?.id);
+                });
+            return;
+        }
+        console.log("length:", items?.length)
+        if (items?.length > 0) {
+            setState(CartStates.Paye);
         }
     };
-    const paiementEspeces = () => setState(CartStates.PaiementEspeces);
+    const paiementEspeces = () => {
+        if (getTotal() !== 0) {
+            setState(CartStates.PaiementEspeces);
+        } else {
+            setState(CartStates.Paye);
+        }
+    }
     const retourEdition = () => { setState(CartStates.Saisie); setPaymentId(undefined); };
     const miseEnAttente = () => setState(CartStates.EnAttente);
     const annulationPaiement = () => setState(CartStates.Annule);
@@ -104,7 +123,7 @@ export const Product = PropTypes.shape({
     price: PropTypes.number.isRequired
 });
 
-export const CartType = {
+export const CartType = PropTypes.shape({
     items: PropTypes.arrayOf(Product),
     addItem: PropTypes.func,
     getTotal: PropTypes.func,
@@ -120,5 +139,5 @@ export const CartType = {
     especesRecues: PropTypes.number,
     paymentId: PropTypes.string,
     setPaymentId: PropTypes.func,
-    state: PropTypes.oneOf([CartStates.Saisie, CartStates.Annulation, CartStates.PaiementEspeces, CartStates.PaiementCB])
-}
+    state: PropTypes.oneOf(Object.values(CartStates))
+})

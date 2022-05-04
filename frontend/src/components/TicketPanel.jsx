@@ -55,9 +55,9 @@ export default function TicketPanel({ cart, totalOnly, className }) {
                             </StyledTableRow>
                         </TableHead>
                         <TableBody>
-                            {cart?.items?.map((row) => (
+                            {cart?.items?.map((row, id) => (
                                 <StyledTableRow
-                                    key={row.label}
+                                    key={row.label + id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <StyledTableCell component="th" scope="row">

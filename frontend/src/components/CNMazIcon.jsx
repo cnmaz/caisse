@@ -32,7 +32,7 @@ export default function CNMazIcon() {
                     id="g20">
                     <g
                         id="g22"
-                        clip-path="url(#clipPath26)">
+                        clipPath="url(#clipPath26)">
                         <g
                             id="g28"
                             transform="translate(429.1526,663.5336)">
@@ -55,7 +55,7 @@ export default function CNMazIcon() {
                     id="g36">
                     <g
                         id="g38"
-                        clip-path="url(#clipPath42)">
+                        clipPath="url(#clipPath42)">
                         <g
                             id="g44"
                             transform="translate(163.3705,677.5491)">

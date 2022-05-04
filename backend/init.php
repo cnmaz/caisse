@@ -32,7 +32,7 @@ function product($id, $label, $category, $price, $ordre)
     R::store($product);
 }
 
-$id = 0;
+$id = 1;
 product($id++, "Bière + Consigne EcopCup", $drinks, 3.5, 1);
 product($id++, "Retour Consigne EcoCup", $drinks, -1, 1);
 product($id++, "Bière", $drinks, 2.5, 1);

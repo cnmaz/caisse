@@ -13,6 +13,7 @@ export default function ProductGrid({ onClickProduct, cart }) {
             res.json()
         ))
 
+
     if (loading) {
         return <div className="product-grid-container"><CircularProgress /></div>
     }
@@ -27,13 +28,15 @@ export default function ProductGrid({ onClickProduct, cart }) {
 
     return <div className="product-grid-container">
         <ul>
-            {products?.map(product =>
-                <Badge badgeContent={numberOfProducts(product.id)} color="secondary" overlap="circular" key={product.id}>
-                    <Button variant="outlined" className="product" onClick={() => onClickProduct(product)} disabled={cart.state !== CartStates.Saisie && cart.state !== CartStates.Annulation}>
-                        {product?.label}
-                    </Button>
-                </Badge>
-            )}
+            {products
+                ?.map(product => ({ ...product, price: parseFloat(product.price) }))
+                ?.map(product =>
+                    <Badge badgeContent={numberOfProducts(product.id)} color="secondary" overlap="circular" key={product.id}>
+                        <Button variant="outlined" className="product" onClick={() => onClickProduct(product)} disabled={cart.state !== CartStates.Saisie && cart.state !== CartStates.Annulation}>
+                            {product?.label}
+                        </Button>
+                    </Badge>
+                )}
         </ul>
     </div>
 }

@@ -1,1 +1,4 @@
 flask
+pyserial
+windows-curses
+pycountry
