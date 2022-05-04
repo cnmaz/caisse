@@ -75,7 +75,7 @@ export default function TicketPanel({ cart, totalOnly, className }) {
             <TableBody>
                 {cart?.state === CartStates.Annulation && (
                     <StyledTableRow>
-                        <StyledTableCell variant="warning">Mode annulation d'articles</StyledTableCell>
+                        <StyledTableCell className="warning">Mode annulation d'articles</StyledTableCell>
                         <StyledTableCell align="right"><Button onClick={cart?.toggleAnnulation}>Terminé</Button></StyledTableCell>
                     </StyledTableRow>
                 )}

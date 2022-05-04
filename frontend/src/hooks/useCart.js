@@ -61,7 +61,6 @@ export function useCart() {
                 });
             return;
         }
-        console.log("length:", items?.length)
         if (items?.length > 0) {
             setState(CartStates.Paye);
         }

@@ -10,7 +10,33 @@ function link_products_to_sale($products, $sale)
 if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
-    echo json_encode(array_values(R::findAll('sale')), JSON_PRETTY_PRINT);
+    $sales = R::findMulti('sale,relation', ' SELECT sale.*, relation.* FROM sale INNER JOIN relation ON relation.sale_id = sale.id', [], array(array(
+        'a' => 'sale',
+        'b' => 'relation',
+        'matcher' =>  function ($a, $b) {
+            return $b->sale_id == $a->id;
+        },
+        'do' => function ($a, $b) {
+            if (is_array($a->noLoad()->products)) {
+                $a->noLoad()->products[] = $b->product_id;
+            } else {
+                $a->noLoad()->products = [$b->product_id];
+            }
+            // echo ('a' . $a . '/ b' . $b . "\n");
+        }
+    )));
+    // var_export($sales);
+    $sales = $sales['sale'];
+    // var_export($sales);
+    $sales = array_map(function ($a) {
+        return array(
+            'id' => $a->id,
+            'products' => $a->products,
+            'state' => $a->state
+        );
+    }, $sales);
+    // var_export($sales);
+    echo json_encode(array_values($sales), JSON_PRETTY_PRINT);
 } elseif ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
