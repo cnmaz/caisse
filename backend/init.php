@@ -16,6 +16,12 @@ $cakes->label = "Gateaux";
 $cakes->ordre = 2;
 R::store($cakes);
 
+$crepes = R::load("category", 2);
+$crepes->label = "Crêpes";
+$crepes->ordre = 3;
+R::store($crepes);
+
+
 function product($id, $label, $category, $price, $ordre)
 {
     $product = R::load("product", $id);
@@ -26,20 +32,32 @@ function product($id, $label, $category, $price, $ordre)
     R::store($product);
 }
 
-product(1, "Bière", $drinks, 2.5, 1);
-product(2, "Christaline (50cl)", $drinks, .5, 2);
-product(3, "San pellegrino (50cl)", $drinks, 1, 3);
-product(4, "Coca-Zero (33cl)", $drinks, 1, 4);
-product(5, "Coca (33cl)", $drinks, 1, 5);
-product(6, "Fanta (33cl)", $drinks, 1, 6);
-product(7, "Tropico pomme banane (33cl)", $drinks, 1, 6);
-product(8, "Tropico exotique (33cl)", $drinks, 1, 6);
-product(9, "Tropico orange (33cl)", $drinks, 1, 6);
+$id = 0;
+product($id++, "Bière + Consigne EcopCup", $drinks, 3.5, 1);
+product($id++, "Retour Consigne EcoCup", $drinks, -1, 1);
+product($id++, "Bière", $drinks, 2.5, 1);
+product($id++, "Eau plate (50cl)", $drinks, .5, 2);
+product($id++, "Coca-Zero (33cl)", $drinks, 1, 4);
+product($id++, "Coca (33cl)", $drinks, 1, 5);
+product($id++, "Fanta orange (33cl)", $drinks, 1, 6);
+product($id++, "Tropico orange ananas (33cl)", $drinks, 1, 6);
+product($id++, "Tropico tropical (33cl)", $drinks, 1, 6);
+product($id++, "Fuze tea (33cl)", $drinks, 1, 6);
 
-product(10, "Part tarte aux pommes", $cakes, 2, 1);
-product(11, "Part flan", $cakes, 2, 2);
-product(12, "Part cake chocolat", $cakes, 2, 3);
-product(13, "Part cake pépites chcolat", $cakes, 2, 3);
-product(14, "Part gateau citron", $cakes, 2, 3);
+product($id++, "Part de quatre quart", $cakes, 1.5, 1);
+product($id++, "Sucette", $cakes, 0.5, 1);
+// product(12, "Part flan", $cakes, 2, 2);
+// product(13, "Part cake chocolat", $cakes, 2, 3);
+// product(14, "Part cake pépites chcolat", $cakes, 2, 3);
+// product(15, "Part gateau citron", $cakes, 2, 3);
+
+$id = 40;
+product($id++, "Crêpe sucre", $crepes, 1.5, 1);
+product($id++, "Crêpe beurre sucre", $crepes, 1.5, 1);
+product($id++, "Crêpe confiture fraise", $crepes, 2, 1);
+product($id++, "Crêpe confiture framboise", $crepes, 2, 1);
+product($id++, "Crêpe confiture framboise", $crepes, 2, 1);
+product($id++, "Crêpe nutella", $crepes, 2, 1);
+product($id++, "Crêpe pâte à tartiner choco/noisette", $crepes, 2, 1);
 
 R::close();
