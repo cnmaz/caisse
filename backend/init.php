@@ -61,7 +61,6 @@ product($id++, "Crêpe sucre", $crepes, 1.5, 1);
 product($id++, "Crêpe beurre sucre", $crepes, 1.5, 1);
 product($id++, "Crêpe confiture fraise", $crepes, 2, 1);
 product($id++, "Crêpe confiture framboise", $crepes, 2, 1);
-product($id++, "Crêpe confiture framboise", $crepes, 2, 1);
 product($id++, "Crêpe nutella", $crepes, 2, 1);
 product($id++, "Crêpe pâte à tartiner choco/noisette", $crepes, 2, 1);
 
