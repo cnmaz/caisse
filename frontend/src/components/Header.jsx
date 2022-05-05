@@ -4,29 +4,33 @@ import { useState } from 'react';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import './Header.scss';
+import { useNavigate } from 'react-router';
 
 export default function Header() {
+    let navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
 
-    return <>
+
+    return <div className="header-container">
         <Drawer
             anchor={"left"}
             open={menuOpen}
             onClose={() => setMenuOpen(false)}
         >
-            <ListItem button>
+            <ListItem button onClick={() => navigate('/')}>
                 <ListItemIcon>
                     <PointOfSaleIcon />
                 </ListItemIcon>
                 <ListItemText primary={"Ventes"} />
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={() => navigate('/stats')}>
                 <ListItemIcon>
                     <QueryStatsIcon />
                 </ListItemIcon>
                 <ListItemText primary={"Statistiques des ventes"} />
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={() => navigate('/preparation')}>
                 <ListItemIcon>
                     <OutdoorGrillIcon />
                 </ListItemIcon>
@@ -52,5 +56,5 @@ export default function Header() {
                 <Button disabled color="inherit">Login</Button>
             </Toolbar>
         </AppBar>
-    </>
+    </div>
 }

@@ -5,8 +5,12 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { CartStates, CartStatesLabels, CartType } from "../hooks/useCart";
 import { func } from 'prop-types';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import './History.scss'
 
 export default function History({ cart, setActiveTab }) {
+    const largeMode = useMediaQuery('(min-width:600px)');
+
     const { data: products, loading: loadingProducts, error: errorProducts } = useQuery(["products"], () =>
         fetch('/api/product').then(res =>
             res.json()
@@ -81,11 +85,11 @@ export default function History({ cart, setActiveTab }) {
         }
     }
 
-    return <Table size="small" aria-label="Detail ticket" className="detail-table">
+    return <Table size="small" aria-label="Historique des ventes" className="history-table">
         <TableHead>
             <StyledTableRow>
                 <StyledTableCell variant="head">Heure</StyledTableCell>
-                <StyledTableCell variant="head">Nb. Produits</StyledTableCell>
+                <StyledTableCell variant="head">Nb. {largeMode ? "Produits" : "Pr."}</StyledTableCell>
                 <StyledTableCell variant="head">Total</StyledTableCell>
                 <StyledTableCell variant="head">Statut</StyledTableCell>
                 <StyledTableCell variant="head">Actions</StyledTableCell>

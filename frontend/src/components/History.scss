@@ -1,0 +1,8 @@
+.history-table {
+    @media (max-width: 600px) {
+        th {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
