@@ -1,11 +1,12 @@
-import { Alert, CircularProgress, Table, TableBody, TableHead, TableRow } from "@mui/material";
+import { Alert, Button, CircularProgress, Table, TableBody, TableHead, TableRow } from "@mui/material";
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { CartStatesLabels } from "../hooks/useCart";
+import { CartStatesLabels, CartType } from "../hooks/useCart";
+import { func } from 'prop-types';
 
-export default function History() {
+export default function History({ cart, setActiveTab }) {
     const { data: products, loading: loadingProducts, error: errorProducts } = useQuery(["products"], () =>
         fetch('/api/product').then(res =>
             res.json()
@@ -61,14 +62,29 @@ export default function History() {
         },
     }));
 
+    const open = (row) => () => {
+        if (!products) return;
+        const newCart = {
+            ...row,
+            state: parseInt(row.state),
+            items: row.products
+                ?.map(pid => products
+                    ?.map(product => ({ ...product, price: parseFloat(product.price) }))
+                    ?.find(it => it.id === pid)
+                )
+        }
+        cart?.ouvrirVente(newCart);
+        setActiveTab("produits")
+    }
+
     return <Table size="small" aria-label="Detail ticket" className="detail-table">
         <TableHead>
             <StyledTableRow>
-                <StyledTableCell variant="head">Id</StyledTableCell>
                 <StyledTableCell variant="head">Heure</StyledTableCell>
                 <StyledTableCell variant="head">Nb. Produits</StyledTableCell>
                 <StyledTableCell variant="head">Total</StyledTableCell>
                 <StyledTableCell variant="head">Statut</StyledTableCell>
+                <StyledTableCell variant="head">Actions</StyledTableCell>
             </StyledTableRow>
         </TableHead>
         <TableBody>
@@ -78,28 +94,30 @@ export default function History() {
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                     <StyledTableCell component="th" scope="row">
-                        {row.id}
-                    </StyledTableCell>
-                    <StyledTableCell component="th" scope="row">
-                        TODO
+                        {new Date(parseInt(row.updated) * 1000)?.toLocaleDateString('fr',)} {new Date(parseInt(row.updated) * 1000)?.toLocaleTimeString('fr',)}
                     </StyledTableCell>
                     <StyledTableCell component="th" scope="row">
                         {row.products.length}
                     </StyledTableCell>
                     <StyledTableCell component="th" scope="row">
-                        {row.products
+                        {formatCurrency(row.products
                             ?.map(pid => products
                                 ?.find(it => it.id === pid)
                             )
                             ?.map(p => p.price)
                             ?.reduce((acc, it) => acc + parseFloat(it), 0)
-                        }
+                        )}
                     </StyledTableCell>
                     <StyledTableCell component="th" scope="row">
                         {CartStatesLabels[row.state]}
+                    </StyledTableCell>
+                    <StyledTableCell component="th" scope="row">
+                        <Button onClick={open(row)}>Reprendre</Button>
                     </StyledTableCell>
                 </StyledTableRow>
             ))}
         </TableBody>
     </Table>;
 }
+History.propTypes = { cart: CartType, setActiveTab: func }
+History.defaultProps = { cart: undefined, setActiveTab: () => { } }

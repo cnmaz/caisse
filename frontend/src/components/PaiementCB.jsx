@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { Button } from '@mui/material';
+import { func } from 'prop-types';
+import { CartType } from '../hooks/useCart';
 
-export default function PaiementCB({ cart }) {
+export default function PaiementCB({ cart, setActiveTab }) {
     const useTPE = true;
     const [result, setResult] = useState(undefined);
     const sent = cart?.paymentId;
@@ -26,11 +28,11 @@ export default function PaiementCB({ cart }) {
             if (result === "7") {
                 setResult(false);
             } else if (result === "0") {
-                setTimeout(() => { cart?.validationPaiement() }, 3000);
+                setTimeout(() => { cart?.validationPaiement(); setActiveTab('actions'); }, 3000);
                 setResult(true);
             }
         }
-    }, [payments, cart]);
+    }, [payments, cart, setActiveTab]);
 
     if (!useTPE) {
 
@@ -64,3 +66,5 @@ export default function PaiementCB({ cart }) {
         {/* <p>Result {JSON.stringify(result)}</p> */}
     </div>
 }
+PaiementCB.propTypes = { cart: CartType, setActiveTab: func }
+PaiementCB.defaultProps = { cart: undefined, setActiveTab: () => { } }

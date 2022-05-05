@@ -36,7 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
         return array(
             'id' => $a->id,
             'products' => $a->products,
-            'state' => $a->state
+            'state' => $a->state,
+            'created' => $a->created,
+            'updated' => $a->updated,
         );
     }, $sales);
     echo json_encode(array_values($sales), JSON_PRETTY_PRINT);
@@ -48,6 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $body = json_decode(file_get_contents("php://input"));
     $new_sale = R::dispense("sale");
     $new_sale->state = $body->state;
+    if (is_null($new_sale->created)) {
+        $new_sale->created = time();
+    }
+    $new_sale->updated = time();
     if ($body->products != null) {
         $new_sale = link_products_to_sale($body->products, $new_sale);
     }
@@ -64,6 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $new_sale = R::load("sale", $body->id);
     $new_sale->state = $body->state;
     $new_sale = link_products_to_sale($body->products, $new_sale);
+    if (is_null($new_sale->created)) {
+        $new_sale->created = time();
+    }
+    $new_sale->updated = time();
     R::store($new_sale);
     // var_export($new_sale);
     header("Content-Type: application/json; charset=UTF-8");

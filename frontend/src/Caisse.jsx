@@ -1,5 +1,4 @@
 import { AppBar, IconButton, Toolbar, Typography, Button, BottomNavigation, BottomNavigationAction } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
 import React, { useState } from 'react';
 import './Caisse.scss'
@@ -10,6 +9,7 @@ import BentoIcon from '@mui/icons-material/Bento';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import PaymentIcon from '@mui/icons-material/Payment';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
 import { CartStates, useCart } from './hooks/useCart';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import PaiementEspeces from './components/PaiementEspeces';
@@ -29,9 +29,9 @@ export default function Caisse() {
             case CartStates.PaiementEspeces:
                 return <PaiementEspeces cart={cart} />
             case CartStates.PaiementCB:
-                return <PaiementCB cart={cart} />
+                return <PaiementCB cart={cart} setActiveTab={setActiveTab} />
             case CartStates.HistoriqueVentes:
-                return <History onClickProduct={addItem} cart={cart} />
+                return <History onClickProduct={addItem} cart={cart} setActiveTab={setActiveTab} />
             default:
                 return <ProductGrid onClickProduct={addItem} cart={cart} />
         }
@@ -63,13 +63,13 @@ export default function Caisse() {
             )}
             {(!largeMode && activeTab === "historique") && (
                 <main>
-                    <History onClickProduct={addItem} cart={cart} />
+                    <History onClickProduct={addItem} cart={cart} setActiveTab={setActiveTab} />
                 </main>
             )}
             {(!largeMode && activeTab === "paiement") && (
                 <main>
                     {cart.state === CartStates.PaiementEspeces && <PaiementEspeces cart={cart} />}
-                    {cart.state === CartStates.PaiementCB && <PaiementCB cart={cart} />}
+                    {cart.state === CartStates.PaiementCB && <PaiementCB cart={cart} setActiveTab={setActiveTab} />}
                 </main>
             )}
             {(largeMode) && (
@@ -92,6 +92,7 @@ export default function Caisse() {
         >
             {(cart?.state === CartStates.Saisie || cart?.state === CartStates.Annulation) && <BottomNavigationAction value="produits" label="Produits" icon={<BentoIcon />} />}
             {(cart?.state === CartStates.PaiementEspeces || cart?.state === CartStates.PaiementCB) && <BottomNavigationAction value="paiement" label="Paiement" icon={<PaymentIcon />} />}
+            {(cart?.state === CartStates.HistoriqueVentes) && <BottomNavigationAction value="historique" label="Historique" icon={<FactCheckIcon />} />}
             <BottomNavigationAction value="ticket" label="Ticket" icon={<ViewListIcon />} />
             <BottomNavigationAction value="actions" label="Actions" icon={<PointOfSaleIcon />} />
         </BottomNavigation>}

@@ -24,7 +24,8 @@ export function useCart() {
 
     const addItem = useCallback((item) => setItems(initial => {
         if (state === CartStates.Annulation) {
-            const index = initial.lastIndexOf(item);
+            const found = initial.find(it => it.id === item.id);
+            const index = initial.lastIndexOf(found);
             if (index === -1) { return initial; }
             return initial.filter((_, idx) => idx !== index);
         } else {
@@ -80,6 +81,15 @@ export function useCart() {
         setCartId(undefined);
         setState(CartStates.HistoriqueVentes)
     }
+    const ouvrirVente = (sale) => {
+        if (!sale.id || !sale.items) return;
+        if (sale.state === CartStates.Saisie || sale.state === CartStates.EnAttente || sale.state === CartStates.Annule) {
+            sale.state = CartStates.Saisie
+        }
+        setCartId(sale.id);
+        setItems(sale.items);
+        setState(sale.state);
+    }
 
 
     const nouveauClient = () => {
@@ -102,7 +112,7 @@ export function useCart() {
     return {
         items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement,
         especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement, miseEnAttente,
-        paymentId, setPaymentId, historiqueVentes
+        paymentId, setPaymentId, historiqueVentes, ouvrirVente
     }
 }
 
@@ -146,6 +156,7 @@ export const CartType = PropTypes.shape({
     miseEnAttente: PropTypes.func,
     validationPaiement: PropTypes.func,
     historiqueVentes: PropTypes.func,
+    ouvrirVente: PropTypes.func,
     setEspecesRecues: PropTypes.func,
     especesRecues: PropTypes.number,
     paymentId: PropTypes.string,
