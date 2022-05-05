@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import React from 'react';
 import { useQuery } from 'react-query';
 import './Commandes.scss';
-import { CartStates } from "../hooks/useCart";
+import { CartStates, ProductStatesLabels } from "../hooks/useCart";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Commandes() {
@@ -82,14 +82,16 @@ export default function Commandes() {
                     ?.reverse()
                     ?.filter(row => parseInt(row.state) === CartStates.Paye)
                     ?.map((sale) => ({
-                        ...sale, items: sale.products
-                            ?.map(pid => products
-                                ?.map(product => ({ ...product, price: parseFloat(product.price) }))
-                                ?.find(it => it.id === pid)
+                        ...sale, items: sale.items
+                            ?.map(item => ({
+                                ...item, product: products
+                                    ?.map(product => ({ ...product, price: parseFloat(product.price) }))
+                                    ?.find(it => it.id === item?.product_id)
+                            })
                             )
                     }))
                     ?.map((sale) => sale.items
-                        ?.filter(item => item.preparation === '1')
+                        ?.filter(item => item?.product?.preparation === '1')
                         ?.map((item, idx) =>
                             <StyledTableRow
                                 key={sale.id + '-' + idx}
@@ -99,10 +101,10 @@ export default function Commandes() {
                                     {sale.id}
                                 </StyledTableCell>
                                 <StyledTableCell component="th" scope="row">
-                                    {item?.label}
+                                    {item?.product?.label}
                                 </StyledTableCell>
                                 <StyledTableCell align="right" component="th" scope="row">
-                                    ?
+                                    {ProductStatesLabels[item?.state]}
                                 </StyledTableCell>
                                 <StyledTableCell align="right" component="th" scope="row">
                                     ?

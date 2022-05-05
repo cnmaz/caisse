@@ -71,10 +71,13 @@ export default function History({ cart, setActiveTab }) {
         const newCart = {
             ...row,
             state: parseInt(row.state),
-            items: row.products
-                ?.map(pid => products
-                    ?.map(product => ({ ...product, price: parseFloat(product.price) }))
-                    ?.find(it => it.id === pid)
+            items: row.items
+                ?.map(item => ({
+                    item: products
+                        ?.map(product => ({ ...product, price: parseFloat(product.price) }))
+                        ?.find(it => it.id === item?.product_id),
+                    state: item?.state
+                })
                 )
         }
         cart?.ouvrirVente(newCart);
@@ -107,14 +110,14 @@ export default function History({ cart, setActiveTab }) {
                             {new Date(parseInt(row.created) * 1000)?.toLocaleDateString('fr',)} {new Date(parseInt(row.created) * 1000)?.toLocaleTimeString('fr',)}
                         </StyledTableCell>
                         <StyledTableCell component="th" scope="row">
-                            {row.products.length}
+                            {row.items.length}
                         </StyledTableCell>
                         <StyledTableCell component="th" scope="row">
-                            {formatCurrency(row.products
-                                ?.map(pid => products
-                                    ?.find(it => it.id === pid)
+                            {formatCurrency(row.items
+                                ?.map(item => products
+                                    ?.find(it => it.id === item?.product_id)
                                 )
-                                ?.map(p => p.price)
+                                ?.map(p => p?.price)
                                 ?.reduce((acc, it) => acc + parseFloat(it), 0)
                             )}
                         </StyledTableCell>

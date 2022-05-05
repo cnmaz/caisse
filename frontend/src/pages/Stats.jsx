@@ -96,10 +96,10 @@ export default function Stats() {
                             </StyledTableCell>
                             <StyledTableCell align="right" component="th" scope="row">
                                 {formatCurrency(sales
-                                    ?.flatMap(sale => sale.products)
-                                    ?.filter(pid => pid === row.id)
-                                    ?.map(pid => products.find(p => p.id === pid))
-                                    ?.map(p => p.price)
+                                    ?.flatMap(sale => sale.items)
+                                    ?.filter(item => item?.product_id === row.id)
+                                    ?.map(item => products.find(p => p.id === item?.product_id))
+                                    ?.map(p => p?.price)
                                     ?.reduce((acc, it) => acc + parseFloat(it), 0)
                                 )}
                             </StyledTableCell>
@@ -110,9 +110,9 @@ export default function Stats() {
                     <StyledTableCell variant="footer"></StyledTableCell>
                     <StyledTableCell variant="footer"></StyledTableCell>
                     <StyledTableCell align="right" variant="footer">{formatCurrency(sales
-                        ?.flatMap(sale => sale.products)
-                        ?.map(pid => products.find(p => p.id === pid))
-                        ?.map(p => p.price)
+                        ?.flatMap(sale => sale.items)
+                        ?.map(item => products.find(p => p.id === item?.product_id))
+                        ?.map(p => p?.price)
                         ?.reduce((acc, it) => acc + parseFloat(it), 0)
                     )}</StyledTableCell>
                 </StyledTableRow>

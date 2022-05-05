@@ -45,6 +45,7 @@ export default function TicketPanel({ cart, totalOnly, className }) {
     return <div className={className ?? "ticket-panel-container"}>
         {totalOnly || (
             <>
+                {/* {JSON.stringify(cart?.items)} */}
                 <h1>Ticket{cart.state !== CartStates.Paye && " en cours"}</h1>
                 <div className="detail-table-container">
                     <Table size="small" aria-label="Detail ticket" className="detail-table">
@@ -57,13 +58,13 @@ export default function TicketPanel({ cart, totalOnly, className }) {
                         <TableBody>
                             {cart?.items?.map((row, id) => (
                                 <StyledTableRow
-                                    key={row.label + id}
+                                    key={row?.item?.label + id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <StyledTableCell component="th" scope="row">
-                                        {row.label}
+                                        {row?.item?.label}
                                     </StyledTableCell>
-                                    <StyledTableCell align="right">{formatCurrency(row.price)}</StyledTableCell>
+                                    <StyledTableCell align="right">{formatCurrency(row?.item?.price)}</StyledTableCell>
                                 </StyledTableRow>
                             ))}
                         </TableBody>

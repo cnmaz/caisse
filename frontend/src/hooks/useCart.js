@@ -15,7 +15,7 @@ export function useCart() {
             body: JSON.stringify({
                 state: state,
                 id: cartId,
-                products: items.map(it => it.id)
+                products: items.map(it => ({ "product_id": it?.item?.id, "state": it?.state }))
             }),
             headers:
                 { "Content-Type": 'application/json' }
@@ -24,16 +24,16 @@ export function useCart() {
 
     const addItem = useCallback((item) => setItems(initial => {
         if (state === CartStates.Annulation) {
-            const found = initial.find(it => it.id === item.id);
+            const found = initial.find(it => it?.item?.id === item.id);
             const index = initial.lastIndexOf(found);
             if (index === -1) { return initial; }
             return initial.filter((_, idx) => idx !== index);
         } else {
-            return [...initial, item]
+            return [...initial, { item, state: ProductStates.Inexistant }]
         }
     }), [state, setItems]);
 
-    const getTotal = () => items?.map(item => parseFloat(item.price))?.reduce((acc, it) => acc + it, 0);
+    const getTotal = () => items?.map(item => parseFloat(item?.item?.price))?.reduce((acc, it) => acc + it, 0);
     const toggleAnnulation = () => {
         if (state === CartStates.Annulation) {
             setState(CartStates.Saisie);
@@ -128,7 +128,16 @@ export const CartStates = {
     Servi: 8,
 }
 
+
+export const ProductStates = {
+    AFaire: 0,
+    EnPreparation: 1,
+    Servi: 2
+}
+
+
 export const CartStatesLabels = Object.keys(CartStates).reduce((acc, it) => ({ ...acc, [CartStates[it]]: it }), {})
+export const ProductStatesLabels = Object.keys(ProductStates).reduce((acc, it) => ({ ...acc, [ProductStates[it]]: it }), {})
 
 export const Product = PropTypes.shape({
     id: PropTypes.string.isRequired,
@@ -137,7 +146,10 @@ export const Product = PropTypes.shape({
 });
 
 export const CartType = PropTypes.shape({
-    items: PropTypes.arrayOf(Product),
+    items: PropTypes.arrayOf(PropTypes.shape({
+        item: (Product),
+        state: PropTypes.oneOf(Object.values(ProductStates))
+    })),
     addItem: PropTypes.func,
     getTotal: PropTypes.func,
     toggleAnnulation: PropTypes.func,

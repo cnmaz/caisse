@@ -1,14 +1,15 @@
 <?php
 function link_products_to_sale($products, $sale)
 {
-    $product_array = array_map(function ($p) {
-        return  R::load("product", $p);
-    }, $products);
-    R::trashAll(R::find("relation", "sale_id = ?", [$sale->id]));
-    foreach ($product_array as $product) {
-        $rel = R::dispense("relation");
+    // $product_array = array_map(function ($p) {
+    //     return  R::load("product", $p->product_id);
+    // }, $products);
+    R::trashAll(R::find("solditem", "sale_id = ?", [$sale->id]));
+    foreach ($products as $product_info) {
+        $rel = R::dispense("solditem");
         $rel->sale_id = $sale->id;
-        $rel->product_id = $product->id;
+        $rel->product_id = $product_info->product_id;
+        $rel->state = $product_info->state;
         R::store($rel);
     }
     return $sale;
@@ -16,17 +17,17 @@ function link_products_to_sale($products, $sale)
 if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
-    $sales = R::findMulti('sale,relation', ' SELECT sale.*, relation.* FROM sale INNER JOIN relation ON relation.sale_id = sale.id ORDER BY sale.created DESC', [], array(array(
+    $sales = R::findMulti('sale,solditem', ' SELECT sale.*, solditem.* FROM sale INNER JOIN solditem ON solditem.sale_id = sale.id ORDER BY sale.created DESC', [], array(array(
         'a' => 'sale',
-        'b' => 'relation',
+        'b' => 'solditem',
         'matcher' =>  function ($a, $b) {
             return $b->sale_id == $a->id;
         },
         'do' => function ($a, $b) {
-            if (is_array($a->noLoad()->products)) {
-                $a->noLoad()->products[] = $b->product_id;
+            if (is_array($a->noLoad()->items)) {
+                $a->noLoad()->items[] = $b;
             } else {
-                $a->noLoad()->products = [$b->product_id];
+                $a->noLoad()->items = [$b];
             }
             // echo ('a' . $a . '/ b' . $b . "\n");
         }
@@ -35,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $sales = array_map(function ($a) {
         return array(
             'id' => $a->id,
-            'products' => $a->products,
+            'items' => $a->items,
             'state' => $a->state,
             'created' => $a->created,
             'updated' => $a->updated,

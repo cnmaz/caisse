@@ -28,7 +28,7 @@ export default function ProductGrid({ onClickProduct, cart }) {
     }
 
     const numberOfProducts = (id) => {
-        return cart?.items?.map(it => it.id).filter(it => it === id).length;
+        return cart?.items?.map(it => it?.item?.id).filter(it => it === id).length;
     }
 
     return <div className="product-grid-container">
