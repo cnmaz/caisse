@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Toolbar, Typography, Button, BottomNavigation, BottomNavigationAction } from '@mui/material';
+import { AppBar, IconButton, Toolbar, Typography, Button, BottomNavigation, BottomNavigationAction, Drawer, ListItem } from '@mui/material';
 
 import React, { useState } from 'react';
 import './Caisse.scss'
@@ -14,8 +14,8 @@ import { CartStates, useCart } from './hooks/useCart';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import PaiementEspeces from './components/PaiementEspeces';
 import PaiementCB from './components/PaiementCB';
-import CNMazIcon from './components/CNMazIcon';
 import History from './components/History';
+import Header from './components/Header';
 
 
 export default function Caisse() {
@@ -38,23 +38,7 @@ export default function Caisse() {
     }
 
     return <div className="caisse-container">
-        <AppBar position="static">
-            <Toolbar>
-                <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{ mr: 2 }}
-                >
-                    <CNMazIcon />
-                </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Caisse
-                </Typography>
-                <Button color="inherit">Login</Button>
-            </Toolbar>
-        </AppBar>
+        <Header />
         <div className="caisse-content">
             {(!largeMode && activeTab === "produits") && (
                 <main>
@@ -83,18 +67,20 @@ export default function Caisse() {
             </aside>
         </div>
         {!largeMode && activeTab !== "ticket" && <TicketPanel cart={cart} totalOnly className="total-only-container" />}
-        {largeMode || <BottomNavigation
-            showLabels
-            value={activeTab}
-            onChange={(_, newValue) => {
-                setActiveTab(newValue);
-            }}
-        >
-            {(cart?.state === CartStates.Saisie || cart?.state === CartStates.Annulation) && <BottomNavigationAction value="produits" label="Produits" icon={<BentoIcon />} />}
-            {(cart?.state === CartStates.PaiementEspeces || cart?.state === CartStates.PaiementCB) && <BottomNavigationAction value="paiement" label="Paiement" icon={<PaymentIcon />} />}
-            {(cart?.state === CartStates.HistoriqueVentes) && <BottomNavigationAction value="historique" label="Historique" icon={<FactCheckIcon />} />}
-            <BottomNavigationAction value="ticket" label="Ticket" icon={<ViewListIcon />} />
-            <BottomNavigationAction value="actions" label="Actions" icon={<PointOfSaleIcon />} />
-        </BottomNavigation>}
-    </div>
+        {
+            largeMode || <BottomNavigation
+                showLabels
+                value={activeTab}
+                onChange={(_, newValue) => {
+                    setActiveTab(newValue);
+                }}
+            >
+                {(cart?.state === CartStates.Saisie || cart?.state === CartStates.Annulation) && <BottomNavigationAction value="produits" label="Produits" icon={<BentoIcon />} />}
+                {(cart?.state === CartStates.PaiementEspeces || cart?.state === CartStates.PaiementCB) && <BottomNavigationAction value="paiement" label="Paiement" icon={<PaymentIcon />} />}
+                {(cart?.state === CartStates.HistoriqueVentes) && <BottomNavigationAction value="historique" label="Historique" icon={<FactCheckIcon />} />}
+                <BottomNavigationAction value="ticket" label="Ticket" icon={<ViewListIcon />} />
+                <BottomNavigationAction value="actions" label="Actions" icon={<PointOfSaleIcon />} />
+            </BottomNavigation>
+        }
+    </div >
 }

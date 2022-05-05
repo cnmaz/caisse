@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Alert, Badge, Button, CircularProgress } from '@mui/material';
+import { Alert, Badge, Button, CircularProgress } from '@mui/material';
 import React from 'react';
 
 import { func } from 'prop-types';
