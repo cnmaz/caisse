@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Toolbar, Typography, Button, BottomNavigation, BottomNavigationAction, Drawer, ListItem } from '@mui/material';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 
 import React, { useState } from 'react';
 import './Caisse.scss'
