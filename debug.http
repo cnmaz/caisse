@@ -10,7 +10,7 @@ POST http://localhost:3001/sale
 ###
 PUT http://localhost:3001/sale
 
-{"state":"0","id":14,"products":[4,4]}
+{"state":"0","id":1,"products":[5,5,3]}
 
 ###
 GET http://localhost:5000/debit/18.45

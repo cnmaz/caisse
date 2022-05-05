@@ -4,7 +4,13 @@ function link_products_to_sale($products, $sale)
     $product_array = array_map(function ($p) {
         return  R::load("product", $p);
     }, $products);
-    $sale->via("relation")->sharedProductList = $product_array;
+    R::trashAll(R::find("relation", "sale_id = ?", [$sale->id]));
+    foreach ($product_array as $product) {
+        $rel = R::dispense("relation");
+        $rel->sale_id = $sale->id;
+        $rel->product_id = $product->id;
+        R::store($rel);
+    }
     return $sale;
 }
 if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
@@ -25,9 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
             // echo ('a' . $a . '/ b' . $b . "\n");
         }
     )));
-    // var_export($sales);
     $sales = $sales['sale'];
-    // var_export($sales);
     $sales = array_map(function ($a) {
         return array(
             'id' => $a->id,
@@ -35,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
             'state' => $a->state
         );
     }, $sales);
-    // var_export($sales);
     echo json_encode(array_values($sales), JSON_PRETTY_PRINT);
 } elseif ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     header("Content-Type: application/json; charset=UTF-8");
