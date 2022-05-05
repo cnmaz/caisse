@@ -3,7 +3,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { CartStatesLabels, CartType } from "../hooks/useCart";
+import { CartStates, CartStatesLabels, CartType } from "../hooks/useCart";
 import { func } from 'prop-types';
 
 export default function History({ cart, setActiveTab }) {
@@ -74,7 +74,11 @@ export default function History({ cart, setActiveTab }) {
                 )
         }
         cart?.ouvrirVente(newCart);
-        setActiveTab("produits")
+        if (row.state === CartStates.Paye) {
+            setActiveTab("ticket")
+        } else {
+            setActiveTab("produits")
+        }
     }
 
     return <Table size="small" aria-label="Detail ticket" className="detail-table">
@@ -88,34 +92,36 @@ export default function History({ cart, setActiveTab }) {
             </StyledTableRow>
         </TableHead>
         <TableBody>
-            {sales?.map((row) => (
-                <StyledTableRow
-                    key={row.id}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                    <StyledTableCell component="th" scope="row">
-                        {new Date(parseInt(row.updated) * 1000)?.toLocaleDateString('fr',)} {new Date(parseInt(row.updated) * 1000)?.toLocaleTimeString('fr',)}
-                    </StyledTableCell>
-                    <StyledTableCell component="th" scope="row">
-                        {row.products.length}
-                    </StyledTableCell>
-                    <StyledTableCell component="th" scope="row">
-                        {formatCurrency(row.products
-                            ?.map(pid => products
-                                ?.find(it => it.id === pid)
-                            )
-                            ?.map(p => p.price)
-                            ?.reduce((acc, it) => acc + parseFloat(it), 0)
-                        )}
-                    </StyledTableCell>
-                    <StyledTableCell component="th" scope="row">
-                        {CartStatesLabels[row.state]}
-                    </StyledTableCell>
-                    <StyledTableCell component="th" scope="row">
-                        <Button onClick={open(row)}>Reprendre</Button>
-                    </StyledTableCell>
-                </StyledTableRow>
-            ))}
+            {sales
+                ?.map(row => ({ ...row, state: parseInt(row.state) }))
+                ?.map((row) => (
+                    <StyledTableRow
+                        key={row.id}
+                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                        <StyledTableCell component="th" scope="row">
+                            {new Date(parseInt(row.created) * 1000)?.toLocaleDateString('fr',)} {new Date(parseInt(row.created) * 1000)?.toLocaleTimeString('fr',)}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                            {row.products.length}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                            {formatCurrency(row.products
+                                ?.map(pid => products
+                                    ?.find(it => it.id === pid)
+                                )
+                                ?.map(p => p.price)
+                                ?.reduce((acc, it) => acc + parseFloat(it), 0)
+                            )}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                            {CartStatesLabels[row.state]}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                            <Button onClick={open(row)}>{row.state === CartStates.Paye ? 'Consulter' : 'Reprendre'}</Button>
+                        </StyledTableCell>
+                    </StyledTableRow>
+                ))}
         </TableBody>
     </Table>;
 }

@@ -11,15 +11,20 @@ $drinks->label = "Boissons";
 $drinks->ordre = 1;
 R::store($drinks);
 
-$cakes = R::load("category", 2);
+$cakes = R::load("category", 3);
 $cakes->label = "Gateaux";
 $cakes->ordre = 2;
 R::store($cakes);
 
-$crepes = R::load("category", 2);
+$crepes = R::load("category", 4);
 $crepes->label = "Crêpes";
 $crepes->ordre = 3;
 R::store($crepes);
+
+$other = R::load("category", 5);
+$other->label = "Autres";
+$other->ordre = 3;
+R::store($other);
 
 
 function product($id, $label, $category, $price, $ordre)
@@ -59,5 +64,8 @@ product($id++, "Crêpe confiture framboise", $crepes, 2, 1);
 product($id++, "Crêpe confiture framboise", $crepes, 2, 1);
 product($id++, "Crêpe nutella", $crepes, 2, 1);
 product($id++, "Crêpe pâte à tartiner choco/noisette", $crepes, 2, 1);
+
+$id = 400;
+product($id++, "Droit d'inscription régate", $other, 10, 1);
 
 R::close();

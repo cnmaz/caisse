@@ -1,4 +1,5 @@
 .product-grid-container {
+
     ul {
         margin: 0;
         padding: 2px;
@@ -6,9 +7,15 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, 155px);
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: left;
 
         width: 100%;
+    }
+
+    li {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
     }
 
     // overflow-y: hidden;

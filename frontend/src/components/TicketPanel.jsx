@@ -45,7 +45,7 @@ export default function TicketPanel({ cart, totalOnly, className }) {
     return <div className={className ?? "ticket-panel-container"}>
         {totalOnly || (
             <>
-                <h1>Ticket en cours</h1>
+                <h1>Ticket{cart.state !== CartStates.Paye && " en cours"}</h1>
                 <div className="detail-table-container">
                     <Table size="small" aria-label="Detail ticket" className="detail-table">
                         <TableHead>

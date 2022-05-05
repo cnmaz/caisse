@@ -7,7 +7,11 @@
     "start": "concurrently --kill-others \"npm run start-frontend\" \"npm run start-backend\" \"npm run start-pos-driver\"",
     "start-frontend": "cd frontend && npm install && npm run start",
     "start-backend": "cd backend && php -S 127.0.0.1:3001 index.php",
-    "start-pos-driver": "cd pos-driver && python3 -m flask run --with-threads"
+    "start-pos-driver": "cd pos-driver && python3 -m flask run --with-threads",
+    "install": "concurrently \"npm run install-frontend\" \"npm run install-pos-driver\"",
+    "install-frontend": "cd frontend && npm install",
+    "install-pos-driver": "cd pos-driver && python3 -m pip install -r requirements.txt",
+    "install-and-start": "npm install && npm run install && npm run start"
   },
   "author": "",
   "license": "Unlicensed",
