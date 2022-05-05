@@ -55,7 +55,7 @@ export function useCart() {
         }
         if (total < 0) {
             setState(CartStates.PaiementCB);
-            fetch("/pos/credit/" + total)
+            fetch("/pos/credit/" + (-total))
                 .then(res => res.json())
                 .then(res => {
                     setPaymentId(res?.id);
