@@ -16,7 +16,7 @@ function link_products_to_sale($products, $sale)
 if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
-    $sales = R::findMulti('sale,relation', ' SELECT sale.*, relation.* FROM sale INNER JOIN relation ON relation.sale_id = sale.id ORDER BY sale.created', [], array(array(
+    $sales = R::findMulti('sale,relation', ' SELECT sale.*, relation.* FROM sale INNER JOIN relation ON relation.sale_id = sale.id ORDER BY sale.created DESC', [], array(array(
         'a' => 'sale',
         'b' => 'relation',
         'matcher' =>  function ($a, $b) {

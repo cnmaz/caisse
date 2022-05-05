@@ -125,17 +125,10 @@ export const CartStates = {
     Annule: 5,
     EnAttente: 6,
     HistoriqueVentes: 7,
+    Servi: 8,
 }
 
 export const CartStatesLabels = Object.keys(CartStates).reduce((acc, it) => ({ ...acc, [CartStates[it]]: it }), {})
-
-export const CartCBStates = {
-    NA: 0,
-    Pending: 1,
-    Sent: 2,
-    OK: 3,
-    KO: 4,
-}
 
 export const Product = PropTypes.shape({
     id: PropTypes.string.isRequired,
