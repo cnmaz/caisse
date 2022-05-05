@@ -66,6 +66,8 @@ export default function Commandes() {
         },
     }));
 
+    const rsales = sales?.sort((a, b) => a.id === b.id ? 0 : (a.id < b.id ? -1 : 1));
+
 
     return <div className="stats-container">
         <Table size="small" aria-label="Historique des ventes" className="history-table">
@@ -78,8 +80,7 @@ export default function Commandes() {
                 </StyledTableRow>
             </TableHead>
             <TableBody>
-                {sales
-                    ?.reverse()
+                {rsales
                     ?.filter(row => parseInt(row.state) === CartStates.Paye)
                     ?.map((sale) => ({
                         ...sale, items: sale.items

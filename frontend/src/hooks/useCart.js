@@ -15,7 +15,7 @@ export function useCart() {
             body: JSON.stringify({
                 state: state,
                 id: cartId,
-                products: items.map(it => ({ "product_id": it?.item?.id, "state": it?.state }))
+                products: items.map(it => ({ "product_id": it?.item?.id, "state": it?.state ?? ProductStates.AFaire }))
             }),
             headers:
                 { "Content-Type": 'application/json' }
@@ -29,7 +29,7 @@ export function useCart() {
             if (index === -1) { return initial; }
             return initial.filter((_, idx) => idx !== index);
         } else {
-            return [...initial, { item, state: ProductStates.Inexistant }]
+            return [...initial, { item, state: ProductStates.AFaire }]
         }
     }), [state, setItems]);
 

@@ -89,8 +89,8 @@ export default function Stats() {
                             </StyledTableCell>
                             <StyledTableCell align="right" component="th" scope="row">
                                 {sales
-                                    ?.flatMap(sale => sale.products)
-                                    ?.filter(pid => pid === row.id)
+                                    ?.flatMap(sale => sale.items)
+                                    ?.filter(item => item?.product_id === row.id)
                                     ?.reduce((acc, it) => acc + 1, 0)
                                 }
                             </StyledTableCell>
