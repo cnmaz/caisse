@@ -73,6 +73,7 @@ export default function History({ cart, setActiveTab }) {
             state: parseInt(row.state),
             items: row.items
                 ?.map(item => ({
+                    ...item,
                     item: products
                         ?.map(product => ({ ...product, price: parseFloat(product.price) }))
                         ?.find(it => it.id === item?.product_id),

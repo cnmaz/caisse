@@ -15,7 +15,7 @@ export function useCart() {
             body: JSON.stringify({
                 state: state,
                 id: cartId,
-                products: items.map(it => ({ "product_id": it?.item?.id, "state": it?.state ?? ProductStates.AFaire }))
+                products: items.map(it => ({ ...it, "product_id": it?.item?.id, "state": it?.state ?? ProductStates.AFaire, item: undefined }))
             }),
             headers:
                 { "Content-Type": 'application/json' }

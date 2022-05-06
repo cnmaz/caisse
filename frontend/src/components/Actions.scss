@@ -8,6 +8,10 @@
             max-width: 150px;
             min-width: 100px;
             margin: 2px;
+
+            @media (max-height:600px) {
+                min-height: 50px;
+            }
         }
     }
 }

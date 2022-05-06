@@ -4,13 +4,21 @@ function link_products_to_sale($products, $sale)
     // $product_array = array_map(function ($p) {
     //     return  R::load("product", $p->product_id);
     // }, $products);
-    R::trashAll(R::find("solditem", "sale_id = ?", [$sale->id]));
+    // $old_items = R::find("solditem", "sale_id = ?", [$sale->id]);
+    $ids = [];
     foreach ($products as $product_info) {
-        $rel = R::dispense("solditem");
+        $rel = R::load("solditem", $product_info->id);
         $rel->sale_id = $sale->id;
         $rel->product_id = $product_info->product_id;
         $rel->state = $product_info->state;
         R::store($rel);
+        $ids[] = $rel->id;
+    }
+    $items = R::findAll("solditem", "sale_id = ?", [$sale->id]);
+    foreach ($items as $item) {
+        if (!in_array($item->id, $ids)) {
+            R::trash($item);
+        }
     }
     return $sale;
 }
@@ -77,6 +85,32 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $new_sale->updated = time();
     R::store($new_sale);
     // var_export($new_sale);
+    header("Content-Type: application/json; charset=UTF-8");
+    header("Content-Encoding: UTF-8");
+    echo json_encode($new_sale, JSON_PRETTY_PRINT);
+} elseif ($_SERVER["REQUEST_METHOD"] == "PATCH") {
+    $body = json_decode(file_get_contents("php://input"));
+    if (is_null($body->id)) {
+        http_response_code(400);
+        return;
+    }
+    $new_sale = R::load("sale", $body->id);
+    $new_sale->state = $body->state;
+    if (is_null($new_sale->created)) {
+        $new_sale->created = time();
+    }
+    $new_sale->updated = time();
+    R::store($new_sale);
+    // var_export($new_sale);
+    foreach ($body->items as $product) {
+        if (!is_null($product->id)) {
+            $pr = R::load("solditem", $product->id);
+            if (!is_null($product->state)) {
+                $pr->state = $product->state;
+                R::store($pr);
+            }
+        }
+    }
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
     echo json_encode($new_sale, JSON_PRETTY_PRINT);

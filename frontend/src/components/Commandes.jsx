@@ -1,10 +1,10 @@
-import { Alert, CircularProgress, Table, TableBody, TableHead, TableRow } from "@mui/material";
+import { Alert, CircularProgress, Table, TableBody, TableHead, TableRow, Button } from "@mui/material";
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 import { useQuery } from 'react-query';
 import './Commandes.scss';
-import { CartStates, ProductStatesLabels } from "../hooks/useCart";
+import { CartStates, ProductStates, ProductStatesLabels } from "../hooks/useCart";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Commandes() {
@@ -15,11 +15,11 @@ export default function Commandes() {
             res.json()
         ))
 
-    const { data: sales, loading: loadingSales, error: errorSales
+    const { data: sales, loading: loadingSales, error: errorSales, refetch
     } = useQuery(["sales"], () =>
         fetch('/api/sale').then(res =>
             res.json()
-        ))
+        ), { refetchInterval: 5000 })
 
 
     if (loadingSales || loadingProducts) {
@@ -68,6 +68,28 @@ export default function Commandes() {
 
     const reversed_sales = sales?.sort((a, b) => a.id === b.id ? 0 : (a.id < b.id ? -1 : 1));
 
+    const updateProductState = (sale, id, newState) => {
+        const newSale = {
+            ...sale, items: sale?.items?.map(item => ({ ...item, ...(item?.id === id && { state: newState }) }))
+        }
+        if (!newSale?.id) return;
+        fetch(`/api/sale/${newSale.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(newSale),
+            headers:
+                { "Content-Type": 'application/json' }
+        }).then(() => {
+            refetch();
+        })
+    }
+
+    const productActions = (sale, item) => {
+        return <>
+            {parseInt(item?.state) === ProductStates.AFaire && <Button onClick={() => updateProductState(sale, item.id, ProductStates.EnPreparation)}>En Préparation</Button>}
+            {parseInt(item?.state) !== ProductStates.Servi && <Button onClick={() => updateProductState(sale, item.id, ProductStates.Servi)}>Servi</Button>}
+        </>
+    }
+
 
     return <div className="stats-container">
         <Table size="small" aria-label="Historique des ventes" className="history-table">
@@ -93,6 +115,7 @@ export default function Commandes() {
                     }))
                     ?.map((sale) => sale.items
                         ?.filter(item => item?.product?.preparation === '1')
+                        ?.filter(item => parseInt(item.state) !== ProductStates.Servi)
                         ?.map((item, idx) =>
                             <StyledTableRow
                                 key={sale.id + '-' + idx}
@@ -108,7 +131,7 @@ export default function Commandes() {
                                     {ProductStatesLabels[item?.state]}
                                 </StyledTableCell>
                                 <StyledTableCell align="right" component="th" scope="row">
-                                    ?
+                                    {productActions(sale, item)}
                                 </StyledTableCell>
                             </StyledTableRow>
                         ))}

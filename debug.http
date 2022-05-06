@@ -15,6 +15,24 @@ PUT http://localhost:3001/sale
     {"product_id":14,"state":0},
     {"product_id":14,"state":0}
     ]}
+###
+PUT http://localhost:3001/sale
+
+{"state":"0","id":1,"products":[
+    {"id":"6", "product_id":3,"state":0},
+    {"id":"5", "product_id":14,"state":0},
+    {"id":"4", "product_id":14,"state":0}
+    ]}
+
+###
+PUT http://localhost:3001/sale
+
+{"state":"0","id":1,"products":[
+    {"id":"6", "product_id":3,"state":0},
+    {"id":"5", "product_id":14,"state":0},
+    {"product_id":13,"state":0}
+    ]}
+
 
 ###
 GET http://localhost:5000/debit/18.45
