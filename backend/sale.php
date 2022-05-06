@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
             'id' => $a->id,
             'items' => $a->items,
             'state' => $a->state,
+            'mode' => $a->mode,
             'created' => $a->created,
             'updated' => $a->updated,
         );
@@ -59,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $body = json_decode(file_get_contents("php://input"));
     $new_sale = R::dispense("sale");
     $new_sale->state = $body->state;
+    $new_sale->mode = $body->mode;
     if (is_null($new_sale->created)) {
         $new_sale->created = time();
     }
@@ -78,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     }
     $new_sale = R::load("sale", $body->id);
     $new_sale->state = $body->state;
+    $new_sale->mode = $body->mode;
     $new_sale = link_products_to_sale($body->products, $new_sale);
     if (is_null($new_sale->created)) {
         $new_sale->created = time();
@@ -96,6 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     }
     $new_sale = R::load("sale", $body->id);
     $new_sale->state = $body->state;
+    $new_sale->mode = $body->mode;
     if (is_null($new_sale->created)) {
         $new_sale->created = time();
     }

@@ -95,6 +95,7 @@ export default function History({ cart, setActiveTab }) {
                 <StyledTableCell variant="head">Heure</StyledTableCell>
                 <StyledTableCell variant="head">Nb. {largeMode ? "Produits" : "Pr."}</StyledTableCell>
                 <StyledTableCell variant="head">Total</StyledTableCell>
+                <StyledTableCell variant="head">{largeMode ? "Mode Paiement" : "Mode P."}</StyledTableCell>
                 <StyledTableCell variant="head">Statut</StyledTableCell>
                 <StyledTableCell variant="head">Actions</StyledTableCell>
             </StyledTableRow>
@@ -121,6 +122,9 @@ export default function History({ cart, setActiveTab }) {
                                 ?.map(p => p?.price)
                                 ?.reduce((acc, it) => acc + parseFloat(it), 0)
                             )}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                            {row.mode}
                         </StyledTableCell>
                         <StyledTableCell component="th" scope="row">
                             {CartStatesLabels[row.state]}

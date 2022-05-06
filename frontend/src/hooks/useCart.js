@@ -6,6 +6,7 @@ export function useCart() {
     const [state, setState] = useState(CartStates.Paye);
     const [especesRecues, setEspecesRecues] = useState(0);
     const [paymentId, setPaymentId] = useState(undefined);
+    const [modePaiement, setModePaiement] = useState(undefined);
     const [cartId, setCartId] = useState(undefined);
 
     useEffect(() => {
@@ -14,6 +15,7 @@ export function useCart() {
             method: 'PUT',
             body: JSON.stringify({
                 state: state,
+                mode: modePaiement,
                 id: cartId,
                 products: items.map(it => ({ ...it, "product_id": it?.item?.id, "state": it?.state ?? ProductStates.AFaire, item: undefined }))
             }),
@@ -43,6 +45,7 @@ export function useCart() {
     }
 
     const paiementCB = () => {
+        setModePaiement('CB');
         const total = getTotal();
         if (total > 0) {
             setState(CartStates.PaiementCB);
@@ -67,6 +70,7 @@ export function useCart() {
         }
     };
     const paiementEspeces = () => {
+        setModePaiement('Esp');
         if (getTotal() !== 0) {
             setState(CartStates.PaiementEspeces);
         } else {
