@@ -50,7 +50,7 @@ product($id++, "Tropico orange ananas (33cl)", $drinks, 1, 6);
 product($id++, "Tropico tropical (33cl)", $drinks, 1, 6);
 product($id++, "Fuze tea (33cl)", $drinks, 1, 6);
 
-product($id++, "Part de quatre quart", $cakes, 1.5, 1);
+product($id++, "Part de quatre quart", $cakes, 1, 1);
 product($id++, "Sucette", $cakes, 0.5, 1);
 // product(12, "Part flan", $cakes, 2, 2);
 // product(13, "Part cake chocolat", $cakes, 2, 3);
