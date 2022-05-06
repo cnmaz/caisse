@@ -66,7 +66,7 @@ export default function Commandes() {
         },
     }));
 
-    const rsales = sales?.sort((a, b) => a.id === b.id ? 0 : (a.id < b.id ? -1 : 1));
+    const reversed_sales = sales?.sort((a, b) => a.id === b.id ? 0 : (a.id < b.id ? -1 : 1));
 
 
     return <div className="stats-container">
@@ -80,7 +80,7 @@ export default function Commandes() {
                 </StyledTableRow>
             </TableHead>
             <TableBody>
-                {rsales
+                {reversed_sales
                     ?.filter(row => parseInt(row.state) === CartStates.Paye)
                     ?.map((sale) => ({
                         ...sale, items: sale.items
