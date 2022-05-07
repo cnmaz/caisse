@@ -39,9 +39,9 @@ function product($id, $label, $category, $price, $ordre, $preparation = false)
 }
 
 $id = 1;
-product($id++, "Bière + Consigne EcopCup", $drinks, 3.5, 1);
+product($id++, "Bière + Consigne EcopCup", $drinks, 3.5, 1, true);
 product($id++, "Retour Consigne EcoCup", $drinks, -1, 1);
-// product($id++, "Bière", $drinks, 2.5, 1);
+
 product($id++, "Eau plate (50cl)", $drinks, .5, 2);
 product($id++, "Coca-Zero (33cl)", $drinks, 1, 4);
 product($id++, "Coca (33cl)", $drinks, 1, 5);
@@ -56,6 +56,7 @@ product($id++, "Sucette", $cakes, 0.5, 1);
 // product(13, "Part cake chocolat", $cakes, 2, 3);
 // product(14, "Part cake pépites chcolat", $cakes, 2, 3);
 // product(15, "Part gateau citron", $cakes, 2, 3);
+product($id++, "Bière (sans consigne)", $drinks, 2.5, 1, true);
 
 $id = 40;
 product($id++, "Crêpe sucre", $crepes, 1.5, 1, true);
