@@ -43,8 +43,8 @@ export default function Actions({ cart, setActiveTab }) {
                     Validation paiement
                 </Button>
             )}
-            <Button variant="outlined" disabled={cart.state !== CartStates.HistoriqueVentes && cart.state !== CartStates.Annule && cart.state !== CartStates.Paye && cart.state !== CartStates.EnAttente} onClick={() => { cart?.nouveauClient(); setActiveTab("produits") }}>
-                Client suivant
+            <Button variant="contained" disabled={cart.state !== CartStates.HistoriqueVentes && cart.state !== CartStates.Annule && cart.state !== CartStates.Paye && cart.state !== CartStates.EnAttente} onClick={() => { cart?.nouveauClient(); setActiveTab("produits") }}>
+                Nouveau client
             </Button>
         </div>
     </div>
