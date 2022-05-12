@@ -1,4 +1,4 @@
-# :en: Mini sales point project designed for use during events organisez by the sailing school
+# :gb: Mini sales point project designed for use during events organisez by the sailing school
 # :fr: Projet de mini caisse enregistreuse pour les evenements de l'association
 
 # Requirements
