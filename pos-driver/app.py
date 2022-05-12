@@ -4,7 +4,10 @@
 #
 #    Hardware Telium Test script
 #    Copyright (C) 2014 Akretion (http://www.akretion.com)
-#    @author Alexis de Lattre <alexis.delattre@akretion.com>
+#    @author Alexis de Lattre <alexis.delattre@akretion.com>yy
+#    
+#    Modified in 2022
+#    Copyright (C) 2022 Philippe TONY (https://github.com/philippetony)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
