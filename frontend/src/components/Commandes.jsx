@@ -30,12 +30,6 @@ export default function Commandes() {
         return <div className="product-grid-container"><Alert severity="error">Impossible de charger les produits et/ou les ventes</Alert></div>
     }
 
-    const formatCurrency = (val) => {
-        if (val === undefined) { return val; }
-        return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(val);
-    }
-
-
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
             backgroundColor: theme.palette.primary.main,
