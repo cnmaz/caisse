@@ -4,6 +4,7 @@ import { useState } from 'react';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import './Header.scss';
 import { useNavigate } from 'react-router';
 
@@ -35,6 +36,12 @@ export default function Header() {
                     <OutdoorGrillIcon />
                 </ListItemIcon>
                 <ListItemText primary={"Préparation commandes"} />
+            </ListItem>
+            <ListItem button onClick={() => document.documentElement.requestFullscreen()}>
+                <ListItemIcon>
+                    <FullscreenIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Mode plein écran"} />
             </ListItem>
         </Drawer>
         <AppBar position="static">
