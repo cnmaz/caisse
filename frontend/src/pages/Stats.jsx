@@ -4,6 +4,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import React, { useMemo } from 'react';
 import { useQuery } from 'react-query';
+import { formatCurrency } from '../utils';
 
 export default function Stats() {
 
@@ -33,12 +34,6 @@ export default function Stats() {
     if (errorSales || errorProducts) {
         return <div className="product-grid-container"><Alert severity="error">Impossible de charger les produits et/ou les ventes</Alert></div>
     }
-
-    const formatCurrency = (val) => {
-        if (val === undefined) { return val; }
-        return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(val);
-    }
-
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {

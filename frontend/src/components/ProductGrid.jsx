@@ -33,24 +33,32 @@ export default function ProductGrid({ onClickProduct, cart }) {
 
     return <div className="product-grid-container">
         {categories
-            ?.map(category =>
-                <>
-                    <div className="category-label"      >  {category.label}</div>
-                    <ul>
-                        {products
-                            ?.filter(product => product.category_id === category.id)
-                            ?.map(product => ({ ...product, price: parseFloat(product.price) }))
-                            ?.map(product =>
-                                <li>
-                                    <Badge badgeContent={numberOfProducts(product.id)} color="primary" overlap="circular" key={product.id}>
-                                        <Button variant="outlined" className="product" onClick={() => onClickProduct(product)} disabled={cart.state !== CartStates.Saisie && cart.state !== CartStates.Annulation}>
-                                            {product?.label}
-                                        </Button>
-                                    </Badge>
-                                </li>
-                            )}
-                    </ul>
-                </>
+            ?.sort((a,b) => a?.ordre -b?.ordre)
+            ?.map(category => {
+                const categoryProducts = products
+                    ?.filter(product => product.category_id === category.id)
+                    ?.filter(product => product.active === "1")
+                    ?.map(product => ({ ...product, price: parseFloat(product.price) }));
+                if (categoryProducts?.length > 0) {
+                    return (<div key={category?.id}>
+                        <div className="category-label">{category.label}</div>
+                        <ul>
+                            {categoryProducts
+                                ?.map(product =>
+                                    <li key={product?.id}>
+                                        <Badge badgeContent={numberOfProducts(product.id)} color="primary" overlap="circular" key={product.id}>
+                                            <Button variant="outlined" className="product" onClick={() => onClickProduct(product)} disabled={cart.state !== CartStates.Saisie && cart.state !== CartStates.Annulation}>
+                                                {product?.label}
+                                            </Button>
+                                        </Badge>
+                                    </li>
+                                )}
+                        </ul>
+                    </div>)
+                } else {
+                    return <></>
+                }
+            }
             )}
     </div>
 }

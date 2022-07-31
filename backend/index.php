@@ -8,10 +8,10 @@ if ($uri == "/init") {
     require "init.php";
 } elseif ($uri == "/debug") {
     require "debug.php";
-} elseif ($uri == "/product") {
+} elseif (str_starts_with($uri,"/product")) {
     require "product.php";
-} elseif ($uri == "/category") {
+} elseif (str_starts_with($uri,"/category")) {
     require "category.php";
-} elseif (substr($uri, 0, 5) == "/sale") {
+} elseif (str_starts_with($uri,"/sale")) {
     require "sale.php";
 }

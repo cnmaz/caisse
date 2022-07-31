@@ -4,13 +4,10 @@ import { styled } from '@mui/material/styles';
 import './TicketPanel.scss';
 import { CartStates, CartType } from '../hooks/useCart';
 import { bool } from 'prop-types';
+import { formatCurrency } from '../utils';
 
 export default function TicketPanel({ cart, totalOnly, className }) {
-    const formatCurrency = (val) => {
-        if (val === undefined) { return val; }
-        return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(val);
-    }
-
+    
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
             backgroundColor: theme.palette.primary.main,

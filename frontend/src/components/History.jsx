@@ -7,6 +7,7 @@ import { CartStates, CartStatesLabels, CartType } from "../hooks/useCart";
 import { func } from 'prop-types';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './History.scss'
+import { formatCurrency } from "../utils";
 
 export default function History({ cart, setActiveTab }) {
     const largeMode = useMediaQuery('(min-width:600px)');
@@ -29,11 +30,6 @@ export default function History({ cart, setActiveTab }) {
 
     if (errorSales || errorProducts) {
         return <div className="product-grid-container"><Alert severity="error">Impossible de charger les produits et/ou les ventes</Alert></div>
-    }
-
-    const formatCurrency = (val) => {
-        if (val === undefined) { return val; }
-        return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(val);
     }
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({

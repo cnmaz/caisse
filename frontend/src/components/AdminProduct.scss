@@ -1,0 +1,20 @@
+form {
+    max-width: 1000px;
+    &>div {
+        border-bottom: 1px dashed lightgrey;
+        padding: 0.3em 1em;
+        display: flex;
+
+        label {
+            flex: 1;
+        }
+
+        input,
+        select {
+            flex: 1;
+        }
+        input[type=checkbox]{
+            flex: 0;
+        }
+    }
+}

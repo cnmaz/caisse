@@ -35,6 +35,7 @@ function product($id, $label, $category, $price, $ordre, $preparation = false)
     $product->price = $price;
     $product->ordre = $ordre;
     $product->preparation = $preparation;
+    $product->active = true;
     R::store($product);
 }
 
