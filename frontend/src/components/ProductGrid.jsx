@@ -44,6 +44,7 @@ export default function ProductGrid({ onClickProduct, cart }) {
                         <div className="category-label">{category.label}</div>
                         <ul>
                             {categoryProducts
+                                ?.sort((a,b) => a?.ordre -b?.ordre)
                                 ?.map(product =>
                                     <li key={product?.id}>
                                         <Badge badgeContent={numberOfProducts(product.id)} color="primary" overlap="circular" key={product.id}>
