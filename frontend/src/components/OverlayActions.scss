@@ -1,0 +1,13 @@
+.overlay-actions-container {
+    .overlay-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        >* {
+            min-height: 100px;
+            max-width: 150px;
+            min-width: 100px;
+            margin: 2px;
+        }
+    }
+}
