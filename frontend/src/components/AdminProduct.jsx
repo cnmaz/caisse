@@ -60,8 +60,9 @@ function AdminProductList() {
         });
     }
 
-    return <div>
+    return <div class="admin-container">
         <h1>Produits</h1>
+        <Button onClick={() => navigate('new')}>Ajouter un produit</Button>
         <table>
             <thead>
                 <tr>
@@ -71,6 +72,7 @@ function AdminProductList() {
                     <td>Ordre</td>
                     <td>Préparation</td>
                     <td>Actif</td>
+                    <td>Actions</td>
                 </tr>
             </thead>
             <tbody>
@@ -111,6 +113,17 @@ function AdminProductForm() {
     if (errorProduct | errorCategories) {
         return <div className="product-grid-container"><Alert severity="error">Impossible de charger les produits</Alert></div>
     }
+    function onDelete() {
+        fetch(`/api/product/${id}`, {
+            method: 'DELETE',
+            headers:
+                { "Content-Type": 'application/json' }
+        }).then((res) => {
+            if (res.ok) {
+                navigate("..");
+            } else { res.text().then(alert) }
+        })
+    }
     function onSubmit(val) {
         if (id) {
             fetch(`/api/product/${id}`, {
@@ -132,7 +145,7 @@ function AdminProductForm() {
                 body: JSON.stringify({
                     label: val.label,
                     ordre: val.ordre,
-                    prive: val.price,
+                    price: val.price,
                     category_id: val.category_id,
                     preparation: val.preparation ? "1" : "0",
                     active: val.active ? "1" : "0",
@@ -143,6 +156,7 @@ function AdminProductForm() {
             }).then(() => navigate(".."))
         }
     }
+
     const product = products?.filter(cat => cat.id === id)?.map(product => ({ ...product, active: product?.active === "1", preparation: product?.preparation === "1" }))?.pop()
     return <Form
         onSubmit={onSubmit}
@@ -162,10 +176,10 @@ function AdminProductForm() {
                     <Field name="price" component="input" type="number" placeholder="1" readOnly={!!product?.id} />
                 </div>
                 <div>
-                    <label>Category</label>
-                    <Field name="category_id" component="select" placeholder="1" >
+                    <label>Catégorie</label>
+                    <Field name="category_id" component="select">
                         {categories?.map(cat =>
-                            <option value="{cat?.id}" key={cat?.id}>{cat?.label}</option>
+                            <option value={cat?.id} key={cat?.id}>{cat?.label}</option>
                         )}
                     </Field>
                 </div>
@@ -177,8 +191,9 @@ function AdminProductForm() {
                     <label>Affiché à l'écran (actif)</label>
                     <Field name="active" component="input" type="checkbox" />
                 </div>
-                <Button type="submit">Enregistrer</Button>
-                <Button type="button" onClick={() => navigate('..')}>Annuler</Button>
+                <Button type="submit" variant="contained">Enregistrer</Button>&nbsp;
+                <Button type="button" variant="outlined" onClick={() => navigate('..')}>Annuler</Button>&nbsp;
+                <Button type="button" onClick={() => onDelete()} color="error" variant="outlined">Supprimer</Button>
             </form>
         )}
     />
@@ -187,6 +202,7 @@ function AdminProductForm() {
 export default function AdminProduct() {
     return <Routes>
         <Route path="/" element={<AdminProductList />} />
+        <Route path="new" element={<AdminProductForm />} />
         <Route path=":id" element={<AdminProductForm />} />
     </Routes>
 }

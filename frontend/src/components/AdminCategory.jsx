@@ -22,8 +22,9 @@ function AdminCategoryList() {
         return <div className="product-grid-container"><Alert severity="error">Impossible de charger les catégories</Alert></div>
     }
 
-    return <div>
+    return <div class="admin-container">
         <h1>Catégories</h1>
+        <Button onClick={()=> navigate('new')}>Ajouter une catégorie</Button>
         <table>
             <thead>
                 <tr>
@@ -60,7 +61,19 @@ function AdminCategoryForm() {
     if (errorCategory) {
         return <div className="product-grid-container"><Alert severity="error">Impossible de charger les catégories</Alert></div>
     }
+    function onDelete() {
+        fetch(`/api/category/${id}`, {
+            method: 'DELETE',
+            headers:
+                { "Content-Type": 'application/json' }
+        }).then((res) => {
+            if (res.ok) {
+                navigate("..");
+            } else { res.text().then(alert) }
+        })
+    }
     function onSubmit(val) {
+        if (id) {
         fetch(`/api/category/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -71,6 +84,18 @@ function AdminCategoryForm() {
             headers:
                 { "Content-Type": 'application/json' }
         }).then(() => navigate(".."))
+    } else {
+        fetch(`/api/category`, {
+            method: 'POST',
+            body: JSON.stringify({
+                label: val.label,
+                ordre: val.ordre,
+                id: id,
+            }),
+            headers:
+                { "Content-Type": 'application/json' }
+        }).then(() => navigate("..")) 
+    }
     }
     const category = categories?.filter(cat => cat.id === id)?.pop()
     return <Form
@@ -86,8 +111,9 @@ function AdminCategoryForm() {
                     <label>Ordre</label>
                     <Field name="ordre" component="input" type="number" placeholder="1" />
                 </div>
-                <Button type="submit">Enregistrer</Button>
-                <Button type="button" onClick={() => navigate('..')}>Annuler</Button>
+                <Button type="submit" variant="contained">Enregistrer</Button>&nbsp;
+                <Button type="button"  variant="outlined" onClick={() => navigate('..')}>Annuler</Button>&nbsp;
+                <Button type="button" onClick={() => onDelete()} color="error" variant="outlined">Supprimer</Button>
             </form>
         )}
     />
