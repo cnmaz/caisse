@@ -5,21 +5,23 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import SettingsIcon from '@mui/icons-material/Settings';
 import './Header.scss';
 import { useNavigate } from 'react-router';
 
 export default function Header() {
     let navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [openings, setOpenings] = useState(0);
 
 
     return <div className="header-container">
         <Drawer
             anchor={"left"}
             open={menuOpen}
-            onClose={() => setMenuOpen(false)}
+            onClose={() => {setMenuOpen(false); setOpenings(v=>v+1);}}
         >
-            <ListItem button onClick={() => navigate('/')}>
+            <ListItem button onClick={() => {navigate('/');setOpenings(0)}}>
                 <ListItemIcon>
                     <PointOfSaleIcon />
                 </ListItemIcon>
@@ -43,6 +45,12 @@ export default function Header() {
                 </ListItemIcon>
                 <ListItemText primary={"Mode plein écran"} />
             </ListItem>
+            {openings > 2 && (<ListItem button onClick={() => navigate('/admin')}>
+                <ListItemIcon>
+                    <SettingsIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Administration"} />
+            </ListItem>)}
         </Drawer>
         <AppBar position="static">
             <Toolbar>
