@@ -55,7 +55,7 @@ def debit(amount):
 def credit(amount):
     # transaction_start(float(amount), credit=True, wait=False)
     id = uuid.uuid4()
-    action_queue.put((float(amount), id))
+    action_queue.put((-float(amount), id))
     processed_payments[str(id)] = {"amount": float(amount), "state": "pending"}
     return {"id": str(id)}
 
