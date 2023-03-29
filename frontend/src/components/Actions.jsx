@@ -1,6 +1,7 @@
 
 import { Button } from '@mui/material';
 import './Actions.scss';
+import { usePos } from '../config'
 import { CartStates, CartType } from '../hooks/useCart';
 
 export default function Actions({ cart, setActiveTab }) {
@@ -9,7 +10,7 @@ export default function Actions({ cart, setActiveTab }) {
         <h1>Actions</h1>
         <div className="actions">
             {cart.state !== CartStates.PaiementCB ?
-                <Button variant="outlined" disabled={cart.state !== CartStates.Saisie} onClick={() => { cart?.paiementCB(); setActiveTab('paiement'); }}>
+                <Button variant="outlined" disabled={cart.state !== CartStates.Saisie || !usePos} onClick={() => { cart?.paiementCB(); setActiveTab('paiement'); }}>
                     Réglement CB
                 </Button>
                 : <Button variant="outlined" onClick={cart?.retourEdition}>
