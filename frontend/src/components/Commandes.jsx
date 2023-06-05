@@ -116,7 +116,7 @@ export default function Commandes() {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <StyledTableCell component="th" scope="row">
-                                    {sale.id}
+                                    {sale.id}/{idx}
                                 </StyledTableCell>
                                 <StyledTableCell component="th" scope="row">
                                     {item?.product?.label}
