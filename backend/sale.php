@@ -1,4 +1,7 @@
 <?php
+
+use \RedBeanPHP\R as R;
+
 function link_products_to_sale($products, $sale)
 {
     // $product_array = array_map(function ($p) {

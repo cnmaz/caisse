@@ -1,4 +1,7 @@
 <?php
+
+use \RedBeanPHP\R as R;
+
 include_once("./util.php");
 if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/category") {
     header("Content-Type: application/json; charset=UTF-8");

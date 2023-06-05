@@ -1,5 +1,7 @@
 <?php
-require_once "rb/rb.php";
+
+use \RedBeanPHP\R as R;
+
 // $sale = R::load('sale', 3);
 // echo (json_encode(R::findMulti(
 //     'sale,relation,product',

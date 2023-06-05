@@ -1,5 +1,8 @@
 <?php
 include_once("./util.php");
+
+use \RedBeanPHP\R as R;
+
 if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/product") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");

@@ -27,4 +27,6 @@ frontend/yarn-error.log*
 backend/dbfile.db
 pos-driver/__pycache__/*
 
+backend/vendor
+
 *.pyc

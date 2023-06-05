@@ -1,5 +1,8 @@
 <?php
-require_once "rb/rb.php";
+require_once "vendor/autoload.php";
+
+use \RedBeanPHP\R as R;
+
 R::setup('sqlite:./dbfile.db');
 
 $uri = $_SERVER['REQUEST_URI'];

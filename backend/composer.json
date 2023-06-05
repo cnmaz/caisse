@@ -1,0 +1,14 @@
+{
+    "name": "cnmaz/caisse-backend",
+    "description": "Cash register",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Philippe TONY",
+            "email": "ptony@cnmaz.fr"
+        }
+    ],
+    "require": {
+        "gabordemooij/redbean": "^5.7"
+    }
+}

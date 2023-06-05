@@ -12,8 +12,9 @@
     "start-frontend-prod": "cd frontend && npm install && npm run start-prod",
     "start-backend": "cd backend && php -S 127.0.0.1:3001 index.php",
     "start-pos-driver": "cd pos-driver && python3 -m flask run --with-threads",
-    "install": "concurrently \"npm run install-frontend\" \"npm run install-pos-driver\"",
+    "install": "concurrently \"npm run install-frontend\" \"npm run install-pos-driver\" \"npm run install-backend\"",
     "install-frontend": "cd frontend && npm install",
+    "install-backend": "cd backend && composer install",
     "install-pos-driver": "cd pos-driver && python3 -m pip install -r requirements.txt",
     "install-and-start": "npm install && npm run install && npm run start"
   },

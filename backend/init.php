@@ -1,4 +1,7 @@
 <?php
+
+use \RedBeanPHP\R as R;
+
 R::fancyDebug(true);
 
 $admin = R::load("user", 1);
