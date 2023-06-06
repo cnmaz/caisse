@@ -19,9 +19,9 @@ export default function Header() {
         <Drawer
             anchor={"left"}
             open={menuOpen}
-            onClose={() => {setMenuOpen(false); setOpenings(v=>v+1);}}
+            onClose={() => { setMenuOpen(false); setOpenings(v => v + 1); }}
         >
-            <ListItem button onClick={() => {navigate('/');setOpenings(0)}}>
+            <ListItem button onClick={() => { navigate('/'); setOpenings(0) }}>
                 <ListItemIcon>
                     <PointOfSaleIcon />
                 </ListItemIcon>
@@ -68,7 +68,7 @@ export default function Header() {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Caisse
                 </Typography>
-                <Button disabled color="inherit">Login</Button>
+                <Button color="inherit" onClick={() => window.location = '/api/auth'}>Login</Button>
             </Toolbar>
         </AppBar>
     </div>

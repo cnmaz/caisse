@@ -12,14 +12,19 @@ export default function ProductGrid({ onClickProduct, cart }) {
     const { data: categories, loading: loadingCategories, error: errorCategories } = useQuery(["category"], () =>
         fetch('/api/category').then(res =>
             res.json()
+            , (err) => {
+                console.log("auth")
+                window.location = '/api/auth'
+            }
         ))
 
     const { data: products, loading: loadingProducts, error: errorProducts } = useQuery(["products"], () =>
         fetch('/api/product').then(res =>
             res.json()
-        ))
-
-
+            , (err) => {
+                console.log("auth")
+                window.location = '/api/auth'
+            }))
     if (loadingProducts || loadingCategories) {
         return <div className="product-grid-container"><CircularProgress /></div>
     }
