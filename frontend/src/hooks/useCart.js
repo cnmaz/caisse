@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import PropTypes from 'prop-types';
+import { interactivePos } from "../config";
 
 export function useCart() {
     const [items, setItems] = useState([]);
@@ -49,20 +50,22 @@ export function useCart() {
         const total = getTotal();
         if (total > 0) {
             setState(CartStates.PaiementCB);
-            fetch("/pos/debit/" + total)
-                .then(res => res.json())
-                .then(res => {
-                    setPaymentId(res?.id);
-                });
+            if (interactivePos)
+                fetch("/pos/debit/" + total)
+                    .then(res => res.json())
+                    .then(res => {
+                        setPaymentId(res?.id);
+                    });
             return;
         }
         if (total < 0) {
             setState(CartStates.PaiementCB);
-            fetch("/pos/credit/" + (-total))
-                .then(res => res.json())
-                .then(res => {
-                    setPaymentId(res?.id);
-                });
+            if (interactivePos) 
+                fetch("/pos/credit/" + (-total))
+                    .then(res => res.json())
+                    .then(res => {
+                        setPaymentId(res?.id);
+                    });
             return;
         }
         if (items?.length > 0) {

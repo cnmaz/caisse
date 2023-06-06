@@ -5,6 +5,8 @@ import { useQuery } from 'react-query';
 import { Button } from '@mui/material';
 import { func } from 'prop-types';
 import { CartType } from '../hooks/useCart';
+import { interactivePos, messagePos } from '../config';
+import { formatCurrency } from '../utils';
 
 export default function PaiementCB({ cart, setActiveTab }) {
     const useTPE = true;
@@ -48,22 +50,37 @@ export default function PaiementCB({ cart, setActiveTab }) {
         <h1>
             Paiement par carte bancaire
         </h1>
-        {!sent && <h2>Envoi du montant au TPE en cours ...</h2>}
-        {sent && !result && <h2>Montant envoyé au TPE</h2>}
-        {sent && result === true && <h2>Paiement terminé</h2>}
-        {sent && result === false && <>
-            <h2>Paiement échoué</h2>
+        {!interactivePos && <>
+            <h2>Paiement a réaliser manuellement sur le TPE</h2>
+            <h3>Montant : {formatCurrency(cart?.getTotal())}</h3>
+            <div>{messagePos}</div>
             <div className="actions">
                 <Button className="action" variant="contained" onClick={() => {
-                    setResult(undefined)
-                    cart?.paiementCB()
-                }
-                }>Réessayer</Button>
+                        cart?.validationPaiement()
+                        setTimeout(() => { setActiveTab('actions'); }, 500);
+                    }
+                }>Valider paiement</Button>
                 <Button className="action" variant="outlined" onClick={cart?.retourEdition}>Annuler</Button>
             </div>
         </>}
-        {/* <p>ID : {JSON.stringify(cart?.paymentId)}</p> */}
-        {/* <p>Result {JSON.stringify(result)}</p> */}
+        {interactivePos && <>
+            {!sent && <h2>Envoi du montant au TPE en cours ...</h2>}
+            {sent && !result && <h2>Montant envoyé au TPE</h2>}
+            {sent && result === true && <h2>Paiement terminé</h2>}
+            {sent && result === false && <>
+                <h2>Paiement échoué</h2>
+                <div className="actions">
+                    <Button className="action" variant="contained" onClick={() => {
+                        setResult(undefined)
+                        cart?.paiementCB()
+                    }
+                }>Réessayer</Button>
+                    <Button className="action" variant="outlined" onClick={cart?.retourEdition}>Annuler</Button>
+                </div>
+            </>}
+            {/* <p>ID : {JSON.stringify(cart?.paymentId)}</p> */}
+            {/* <p>Result {JSON.stringify(result)}</p> */}
+        </>}
     </div>
 }
 PaiementCB.propTypes = { cart: CartType, setActiveTab: func }
