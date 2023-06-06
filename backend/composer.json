@@ -9,6 +9,7 @@
         }
     ],
     "require": {
-        "gabordemooij/redbean": "^5.7"
+        "gabordemooij/redbean": "^5.7",
+        "league/oauth2-google": "^4.0"
     }
 }
