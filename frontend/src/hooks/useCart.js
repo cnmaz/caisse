@@ -149,7 +149,8 @@ export const ProductStatesLabels = Object.keys(ProductStates).reduce((acc, it) =
 export const Product = PropTypes.shape({
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
+    price: PropTypes.number.isRequired,
+    state: PropTypes.number
 });
 
 export const CartType = PropTypes.shape({
