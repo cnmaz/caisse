@@ -58,7 +58,7 @@ try {
     // Failed to get user details
     exit('Something went wrong: ' . $e->getMessage());
 }
-
+$uri = str_replace('/api','', $uri);
 if ($uri == "/init") {
     require "init.php";
 } elseif ($uri == "/debug") {

@@ -25,7 +25,7 @@ function link_products_to_sale($products, $sale)
     }
     return $sale;
 }
-if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
     $sales = R::findMulti('sale,solditem', ' SELECT sale.*, solditem.* FROM sale INNER JOIN solditem ON solditem.sale_id = sale.id ORDER BY sale.created DESC', [], array(array(
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
         );
     }, $sales);
     echo json_encode(array_values($sales), JSON_PRETTY_PRINT);
-} elseif ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
+} elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
     echo json_encode(array_values(R::findAll('sale')), JSON_PRETTY_PRINT);

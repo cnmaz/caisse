@@ -1,7 +1,5 @@
 <?php
-require_once "vendor/autoload.php";
-
-
+// require_once "vendor/autoload.php";
 
 
 if (!empty($_GET['error'])) {
