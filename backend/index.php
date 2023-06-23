@@ -26,14 +26,17 @@ session_start(); // Remove if session.auto_start=1 in php.ini
 
 // echo $uri;
 
-$provider = new \League\OAuth2\Client\Provider\Google([
-    'clientId'                => $oauth_credentials['web']['client_id'],    // The client ID assigned to you by the provider
-    'clientSecret'            => $oauth_credentials['web']['client_secret'],    // The client password assigned to you by the provider
-    'redirectUri'             => $redirectUrl // $uri, //'http://localhost:8080/auth',
-    //    'hostedDomain' => 'localhost:8080'
-]);
+if ($useOauth && !$_SESSION['checked']) {
 
-if (starts_with($uri, "/auth") || empty($_SESSION['oauth_token'])) {
+    $provider = new \League\OAuth2\Client\Provider\Google([
+        'clientId'                => $oauth_credentials['web']['client_id'],    // The client ID assigned to you by the provider
+        'clientSecret'            => $oauth_credentials['web']['client_secret'],    // The client password assigned to you by the provider
+        'redirectUri'             => $redirectUrl // $uri, //'http://localhost:8080/auth',
+        //    'hostedDomain' => 'localhost:8080'
+    ]);
+}
+
+if ($useOauth && (starts_with($uri, "/auth") || empty($_SESSION['oauth_token']))) {
     require "auth.php";
     exit();
 }
@@ -43,15 +46,19 @@ try {
 
     $token = $_SESSION['oauth_token'];
 
-    // We got an access token, let's now get the owner details
-    $ownerDetails = $provider->getResourceOwner($token);
+    if ($useOauth && !$_SESSION['checked']) {
 
-    // Use these details to create a new profile
-    $mail = $ownerDetails->getEmail();
-    if (!ends_with($mail, "@cnmaz.fr")) {
-        http_response_code(403);
-        echo ("Not CNMAZ");
-        exit();
+        // We got an access token, let's now get the owner details
+        $ownerDetails = $provider->getResourceOwner($token);
+
+        // Use these details to create a new profile
+        $mail = $ownerDetails->getEmail();
+        if (!ends_with($mail, "@cnmaz.fr")) {
+            http_response_code(403);
+            echo ("Not CNMAZ");
+            exit();
+        }
+        $_SESSION['checked'] = true;
     }
 } catch (Exception $e) {
 
