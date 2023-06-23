@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Alert, Button, CircularProgress, Table, TableBody, TableHead, TableRow } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Alert, Badge, Button, CircularProgress, Table, TableBody, TableHead, TableRow } from "@mui/material";
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import React, { useMemo } from 'react';
@@ -136,7 +136,9 @@ export default function History({ cart, setActiveTab }) {
                                             {row.mode}
                                         </StyledTableCell>
                                         <StyledTableCell component="th" scope="row">
-                                            {CartStatesLabels[row.state]}
+                                            <Badge badgeContent={row?.name} color="primary">
+                                                {CartStatesLabels[row.state]}
+                                            </Badge>
                                         </StyledTableCell>
                                         <StyledTableCell component="th" scope="row">
                                             <Button onClick={open(row)}>{row.state === CartStates.Paye ? 'Consulter' : 'Reprendre'}</Button>

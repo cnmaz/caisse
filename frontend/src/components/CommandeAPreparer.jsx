@@ -52,21 +52,22 @@ export default function CommandeAPreparer({ sale, refetch }) {
 
     const toggleProductState = (item) => () => updateProductState(sale, item.id, (item?.state + 1) % 3)
 
-    return <Accordion variant="outlined" style={{ ...(!sale?.paid ? { opacity: 0.3 } : {}) }} expanded={!sale?.donePreparation || keepOpen}>
+    return <Accordion variant="outlined" style={{ ...(!(sale?.paid || sale?.onTab) ? { opacity: 0.3 } : {}) }} expanded={!sale?.donePreparation || keepOpen}>
         <AccordionSummary>
             Commande {sale?.mode} {sale?.id} {saleIcon}
             {sale?.donePreparation && <IconButton size="small" onClick={() => setOpen(val => !val)}><PushPin /></IconButton>}
+            {sale?.name}
         </AccordionSummary>
         <AccordionDetails>
             {sale?.items.map((item) => {
                 return <Chip
                     key={item?.id}
-                    variant={item?.product?.preparation === "1" && sale?.paid ? "" : "outlined"}
+                    variant={item?.product?.preparation === "1" && (sale?.paid || sale?.onTab) ? "" : "outlined"}
                     color={item?.product?.preparation === "1" ? ProductStatesColor[item?.state] : 'primary'}
                     label={item?.product?.label}
                     icon={itemIcon(item)}
-                    clickable={sale?.paid && item?.product?.preparation === "1"}
-                    onClick={item?.product?.preparation === "1" && sale?.paid ? toggleProductState(item) : () => { }}
+                    clickable={(sale?.paid || sale?.onTab) && item?.product?.preparation === "1"}
+                    onClick={item?.product?.preparation === "1" && (sale?.paid || sale?.onTab) ? toggleProductState(item) : () => { }}
                 ></Chip>
             }
             )}

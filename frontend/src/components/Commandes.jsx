@@ -47,7 +47,8 @@ export default function Commandes() {
                 ...sale,
                 needsPreparation: sale?.items?.filter((item) => item?.product?.preparation === '1').length > 0,
                 donePreparation: sale?.items?.filter((item) => item?.product?.preparation === '1' && parseInt(item?.state) !== ProductStates.Servi).length === 0,
-                paid: parseInt(sale.state) === CartStates.Paye
+                paid: parseInt(sale.state) === CartStates.Paye,
+                onTab: !!sale?.name
             }));
 
     const oldSales = reversed_sales?.filter((sale) => sale?.needsPreparation && sale?.donePreparation)
