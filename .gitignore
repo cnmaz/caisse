@@ -28,5 +28,7 @@ backend/dbfile.db
 pos-driver/__pycache__/*
 
 backend/vendor
+backend/client_secret.json
+backend/config.php
 
 *.pyc

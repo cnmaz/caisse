@@ -5,6 +5,7 @@ import { interactivePos } from "../config";
 export function useCart() {
     const [items, setItems] = useState([]);
     const [state, setState] = useState(CartStates.Paye);
+    const [name, setName] = useState("");
     const [especesRecues, setEspecesRecues] = useState(0);
     const [paymentId, setPaymentId] = useState(undefined);
     const [modePaiement, setModePaiement] = useState(undefined);
@@ -18,12 +19,13 @@ export function useCart() {
                 state: state,
                 mode: modePaiement,
                 id: cartId,
+                name: name,
                 products: items.map(it => ({ ...it, "product_id": it?.item?.id, "state": it?.state ?? ProductStates.AFaire, item: undefined }))
             }),
             headers:
                 { "Content-Type": 'application/json' }
         })
-    }, [items, cartId, state]);
+    }, [items, cartId, state, name]);
 
     const addItem = useCallback((item) => setItems(initial => {
         if (state === CartStates.Annulation) {
@@ -93,9 +95,11 @@ export function useCart() {
         if (sale.state === CartStates.Saisie || sale.state === CartStates.EnAttente || sale.state === CartStates.Annule) {
             sale.state = CartStates.Saisie
         }
+        console.log(sale)
         setCartId(sale.id);
         setItems(sale.items);
         setState(sale.state);
+        setName(sale.name);
     }
 
 
@@ -112,6 +116,7 @@ export function useCart() {
                 setEspecesRecues(0);
                 setItems([]);
                 setState(CartStates.Saisie);
+                setName(undefined)
                 setPaymentId(undefined);
             })
     }
@@ -119,7 +124,7 @@ export function useCart() {
     return {
         items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement,
         especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement, miseEnAttente,
-        paymentId, setPaymentId, historiqueVentes, ouvrirVente
+        paymentId, setPaymentId, historiqueVentes, ouvrirVente, setName, name
     }
 }
 
@@ -149,7 +154,8 @@ export const ProductStatesLabels = Object.keys(ProductStates).reduce((acc, it) =
 export const Product = PropTypes.shape({
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
+    price: PropTypes.number.isRequired,
+    state: PropTypes.number
 });
 
 export const CartType = PropTypes.shape({
@@ -157,6 +163,8 @@ export const CartType = PropTypes.shape({
         item: (Product),
         state: PropTypes.oneOf(Object.values(ProductStates))
     })),
+    name: PropTypes.string,
+    setName: PropTypes.func,
     addItem: PropTypes.func,
     getTotal: PropTypes.func,
     toggleAnnulation: PropTypes.func,

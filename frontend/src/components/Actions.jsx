@@ -1,13 +1,18 @@
 
-import { Button } from '@mui/material';
+import { Button, FormControl, TextField, useFormControl } from '@mui/material';
 import './Actions.scss';
 import { usePos } from '../config'
 import { CartStates, CartType } from '../hooks/useCart';
+import { debounce } from 'lodash';
 
 export default function Actions({ cart, setActiveTab }) {
 
+
     return <div elevation="2" className="actions-container">
         <h1>Actions</h1>
+        {(cart.state === CartStates.EnAttente || cart.name) && <div style={{ padding: "0.8rem" }}>
+            <TextField label="Nom de l'ardoise" sx={{ width: '100%' }} value={cart?.name} onChange={(val) => cart.setName(val.target.value)}></TextField>
+        </div>}
         <div className="actions">
             {cart.state !== CartStates.PaiementCB ?
                 <Button variant="outlined" disabled={cart.state !== CartStates.Saisie || !usePos} onClick={() => { cart?.paiementCB(); setActiveTab('paiement'); }}>

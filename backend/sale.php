@@ -25,7 +25,7 @@ function link_products_to_sale($products, $sale)
     }
     return $sale;
 }
-if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
     $sales = R::findMulti('sale,solditem', ' SELECT sale.*, solditem.* FROM sale INNER JOIN solditem ON solditem.sale_id = sale.id ORDER BY sale.created DESC', [], array(array(
@@ -50,12 +50,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
             'items' => $a->items,
             'state' => $a->state,
             'mode' => $a->mode,
+            'name' => $a->name,
             'created' => $a->created,
             'updated' => $a->updated,
         );
     }, $sales);
     echo json_encode(array_values($sales), JSON_PRETTY_PRINT);
-} elseif ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
+} elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
     header("Content-Type: application/json; charset=UTF-8");
     header("Content-Encoding: UTF-8");
     echo json_encode(array_values(R::findAll('sale')), JSON_PRETTY_PRINT);
@@ -64,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $new_sale = R::dispense("sale");
     $new_sale->state = $body->state;
     $new_sale->mode = $body->mode;
+    $new_sale->name = $body->name;
     if (is_null($new_sale->created)) {
         $new_sale->created = time();
     }
@@ -84,6 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $new_sale = R::load("sale", $body->id);
     $new_sale->state = $body->state;
     $new_sale->mode = $body->mode;
+    $new_sale->name = $body->name;
     $new_sale = link_products_to_sale($body->products, $new_sale);
     if (is_null($new_sale->created)) {
         $new_sale->created = time();
@@ -103,6 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && $_SERVER['REQUEST_URI'] == "/sale") {
     $new_sale = R::load("sale", $body->id);
     $new_sale->state = $body->state;
     $new_sale->mode = $body->mode;
+    $new_sale->name = $body->name;
     if (is_null($new_sale->created)) {
         $new_sale->created = time();
     }

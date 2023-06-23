@@ -1,0 +1,66 @@
+# BEGIN WordPress
+# Les directives (lignes) entre « BEGIN WordPress » et « END WordPress » sont générées
+# dynamiquement, et doivent être modifiées uniquement via les filtres WordPress.
+# Toute modification des directives situées entre ces marqueurs sera surchargée.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+#RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /api
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^.*$ index.php [L,QSA]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ /index.php [L]
+#   RewriteRule ^(.+)$ /index.php/$1 [L,QSA]
+</IfModule>
+
+# END WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://caisse.cnmaz.fr/$1 [R=301,L]
+</IfModule>
+
+# BEGIN WP-HUMMINGBIRD-CACHING
+# Les directives (lignes) entre 'BEGIN WP-HUMMINGBIRD-CACHING' et 'END WP-HUMMINGBIRD-CACHING' sont
+# généré dynamiquement, et ne doivent uniquement être modifiées via les filtres WordPress.
+# Toute modification des directives entre ces marqueurs sera outrepassée.
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A0
+
+<FilesMatch "\.(txt|xml|js)$">
+ExpiresDefault A2592000
+</FilesMatch>
+
+<FilesMatch "\.(css)$">
+ExpiresDefault A2592000
+</FilesMatch>
+
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$">
+ExpiresDefault A2592000
+</FilesMatch>
+
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$">
+ExpiresDefault A2592000
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(txt|xml|js)$">
+   Header set Cache-Control "max-age=2592000"
+  </FilesMatch>
+
+  <FilesMatch "\.(css)$">
+   Header set Cache-Control "max-age=2592000"
+  </FilesMatch>
+
+  <FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$">
+   Header set Cache-Control "max-age=2592000"
+  </FilesMatch>
+
+  <FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$">
+   Header set Cache-Control "max-age=2592000"
+  </FilesMatch>
+</IfModule>
+# END WP-HUMMINGBIRD-CACHING
