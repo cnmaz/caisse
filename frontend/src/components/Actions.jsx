@@ -1,7 +1,7 @@
 
 import { Button, FormControl, TextField, useFormControl } from '@mui/material';
 import './Actions.scss';
-import { usePos } from '../config'
+import { usePos, tabNameAlwaysDisplayed } from '../config'
 import { CartStates, CartType } from '../hooks/useCart';
 import { debounce } from 'lodash';
 
@@ -10,7 +10,7 @@ export default function Actions({ cart, setActiveTab }) {
 
     return <div elevation="2" className="actions-container">
         <h1>Actions</h1>
-        {(cart.state === CartStates.EnAttente || cart.name) && <div style={{ padding: "0.8rem" }}>
+        {(cart.state === CartStates.EnAttente || (tabNameAlwaysDisplayed && cart.state === CartStates.Saisie) || cart.name) && <div style={{ padding: "0.8rem" }}>
             <TextField label="Nom de l'ardoise" sx={{ width: '100%' }} value={cart?.name} onChange={(val) => cart.setName(val.target.value)}></TextField>
         </div>}
         <div className="actions">
