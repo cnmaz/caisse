@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
-import { Button, CircularProgress, Alert } from '@mui/material';
+import { Button, CircularProgress, Alert, Switch, FormControlLabel } from '@mui/material';
 import { useNavigate, useParams } from 'react-router';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { formatCurrency } from '../utils';
 import './AdminProduct.scss';
 
 function AdminProductList() {
+    const [showAll, setShowAll] = useState(false);
     const navigate = useNavigate();
     const queryClient = useQueryClient();
     const { data: product, loading: loadingProduct, error: errorProduct } = useQuery(["product"], () =>
@@ -62,6 +63,7 @@ function AdminProductList() {
 
     return <div class="admin-container">
         <h1>Produits</h1>
+        <FormControlLabel control={<Switch checked={showAll} onChange={(e) => setShowAll(e.target.checked)}></Switch>} label="Afficher tous les produits" />
         <Button onClick={() => navigate('new')}>Ajouter un produit</Button>
         <table>
             <thead>
@@ -76,7 +78,8 @@ function AdminProductList() {
                 </tr>
             </thead>
             <tbody>
-                {product?.map(produit =>
+                {product?.filter((product) => showAll || product?.active === "1")
+                    ?.map(produit =>
                     <tr key={produit?.id}>
                         <td>{produit?.label}</td>
                         <td>{categories?.filter(cat => cat.id === produit?.category_id)?.pop()?.label}</td>
@@ -132,6 +135,7 @@ function AdminProductForm() {
                     label: val.label,
                     ordre: val.ordre,
                     category_id: val.category_id,
+                    price: val.price,
                     preparation: val.preparation ? "1" : "0",
                     active: val.active ? "1" : "0",
                     id: id,
@@ -172,8 +176,8 @@ function AdminProductForm() {
                     <Field name="ordre" component="input" type="number" placeholder="1" />
                 </div>
                 <div>
-                    <label>Tarif (non modifiable)</label>
-                    <Field name="price" component="input" type="number" placeholder="1" readOnly={!!product?.id} />
+                    <label>Tarif</label>
+                    <Field name="price" component="input" type="number" placeholder="1" />
                 </div>
                 <div>
                     <label>Catégorie</label>
