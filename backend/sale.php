@@ -33,7 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     } else {
         $limit=false;
     }
-    $sales = R::findMulti('sale,solditem', ' SELECT sale.*, solditem.* FROM sale INNER JOIN solditem ON solditem.sale_id = sale.id ORDER BY sale.created DESC', [], array(array(
+    $tabs = isset($_GET['tabs']);
+    $sales = R::findMulti('sale,solditem', ' SELECT sale.*, solditem.* FROM sale INNER JOIN solditem ON solditem.sale_id = sale.id '.
+    ($tabs?' WHERE sale.name is not null AND sale.state != 4':'')
+    .' ORDER BY sale.created DESC', [], array(array(
         'a' => 'sale',
         'b' => 'solditem',
         'matcher' =>  function ($a, $b) {

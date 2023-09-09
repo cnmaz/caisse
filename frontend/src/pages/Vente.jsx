@@ -15,6 +15,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import PaiementEspeces from '../components/PaiementEspeces';
 import PaiementCB from '../components/PaiementCB';
 import History from '../components/History';
+import Tabs from '../components/Tabs';
 
 
 export default function Vente() {
@@ -31,6 +32,8 @@ export default function Vente() {
                 return <PaiementCB cart={cart} setActiveTab={setActiveTab} />
             case CartStates.HistoriqueVentes:
                 return <History onClickProduct={addItem} cart={cart} setActiveTab={setActiveTab} />
+            case CartStates.Ardoises:
+                return <Tabs onClickProduct={addItem} cart={cart} setActiveTab={setActiveTab} />
             default:
                 return <ProductGrid onClickProduct={addItem} cart={cart} />
         }
@@ -41,6 +44,11 @@ export default function Vente() {
             {(!largeMode && activeTab === "produits") && (
                 <main>
                     <ProductGrid onClickProduct={addItem} cart={cart} />
+                </main>
+            )}
+            {(!largeMode && activeTab === "tabs") && (
+                <main>
+                    <Tabs onClickProduct={addItem} cart={cart} setActiveTab={setActiveTab} />
                 </main>
             )}
             {(!largeMode && activeTab === "historique") && (
@@ -76,6 +84,7 @@ export default function Vente() {
                 {(cart?.state === CartStates.Saisie || cart?.state === CartStates.Annulation) && <BottomNavigationAction value="produits" label="Produits" icon={<BentoIcon />} />}
                 {(cart?.state === CartStates.PaiementEspeces || cart?.state === CartStates.PaiementCB) && <BottomNavigationAction value="paiement" label="Paiement" icon={<PaymentIcon />} />}
                 {(cart?.state === CartStates.HistoriqueVentes) && <BottomNavigationAction value="historique" label="Historique" icon={<FactCheckIcon />} />}
+                {(cart?.state === CartStates.HistoriqueVentes) && <BottomNavigationAction value="tabs" label="Ardoises" icon={<FactCheckIcon />} />}
                 <BottomNavigationAction value="ticket" label="Ticket" icon={<ViewListIcon />} />
                 <BottomNavigationAction value="actions" label="Actions" icon={<PointOfSaleIcon />} />
             </BottomNavigation>

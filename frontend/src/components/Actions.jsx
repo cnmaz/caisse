@@ -15,7 +15,7 @@ export default function Actions({ cart, setActiveTab }) {
         </div>}
         <div className="actions">
             {cart.state !== CartStates.PaiementCB ?
-                <Button variant="outlined" disabled={cart.state !== CartStates.Saisie || !usePos} onClick={() => { cart?.paiementCB(); setActiveTab('paiement'); }}>
+                <Button variant={cart.state === CartStates.Saisie?"contained":"outlined"} disabled={cart.state !== CartStates.Saisie || !usePos} onClick={() => { cart?.paiementCB(); setActiveTab('paiement'); }}>
                     Réglement CB
                 </Button>
                 : <Button variant="outlined" onClick={cart?.retourEdition}>
@@ -23,7 +23,7 @@ export default function Actions({ cart, setActiveTab }) {
                 </Button>
             }
             {cart.state !== CartStates.PaiementEspeces ?
-                <Button variant="outlined" disabled={cart.state !== CartStates.Saisie} onClick={() => { cart?.paiementEspeces(); setActiveTab('paiement'); }}>
+                <Button variant={cart.state === CartStates.Saisie?"contained":"outlined"} disabled={cart.state !== CartStates.Saisie} onClick={() => { cart?.paiementEspeces(); setActiveTab('paiement'); }}>
                     Réglement Espèces
                 </Button> : <Button variant="outlined" onClick={cart?.retourEdition}>
                     Retour Edition
@@ -41,15 +41,20 @@ export default function Actions({ cart, setActiveTab }) {
                 </Button>
             }
             {cart.state !== CartStates.PaiementEspeces && cart.state !== CartStates.PaiementCB ? (
-                <Button variant="outlined" disabled={false} onClick={() => { cart?.historiqueVentes(); setActiveTab('historique') }}>
-                    Historique ventes
-                </Button>
-            ) : (
+                (cart.state !== CartStates.Ardoises) ? (
+                    <Button variant="outlined" disabled={false} onClick={() => { cart?.ardoises(); setActiveTab('tabs') }}>
+                        Ardoises
+                    </Button>
+                ) : (
+                    <Button variant="outlined" disabled={false} onClick={() => { cart?.historiqueVentes(); setActiveTab('historique') }}>
+                        Historique ventes
+                    </Button>
+                )) : (
                 <Button variant="outlined" disabled={cart.state !== CartStates.PaiementCB && cart.state !== CartStates.PaiementEspeces} onClick={cart?.validationPaiement}>
                     Validation paiement
                 </Button>
             )}
-            <Button variant="contained" disabled={cart.state !== CartStates.HistoriqueVentes && cart.state !== CartStates.Annule && cart.state !== CartStates.Paye && cart.state !== CartStates.EnAttente} onClick={() => { cart?.nouveauClient(); setActiveTab("produits") }}>
+            <Button variant="contained" disabled={cart.state !== CartStates.HistoriqueVentes && cart.state !== CartStates.Ardoises && cart.state !== CartStates.Annule && cart.state !== CartStates.Paye && cart.state !== CartStates.EnAttente} onClick={() => { cart?.nouveauClient(); setActiveTab("produits") }}>
                 Nouveau client
             </Button>
         </div>

@@ -90,6 +90,10 @@ export function useCart() {
         setCartId(undefined);
         setState(CartStates.HistoriqueVentes)
     }
+    const ardoises = () => {
+        setCartId(undefined);
+        setState(CartStates.Ardoises)
+    }
     const ouvrirVente = (sale) => {
         if (!sale.id || !sale.items) return;
         if (sale.state === CartStates.Saisie || sale.state === CartStates.EnAttente || sale.state === CartStates.Annule) {
@@ -124,7 +128,7 @@ export function useCart() {
     return {
         items, addItem, getTotal, state, toggleAnnulation, paiementCB, paiementEspeces, annulationPaiement,
         especesRecues, setEspecesRecues, nouveauClient, retourEdition, validationPaiement, miseEnAttente,
-        paymentId, setPaymentId, historiqueVentes, ouvrirVente, setName, name
+        paymentId, setPaymentId, historiqueVentes, ardoises, ouvrirVente, setName, name
     }
 }
 
@@ -138,6 +142,7 @@ export const CartStates = {
     EnAttente: 6,
     HistoriqueVentes: 7,
     Servi: 8,
+    Ardoises: 9,
 }
 
 
