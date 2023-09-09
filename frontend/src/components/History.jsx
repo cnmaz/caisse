@@ -1,7 +1,7 @@
-import { Accordion, AccordionDetails, AccordionSummary, Alert, Badge, Button, CircularProgress, Table, TableBody, TableHead, TableRow } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Alert, Badge, Button, CircularProgress, FormControlLabel, Switch, Table, TableBody, TableHead, TableRow } from "@mui/material";
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { CartStates, CartStatesLabels, CartType } from "../hooks/useCart";
 import { func } from 'prop-types';
@@ -11,15 +11,16 @@ import { formatCurrency } from "../utils";
 
 export default function History({ cart, setActiveTab }) {
     const largeMode = useMediaQuery('(min-width:600px)');
+    const [showAll, setShowAll] = useState(false);
 
     const { data: products, loading: loadingProducts, error: errorProducts } = useQuery(["products"], () =>
         fetch('/api/product').then(res =>
             res.json()
         ))
 
-    const { data: sales, loading: loadingSales, error: errorSales
+    const { data: sales, loading: loadingSales, error: errorSales, refetch
     } = useQuery(["sales"], () =>
-        fetch('/api/sale').then(res =>
+        fetch('/api/sale'+(showAll?'':'?limit=10')).then(res =>
             res.json()
         ))
 
@@ -93,6 +94,7 @@ export default function History({ cart, setActiveTab }) {
     }
 
     return <div>
+        <FormControlLabel control={<Switch checked={showAll} onChange={(e) => {setShowAll(e.target.checked); setTimeout(refetch, 300)}}></Switch>} label="Afficher toutes les transactions" />
         {days?.map(day => {
             const daySales = sales?.filter(sale => dayOfSale(sale) === day);
             return (<Accordion defaultExpanded={day === new Date().toLocaleDateString()}>

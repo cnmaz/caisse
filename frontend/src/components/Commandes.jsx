@@ -11,7 +11,7 @@ import { TransitionGroup } from 'react-transition-group'
 
 export default function Commandes() {
     const largeMode = useMediaQuery('(min-width:600px)');
-
+    
     const { data: products, loading: loadingProducts, error: errorProducts } = useQuery(["products"], () =>
         fetch('/api/product').then(res =>
             res.json()
@@ -19,7 +19,7 @@ export default function Commandes() {
 
     const { data: sales, loading: loadingSales, error: errorSales, refetch
     } = useQuery(["sales"], () =>
-        fetch('/api/sale').then(res =>
+        fetch('/api/sale?limit=50').then(res =>
             res.json()
         ), { refetchInterval: 5000 })
 
