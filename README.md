@@ -1,5 +1,5 @@
-# :gb: Mini sales point project designed for use during events organisez by the sailing school
-# :fr: Projet de mini caisse enregistreuse pour les evenements de l'association
+# 🇬🇧 Mini sales point project designed for use during events organised by the sailing school
+# 🇫🇷 Projet de mini caisse enregistreuse pour les événements de l'association
 
 # Requirements
 - Frontend : NodeJS v14+
