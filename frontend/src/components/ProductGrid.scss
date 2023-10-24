@@ -48,3 +48,18 @@
         }
     }
 }
+
+@media (max-width: 1025px) {
+.product-grid-container {
+    .product-grid {
+        ul {
+            grid-template-columns: repeat(auto-fit, 105px);
+        }
+        .product {
+            width: 100px;
+            margin: 2px;
+        }
+    }
+}
+
+}
